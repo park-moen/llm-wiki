@@ -1,0 +1,43 @@
+# Quick Open & Jump Palette
+
+> Source: https://www.onorca.dev/docs/model/quick-open
+> Collected: 2026-08-12
+> Published: Unknown
+
+Cmd-J scoped jump across worktrees, recents, and tabs.
+
+Once you have more than a handful of worktrees, navigation becomes the bottleneck. Orca ships two keyboard-first navigation tools.
+
+## Quick Open (Cmd-P)
+
+File search scoped to the current worktree. Type a fragment; Orca ranks by recency plus match score and opens the file in a new editor tab. Result rows lead with the **filename**and truncate the parent directory when space is tight (hover for the full path). Gitignored files are included in results — they're surfaced as a second pass after tracked matches, so the files you frequently quick-open (build outputs, env files) stay reachable without polluting the top of the list.
+
+## New-tab omnibox (+)
+
+The tab strip **+**omnibox searches **open tabs**, files, URLs, and agents in one field (placeholder: *Search open tabs, files, URLs, agents…*). File rows use the same filename-first layout as Quick Open. Matching an already-open editor tab prefers that tab over a duplicate file result, so you jump to the open buffer instead of opening a second copy.
+
+## Worktree Jump Palette (Cmd-J)
+
+Jump across every worktree and every tab in one search. The placeholder in the empty input reads *repo/worktree*— type either half and Orca filters accordingly. Once you start typing, search includes non-archived worktrees even if they are hidden by the sidebar's current filters.
+
+Press **Tab**in the palette for a host and project filter menu. Selected hosts and projects narrow the result set and show as chips you can remove one at a time; closing the palette clears the filter so the next open is unscoped.
+
+Results include:
+
+- **Recent Chats & Terminals**— with an empty query, up to six recent agent/terminal sessions ranked by activity (needs-you first, then done, then idle). The idle tab you're already viewing is omitted so the list stays actionable; a current tab still appears when it is working, waiting on you, or has unread activity. Rows use the same live attention badges as the tab bar (spinner, question mark, bell, check). Digit shortcuts (`Cmd-1`–`Cmd-6`on macOS, `Ctrl-1`–`Ctrl-6`on Windows / Linux) jump straight to those rows; membership and order freeze when the palette opens so rows don't shuffle under the cursor.
+- **Recent Worktrees**— the next empty-query section, ordered by last focus, capped so the list stays scannable.
+- Projects and repo groups, so you can jump to a sidebar section by name.
+- Every worktree grouped by repo once you start typing.
+- Worktrees matched by cached GitHub PR title or number (`#123`) and cached GitLab merge request title or number (`!123`) when that review metadata is already available.
+- Every open tab, scoped first by current worktree, then globally. Type aliases such as `terminal`or `simulator`still match those tab types without cluttering the row label.
+
+When a typed query hits **both**open tabs and worktrees, the palette interleaves a short preview of each section (with a *N more — scroll or keep typing*hint) so neither primary list is buried. Single-section results keep a full hard-capped list.
+
+Shift-Enter on a worktree opens it in a new split instead of swapping the current pane.
+
+When the query does not match an existing worktree, the palette offers a **Create worktree**row using the typed text as the name. Existing matches stay selected first, so pressing Enter still jumps when a real result is available.
+
+Shortcut bindings are remappable under [Settings → Shortcuts](https://www.onorca.dev/docs/settings).
+
+[← Previous Session restore](https://www.onorca.dev/docs/model/session-restore)[Next → Supported agents](https://www.onorca.dev/docs/agents/supported)
+

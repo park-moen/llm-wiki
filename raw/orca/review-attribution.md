@@ -1,0 +1,24 @@
+# Attribution
+
+> Source: https://www.onorca.dev/docs/review/attribution
+> Collected: 2026-08-12
+> Published: Unknown
+
+Orca tracks provenance on every line it sees an agent touch, so when you read a diff you can tell at a glance which lines were written by a human and which came from an AI.
+
+## How it works
+
+When an agent writes to a file through its tooling, Orca records the ranges. The diff viewer renders AI-originated lines with a subtle marker in the gutter. Human edits on top of AI code flip the attribution back to human.
+
+## Why it matters
+
+- You know which parts of a PR deserve extra scrutiny.
+- Security and compliance audits can separate AI-written from human-written code.
+- Reviews get faster — you don't re-read code you just wrote by hand.
+
+## Scope
+
+Attribution is local to Orca — it doesn't get committed to git. If you want persistent attribution, export the diff metadata from the diff toolbar.
+
+[← Previous Annotate AI Diff](https://www.onorca.dev/docs/review/annotate-ai-diff)[Next → Commit & push from Orca](https://www.onorca.dev/docs/review/commit-push)
+
