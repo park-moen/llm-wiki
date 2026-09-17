@@ -97,6 +97,7 @@ AI agent의 병렬 작업, harness 선택, 기계적 gate와 brownfield 개인 �
 | [Superpowers 기반 Brownfield 연습 워크플로 초기 설계](ai-agents/superpowers-brownfield-practice-workflow-initial-design.md) | [Archived] Claude에서 Skill을 명시 호출하며 Issue·TDD·Storybook·design system 흐름을 검증하기 위한 초기 실험안 | 2026-08-11 |
 | [Superpowers Brownfield 실전 가이드](ai-agents/superpowers-brownfield-field-guide.md) | 실제 Issue 실행과 원 설계의 intent를 비교한 Skill 흐름, local branch 통합과 Worktree 운영 기준 | 2026-08-16 |
 | [Superpowers를 지속 사용하는 Harness 운영 전략](ai-agents/superpowers-continuous-use-harness-strategy.md) | [Archived] Superpowers workflow를 재사용하면서 프로젝트별 verification·gate·human checkpoint를 분리하는 운영 지침 | 2026-08-16 |
+| [Superpowers 기반 Accelerator Harness Engineering 설계](ai-agents/superpowers-accelerator-harness-engineering-design-2026-09-16.md) | [Archived] Superpowers workflow에 Task Contract·Teach-back·Recovery Drill·deterministic completion gate를 결합하는 개인 harness 설계 | 2026-09-16 |
 | [im-not-ai Humanize Korean Skill 사용 가이드](ai-agents/im-not-ai-humanize-korean-skill-guide.md) | Codex·Claude Code에서 한국어 AI 문체를 진단·윤문하는 사용법과 보존 규칙 | 2026-08-11 |
 | [gstack으로 AI 개발 Workflow 이해하기](ai-agents/gstack-ai-engineering-workflow.md) | 역할별 Skill과 browser·검증 도구를 연결한 gstack의 구조, 주니어용 사용 순서와 한계 | 2026-09-08 |
 | [Matt Pocock Skills의 Repository 설정 방식](ai-agents/matt-pocock-skills-repository-setup.md) | Issue tracker·triage label·domain 문서를 공통 설정으로 만들어 engineering Skill에 연결하는 방법 | 2026-09-16 |

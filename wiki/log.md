@@ -1034,3 +1034,5 @@
 - Updated: AI Coding에서 Software Fundamentals가 더 중요해지는 이유
 
 ## [2026-09-16] query | Archived: Vibecoder에서 Accelerator로 전환하는 실천 가이드
+
+## [2026-09-16] query | Archived: Superpowers 기반 Accelerator Harness Engineering 설계
