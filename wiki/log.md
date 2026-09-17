@@ -1015,3 +1015,15 @@
 ## [2026-09-15] query | Archived: 교체 가능한 Personal Blueprint Harness 설계
 
 ## [2026-09-15] query | Archived: Personal Blueprint 변경 세트와 정합성 종료 Gate 설계
+
+## [2026-09-16] ingest | find-skills로 Agent Skill 탐색과 설치하기
+- Disposition: New
+- Raw: raw/ai-agents/vercel-find-skills.md; raw/ai-agents/vercel-skills-cli-readme-extract.md; raw/ai-agents/2026-03-20-skills-find-indexing-gap.md; raw/ai-agents/2026-05-29-skills-find-search-relevance.md
+- Updated: Matt Pocock Skills의 Repository 설정 방식
+
+## [2026-09-16] query | Archived: Vercel Agent Skills·Superpowers·gstack·Harness Engineering 비교
+
+## [2026-09-16] ingest | Vercel Agent Skills의 구조와 활용 범위
+- Disposition: New; Update
+- Raw: raw/ai-agents/vercel-agent-skills-readme.md
+- Updated: find-skills로 Agent Skill 탐색과 설치하기

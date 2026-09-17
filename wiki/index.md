@@ -99,7 +99,10 @@ AI agent의 병렬 작업, harness 선택, 기계적 gate와 brownfield 개인 �
 | [Superpowers를 지속 사용하는 Harness 운영 전략](ai-agents/superpowers-continuous-use-harness-strategy.md) | [Archived] Superpowers workflow를 재사용하면서 프로젝트별 verification·gate·human checkpoint를 분리하는 운영 지침 | 2026-08-16 |
 | [im-not-ai Humanize Korean Skill 사용 가이드](ai-agents/im-not-ai-humanize-korean-skill-guide.md) | Codex·Claude Code에서 한국어 AI 문체를 진단·윤문하는 사용법과 보존 규칙 | 2026-08-11 |
 | [gstack으로 AI 개발 Workflow 이해하기](ai-agents/gstack-ai-engineering-workflow.md) | 역할별 Skill과 browser·검증 도구를 연결한 gstack의 구조, 주니어용 사용 순서와 한계 | 2026-09-08 |
-| [Matt Pocock Skills의 Repository 설정 방식](ai-agents/matt-pocock-skills-repository-setup.md) | Issue tracker·triage label·domain 문서를 공통 설정으로 만들어 engineering Skill에 연결하는 방법 | 2026-09-15 |
+| [Matt Pocock Skills의 Repository 설정 방식](ai-agents/matt-pocock-skills-repository-setup.md) | Issue tracker·triage label·domain 문서를 공통 설정으로 만들어 engineering Skill에 연결하는 방법 | 2026-09-16 |
+| [find-skills로 Agent Skill 탐색과 설치하기](ai-agents/find-skills-discovery-and-installation.md) | skills.sh와 Skills CLI에서 후보를 찾고 source·품질·검색 한계를 검증한 뒤 project 또는 global 범위에 설치하는 방법 | 2026-09-16 |
+| [Vercel Agent Skills의 구조와 활용 범위](ai-agents/vercel-agent-skills-structure-and-scope.md) | React·UI·문서·Vercel 운영 Skill의 구성, 설치·배포 구조와 권한·검증 경계 | 2026-09-16 |
+| [Vercel Agent Skills·Superpowers·gstack·Harness Engineering 비교](ai-agents/vercel-agent-skills-superpowers-gstack-harness-comparison-2026-09-16.md) | [Archived] 기술별 전문 지식, 개발 workflow, 역할별 실행 도구와 deterministic control의 차이와 조합 방법 | 2026-09-16 |
 | [개인 AI Engineering Harness 주말 구축 시뮬레이션](ai-agents/personal-ai-engineering-harness-weekend-simulation-2026-09-15.md) | [Archived] Blueprint를 정본으로 두고 Superpowers·gstack·Matt Pocock Skills와 개인 hook을 선택적으로 연결하는 최소 실험안 | 2026-09-15 |
 | [교체 가능한 Personal Blueprint Harness 설계](ai-agents/replaceable-personal-blueprint-harness-architecture-2026-09-15.md) | [Archived] 사람이 읽기 쉬운 추적성, capability adapter, shadow mode와 단계별 hook으로 구성한 개인 기획 실험 환경 | 2026-09-15 |
 | [Personal Blueprint 변경 세트와 정합성 종료 Gate 설계](ai-agents/personal-blueprint-change-set-consistency-gate-2026-09-15.md) | [Archived] 수정 중에는 변경을 누적하고 변경 종료 시 전체 문서 동기화·정합성 검사와 검증 상태를 확정하는 방법 | 2026-09-15 |

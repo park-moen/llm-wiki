@@ -2,7 +2,7 @@
 
 > Sources: Matt Pocock Skills, Unknown; skills.sh, Unknown
 > Raw: [setup-matt-pocock-skills](../../raw/ai-agents/setup-matt-pocock-skills.md)
-> Updated: 2026-09-15
+> Updated: 2026-09-16
 
 ## Overview
 
@@ -117,6 +117,7 @@ Skill이 초안을 먼저 보여주는 이유도 이 경계 때문이다. 사용
 
 ## See Also
 
+- [find-skills로 Agent Skill 탐색과 설치하기](find-skills-discovery-and-installation.md)
 - [gstack으로 AI 개발 Workflow 이해하기](gstack-ai-engineering-workflow.md)
 - [Superpowers의 Agent 관리와 Spec-Driven 개발 Workflow](superpowers-agent-management-and-spec-driven-development.md)
 - [AI Agent 산문 게이트와 결정적 게이트](ai-agent-prose-vs-deterministic-gates.md)
