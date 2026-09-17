@@ -1027,3 +1027,10 @@
 - Disposition: New; Update
 - Raw: raw/ai-agents/vercel-agent-skills-readme.md
 - Updated: find-skills로 Agent Skill 탐색과 설치하기
+
+## [2026-09-16] ingest | AI Coding에서 Code Reading과 Intent 보존
+- Disposition: New; Update
+- Raw: raw/software-career/2026-09-14-do-you-still-read-the-code.md
+- Updated: AI Coding에서 Software Fundamentals가 더 중요해지는 이유
+
+## [2026-09-16] query | Archived: Vibecoder에서 Accelerator로 전환하는 실천 가이드

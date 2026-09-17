@@ -117,7 +117,9 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 | [Jira 작업 항목의 분할 크기와 관리 비용](software-career/work-item-decomposition-and-tracking-granularity.md) | 작은 구현 단계와 팀이 추적할 작업 단위를 구분하고 페이지 수준에서 분할을 시작하는 개인 실무 지침 | 2026-08-18 |
 | [Software Engineering을 Time·Scale·Trade-off로 이해하기](software-career/software-engineering-time-scale-tradeoffs.md) | 장기 software의 변경 가능성, Hyrum’s Law, 조직 확장성, shift left와 evidence 기반 판단 원칙 | 2026-08-16 |
 | [효과적인 Software Design Document 작성법](software-career/effective-software-design-document.md) | 위험과 변경 비용에 따라 설계 문서의 범위·구조·운영 항목·미결정 사항을 작성하는 방법 | 2026-09-15 |
-| [AI Coding에서 Software Fundamentals가 더 중요해지는 이유](software-career/ai-coding-software-fundamentals.md) | AI 시대의 design concept, ubiquitous language, TDD, deep module과 사람의 전략적 설계 책임 | 2026-08-16 |
+| [AI Coding에서 Software Fundamentals가 더 중요해지는 이유](software-career/ai-coding-software-fundamentals.md) | AI 시대의 design concept, ubiquitous language, TDD, deep module과 사람의 전략적 설계 책임 | 2026-09-16 |
+| [AI Coding에서 Code Reading과 Intent 보존](software-career/ai-coding-code-reading-and-intent-preservation.md) | Accelerator와 vibecoder의 유지보수 계약, code reading의 역할과 intent debt 보존 방법 | 2026-09-16 |
+| [Vibecoder에서 Accelerator로 전환하는 실천 가이드](software-career/vibecoder-to-accelerator-transition-guide-2026-09-16.md) | [Archived] 이해하지 못한 AI 변경의 크기를 줄이고 조사·plan·작은 구현·diff review·직접 복구로 전환하는 방법 | 2026-09-16 |
 | [AI를 활용한 개발자 성장과 Career 판단](software-career/ai-assisted-engineering-growth-and-career-judgment.md) | AI를 동료처럼 활용하는 학습, role-based context, fundamentals, 협업·product·migration 책임을 연결 | 2026-08-16 |
 | [Claude Code 팀의 AI-Native 개발 Workflow와 개발자 역량](software-career/claude-code-team-ai-native-development-workflow.md) | 학습·생산 mode 전환, plan 기반 병렬 agent, 다층 검증과 AI 시대의 methodical·types-first 역량 | 2026-08-16 |
 | [최신 현업 개발 자료와 AI 네이티브 소프트웨어 엔지니어링](software-career/current-engineering-sources-and-ai-native-development.md) | 한국 빅테크 최신 공식 자료와 production AI 개발의 구현·검증·운영 구조를 연결한 학습 지도 | 2026-08-16 |

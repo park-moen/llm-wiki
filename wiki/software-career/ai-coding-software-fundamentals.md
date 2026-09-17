@@ -1,8 +1,8 @@
 # AI Coding에서 Software Fundamentals가 더 중요해지는 이유
 
-> Sources: Matt Pocock (Unknown); Titus Winters·ACM Tech Talk (Unknown); Boris Cherny interview, YouTube (Unknown); Pasha interview·Beyond Coding (Unknown); Jesse Vincent interview, YouTube (Unknown)
-> Raw: [Software Fundamentals Matter More Than Ever transcript](../../raw/software-career/software-fundamentals-matter-more-than-ever.md); [Software Engineering at Google transcript](../../raw/software-career/software-engineering-at-google-tech-talk.md); [Building Claude Code with Boris Cherny transcript](../../raw/software-career/building-claude-code-boris-cherny.md); [Original YouTube source provenance](../../raw/software-career/building-claude-code-boris-cherny-source-provenance.md); [From Backend Engineer to Head of Mobile transcript](../../raw/software-career/from-backend-engineer-to-head-of-mobile-lessons-uber.md); [Fixing AI Slop interview transcript](../../raw/software-career/fixing-ai-slop-manage-agents-like-mit-interns.md)
-> Updated: 2026-08-16
+> Sources: Matt Pocock (Unknown); Titus Winters·ACM Tech Talk (Unknown); Boris Cherny interview, YouTube (Unknown); Pasha interview·Beyond Coding (Unknown); Jesse Vincent interview, YouTube (Unknown); zanlib, 2026-09-14
+> Raw: [Software Fundamentals Matter More Than Ever transcript](../../raw/software-career/software-fundamentals-matter-more-than-ever.md); [Software Engineering at Google transcript](../../raw/software-career/software-engineering-at-google-tech-talk.md); [Building Claude Code with Boris Cherny transcript](../../raw/software-career/building-claude-code-boris-cherny.md); [Original YouTube source provenance](../../raw/software-career/building-claude-code-boris-cherny-source-provenance.md); [From Backend Engineer to Head of Mobile transcript](../../raw/software-career/from-backend-engineer-to-head-of-mobile-lessons-uber.md); [Fixing AI Slop interview transcript](../../raw/software-career/fixing-ai-slop-manage-agents-like-mit-interns.md); ["Do You Still Read the Code?"](../../raw/software-career/2026-09-14-do-you-still-read-the-code.md)
+> Updated: 2026-09-16
 
 ## Overview
 
@@ -18,6 +18,8 @@ Matt Pocock의 핵심 주장은 AI가 code를 빠르게 생산할수록 software
 
 > **Status: Disputed**
 > Jesse Vincent는 큰 diff의 수동 line review보다 사용자 outcome, negative behavior, safety와 reliability를 검증하는 것이 중요하며, 자신은 code를 직접 읽는 시간을 크게 줄였다고 설명한다. 반면 이 문서의 다른 source들은 장기 software의 test·interface·module boundary 자체가 잘못됐는지 판단하려면 사람이 code와 system design을 이해해야 한다고 본다. 두 입장을 단순히 하나로 확정하지 않고, verifier가 강하고 위험이 낮은 내부 구현은 outcome 중심으로 더 위임하되 public interface·security·data integrity·검증 자산과 장기 구조는 사람이 깊게 review하는 위험 기반 절충을 현재 운영 기준으로 둔다.
+
+이 차이는 AI가 작성한 code의 비율보다 유지보수 계약의 차이로 보는 편이 정확하다. 구현 이해를 계속 보유하려는 `accelerator`는 code reading을 통해 mental model과 구현의 drift를 찾는다. 구현을 교체 가능한 산출물로 다루는 `vibecoder`는 specification·context·evaluation에 유지보수 책임을 둔다. 두 번째 방식을 택하면서도 이를 뒷받침할 검증 체계를 만들지 않으면 구현 이해와 durable intent를 모두 잃을 수 있다.
 
 ## 사람과 AI가 같은 Design Concept을 가져야 한다
 
@@ -137,3 +139,4 @@ AI 시대에 fundamentals가 중요해지는 이유는 AI가 약해서가 아니
 - [Brownfield AI Agent Workflow](../ai-agents/brownfield-ai-agent-workflow.md)
 - [AI를 활용한 개발자 성장과 Career 판단](ai-assisted-engineering-growth-and-career-judgment.md)
 - [Superpowers의 Agent 관리와 Spec-Driven 개발 Workflow](../ai-agents/superpowers-agent-management-and-spec-driven-development.md)
+- [AI Coding에서 Code Reading과 Intent 보존](ai-coding-code-reading-and-intent-preservation.md)
