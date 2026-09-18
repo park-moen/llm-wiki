@@ -1,7 +1,7 @@
 # Content Security Policy (CSP)
 
 > Sources: MDN contributors, Unknown
-> Raw: [컨텐츠 보안 정책 (CSP)](../../raw/web-security/content-security-policy-csp.md)
+> Raw: [컨텐츠 보안 정책 (CSP)](../../../raw/web-security/content-security-policy-csp.md)
 > Updated: 2026-08-24
 
 ## Overview
