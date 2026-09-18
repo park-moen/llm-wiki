@@ -26,6 +26,7 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring 회원 관리 웹 MVC](spring/spring-member-web-mvc.md) | Form binding, Thymeleaf 목록·property 접근, memory 생명주기와 IntelliJ 단축키 | 2026-08-13 |
 | [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
+| [시드 데이터 초기화와 병렬 개발](spring/seed-data-initialization-and-parallel-development.md) | 시드 데이터·초기화 코드·fixture를 구분하고 Spring profile로 병렬 개발용 데이터를 격리하는 방법 | 2026-09-17 |
 
 ## docker
 

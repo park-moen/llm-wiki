@@ -1036,3 +1036,7 @@
 ## [2026-09-16] query | Archived: Vibecoder에서 Accelerator로 전환하는 실천 가이드
 
 ## [2026-09-16] query | Archived: Superpowers 기반 Accelerator Harness Engineering 설계
+
+## [2026-09-17] ingest | 시드 데이터 초기화와 병렬 개발
+- Disposition: New
+- Raw: raw/spring/2026-09-17-project-seed-data-note.md; raw/spring/spring-boot-database-initialization-extract.md; raw/spring/spring-framework-environment-profiles-extract.md; raw/software-career/evolutionary-database-design-seed-data-extract.md; raw/software-career/ef-core-data-seeding-caution-extract.md
