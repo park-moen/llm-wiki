@@ -109,6 +109,7 @@ AI agent의 병렬 작업, harness 선택, 기계적 gate와 brownfield 개인 �
 | [교체 가능한 Personal Blueprint Harness 설계](ai-agents/replaceable-personal-blueprint-harness-architecture-2026-09-15.md) | [Archived] 사람이 읽기 쉬운 추적성, capability adapter, shadow mode와 단계별 hook으로 구성한 개인 기획 실험 환경 | 2026-09-15 |
 | [Personal Blueprint 변경 세트와 정합성 종료 Gate 설계](ai-agents/personal-blueprint-change-set-consistency-gate-2026-09-15.md) | [Archived] 수정 중에는 변경을 누적하고 변경 종료 시 전체 문서 동기화·정합성 검사와 검증 상태를 확정하는 방법 | 2026-09-15 |
 | [AI Agent 지침과 개인 지식 자산 운영 원칙](ai-agents/ai-agent-instructions-judgment-and-personal-knowledge-assets-2026-09-14.md) | [Archived] 공식 문서 기반 지침, 사용자 판단 기준, Codex memory와 개인 Git 지식 자산을 연결한 운영 가이드 | 2026-09-14 |
+| [AI 개발에서 Markdown 편집과 Git Diff 검토 워크플로우](ai-agents/markdown-editing-and-git-diff-review-workflow-2026-09-21.md) | [Archived] AI가 수정한 Markdown을 읽기 중심 도구와 Git diff 검토 도구의 역할 분리로 확인하고 hunk 단위로 반영하는 운영 제안 | 2026-09-21 |
 
 ## software-career
 

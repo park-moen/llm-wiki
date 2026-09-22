@@ -1,5 +1,7 @@
 # Wiki Log
 
+## [2026-09-21] query | Archived: AI 개발에서 Markdown 편집과 Git Diff 검토 워크플로우
+
 ## [2026-09-14] query | Archived: AI Agent 지침과 개인 지식 자산 운영 원칙
 
 ## [2026-09-09] query | Archived: 일본·중국 디자인 레퍼런스 플랫폼 활용법
