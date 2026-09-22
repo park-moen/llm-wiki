@@ -28,6 +28,14 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
 | [시드 데이터 초기화와 병렬 개발](spring/seed-data-initialization-and-parallel-development.md) | 시드 데이터·초기화 코드·fixture를 구분하고 Spring profile로 병렬 개발용 데이터를 격리하는 방법 | 2026-09-17 |
 
+## statistics
+
+데이터 분포를 읽는 데 필요한 기초 통계 개념과 해석 기준을 정리한다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Percentile과 Percentage의 차이](statistics/percentiles-and-percentages.md) | percentage의 비율과 percentile의 정렬된 데이터 경계값을 구분하고 p95 해석과 계산 방식 차이를 설명 | 2026-09-21 |
+
 ## docker
 
 Docker image·container·storage·network와 Docker Compose 기반 다중 container 애플리케이션 운영을 정리한다.

@@ -1,5 +1,9 @@
 # Wiki Log
 
+## [2026-09-21] ingest | Percentile과 Percentage의 차이
+- Disposition: New
+- Raw: raw/statistics/nist-percentiles.md; raw/statistics/bls-distribution-statistics.md
+
 ## [2026-09-21] query | Archived: AI 개발에서 Markdown 편집과 Git Diff 검토 워크플로우
 
 ## [2026-09-14] query | Archived: AI Agent 지침과 개인 지식 자산 운영 원칙
