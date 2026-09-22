@@ -4,7 +4,7 @@
 
 개발하면서 읽고 배운 내용을 LLM과 함께 축적하는 개인 지식 저장소입니다. 링크와 강의 자료를 단순히 모아 두는 데서 끝내지 않고, 원본에 근거한 문서로 통합한 뒤 질문과 답변에 다시 활용합니다.
 
-2026-09-15 현재 **12개 주제**, **64개 지식 문서**, **24개 답변 Archive**, **229개 원본 자료**가 연결되어 있습니다.
+2026-09-22 현재 **13개 주제**, **70개 지식 문서**, **28개 답변 Archive**, **245개 원본 자료**가 연결되어 있습니다.
 
 [지식 전체 보기](wiki/index.md) · [운영 기록 보기](wiki/log.md) · [Wiki 사용법](wiki/llm-wiki/karpathy-llm-wiki-workflow.md)
 
@@ -41,7 +41,8 @@ flowchart LR
 | [Frontend](wiki/frontend/) | C4 기반 아키텍처 시각화와 Web 성능 구조 |
 | [Git](wiki/git/) | Worktree와 GitLab tag 기반 배포 workflow |
 | [SEO](wiki/seo/) | Canonical URL과 Next.js metadata 구현 |
-| [Web Security](wiki/web-security/) | Content Security Policy의 원리와 적용 기준 |
+| [Web Security](wiki/seo/web-security/) | Content Security Policy의 원리와 적용 기준 |
+| [Statistics](wiki/statistics/) | 데이터 분포, percentile과 percentage 해석 |
 | [LLM Wiki](wiki/llm-wiki/) | 이 저장소 자체의 질문·Ingest·Archive 운영법 |
 
 문서별 요약과 갱신일은 [Knowledge Base Index](wiki/index.md)에서 확인할 수 있습니다.
