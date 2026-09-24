@@ -1,5 +1,19 @@
 # Wiki Log
 
+## [2026-09-22] ingest | IntelliJ macOS 핵심 단축키
+- Disposition: Update
+- Raw: raw/intellij/2026-08-17-auto-import.md
+- Updated: IntelliJ macOS 핵심 단축키
+
+## [2026-09-22] ingest | IntelliJ macOS 핵심 단축키
+- Disposition: Update
+- Raw: raw/intellij/2024-03-18-predefined-macos-keymap-development-and-git.md
+- Updated: IntelliJ macOS 핵심 단축키
+
+## [2026-09-22] ingest | IntelliJ Search Everywhere 단축키
+- Disposition: New
+- Raw: raw/intellij/2026-08-17-search-everywhere.md; raw/intellij/2024-03-18-predefined-macos-keymap.md
+
 ## [2026-09-22] ingest | Database Unique Constraint
 - Disposition: New
 - Raw: raw/database/postgresql-unique-constraints.md; raw/database/2026-07-20-sql-server-unique-constraints.md
@@ -1054,6 +1068,14 @@
 ## [2026-09-17] ingest | 시드 데이터 초기화와 병렬 개발
 - Disposition: New
 - Raw: raw/spring/2026-09-17-project-seed-data-note.md; raw/spring/spring-boot-database-initialization-extract.md; raw/spring/spring-framework-environment-profiles-extract.md; raw/software-career/evolutionary-database-design-seed-data-extract.md; raw/software-career/ef-core-data-seeding-caution-extract.md
+
+## [2026-09-22] ingest | IntelliJ macOS 핵심 단축키
+- Disposition: Update
+- Raw: raw/intellij/2026-08-13-database-versioning.md
+
+## [2026-09-22] ingest | IntelliJ macOS 핵심 단축키
+- Disposition: Update
+- Raw: raw/intellij/2024-06-24-optimize-imports.md; raw/intellij/2026-08-17-auto-import-optimize-imports.md
 
 ## [2026-09-24] ingest | 낙관적 잠금 (Optimistic Locking)
 - Disposition: New

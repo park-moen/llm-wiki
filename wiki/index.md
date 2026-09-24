@@ -1,5 +1,13 @@
 # Knowledge Base Index
 
+## intellij
+
+IntelliJ IDEA의 탐색·설정·action 실행을 빠르게 찾는 방법과 shortcut을 정리한다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [IntelliJ macOS 핵심 단축키](intellij/search-everywhere.md) | macOS 기본 Keymap의 Search Everywhere, file 탐색, import 추가·정리와 JPA entity DDL, format, refactoring과 Git 작업 shortcut | 2026-09-22 |
+
 ## database
 
 관계형 database의 schema 제약, data integrity 규칙과 동시성 제어를 정리한다.
