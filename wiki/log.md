@@ -1050,3 +1050,7 @@
 ## [2026-09-17] ingest | 시드 데이터 초기화와 병렬 개발
 - Disposition: New
 - Raw: raw/spring/2026-09-17-project-seed-data-note.md; raw/spring/spring-boot-database-initialization-extract.md; raw/spring/spring-framework-environment-profiles-extract.md; raw/software-career/evolutionary-database-design-seed-data-extract.md; raw/software-career/ef-core-data-seeding-caution-extract.md
+
+## [2026-09-24] ingest | 낙관적 잠금 (Optimistic Locking)
+- Disposition: New
+- Raw: raw/database/hibernate-orm-optimistic-locking.md

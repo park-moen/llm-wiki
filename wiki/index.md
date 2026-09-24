@@ -1,5 +1,13 @@
 # Knowledge Base Index
 
+## database
+
+관계형 database의 동시성 제어를 정리한다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [낙관적 잠금 (Optimistic Locking)](database/optimistic-locking.md) | 버전 검사를 통한 충돌 감지, DDL과의 관계, Hibernate `@Version` 및 버전 열 없는 방식 | 2026-09-24 |
+
 ## seo
 
 검색 노출과 크롤링·색인 생성에 필요한 URL·콘텐츠 신호를 정리한다.
