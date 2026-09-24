@@ -2,10 +2,11 @@
 
 ## database
 
-관계형 database의 동시성 제어를 정리한다.
+관계형 database의 schema 제약, data integrity 규칙과 동시성 제어를 정리한다.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
+| [Database Unique Constraint](database/unique-constraints.md) | `UNIQUE`의 선언·복합 key·primary key와의 차이·DBMS별 `NULL` 처리와 도입 확인 사항 | 2026-09-22 |
 | [낙관적 잠금 (Optimistic Locking)](database/optimistic-locking.md) | 버전 검사를 통한 충돌 감지, DDL과의 관계, Hibernate `@Version` 및 버전 열 없는 방식 | 2026-09-24 |
 
 ## seo

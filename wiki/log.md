@@ -1,5 +1,9 @@
 # Wiki Log
 
+## [2026-09-22] ingest | Database Unique Constraint
+- Disposition: New
+- Raw: raw/database/postgresql-unique-constraints.md; raw/database/2026-07-20-sql-server-unique-constraints.md
+
 ## [2026-09-21] ingest | AS-IS와 TO-BE GAP 분석
 - Disposition: New
 - Raw: raw/software-career/iiba-business-analysis-core-standard-current-future-state.md; raw/software-career/apqc-current-and-future-state-process-mapping.md; raw/software-career/us-doj-as-is-to-be-gap-transition-plan.md
