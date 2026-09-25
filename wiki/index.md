@@ -110,6 +110,7 @@ AI agent의 병렬 작업, harness 선택, 기계적 gate와 brownfield 개인 �
 
 | Article | Summary | Updated |
 |---------|---------|---------|
+| [Stagehand: Playwright와의 차이와 시작 방법](ai-agents/stagehand-vs-playwright.md) | Playwright 대비 API·속도 비교 조건, SDK 사용법과 AI agent의 개발 화면 검증 시뮬레이션 | 2026-09-25 |
 | [AI Agent Teams와 Git Worktree](ai-agents/agent-teams-and-git-worktrees.md) | 병렬 agent의 작업 조정과 파일 격리를 구분하고 Worktree 도입 기준을 설명 | 2026-08-16 |
 | [Agent Harness의 구조와 Deterministic Control Loop](ai-agents/agent-harness-anatomy-and-deterministic-control-loop.md) | Model 주변의 tool·context·guardrail·trace·verify·retry를 연결해 거짓 완료를 차단하는 구조 | 2026-08-16 |
 | [Superpowers의 Agent 관리와 Spec-Driven 개발 Workflow](ai-agents/superpowers-agent-management-and-spec-driven-development.md) | 사람의 intent를 spec·작은 TDD task·역할 분리 review·behavior proof로 연결하는 agent 관리 방법론 | 2026-08-16 |

@@ -1080,3 +1080,18 @@
 ## [2026-09-24] ingest | 낙관적 잠금 (Optimistic Locking)
 - Disposition: New
 - Raw: raw/database/hibernate-orm-optimistic-locking.md
+
+## [2026-09-25] ingest | Stagehand: Playwright와의 차이와 시작 방법
+- Disposition: New
+- Raw: raw/ai-agents/stagehand-v4-geeknews.md; raw/ai-agents/stagehand-readme.md; raw/ai-agents/stagehand-readme-install-and-usage.md
+
+## [2026-09-25] ingest | Stagehand: Playwright와의 차이와 시작 방법
+- Disposition: Update
+- Raw: raw/ai-agents/stagehand-quickstart-extract.md
+
+## [2026-09-25] ingest | no material: raw/ai-agents/stagehand-codex-integration-extract.md
+- Disposition: No material
+
+## [2026-09-25] ingest | Stagehand: Playwright와의 차이와 시작 방법
+- Disposition: Update
+- Raw: raw/ai-agents/stagehand-codex-integration-extract-2.md; raw/ai-agents/stagehand-speed-optimization-extract.md
