@@ -4,7 +4,7 @@
 
 개발하면서 읽고 배운 내용을 LLM과 함께 축적하는 개인 지식 저장소입니다. 링크와 강의 자료를 단순히 모아 두는 데서 끝내지 않고, 원본에 근거한 문서로 통합한 뒤 질문과 답변에 다시 활용합니다.
 
-2026-09-22 현재 **13개 주제**, **70개 지식 문서**, **28개 답변 Archive**, **245개 원본 자료**가 연결되어 있습니다.
+2026-09-29 현재 **15개 주제**, **85개 지식 문서**, **29개 답변 Archive**, **295개 원본 자료**가 연결되어 있습니다.
 
 [지식 전체 보기](wiki/index.md) · [운영 기록 보기](wiki/log.md) · [Wiki 사용법](wiki/llm-wiki/karpathy-llm-wiki-workflow.md)
 
@@ -33,12 +33,14 @@ flowchart LR
 |---|---|
 | [AI Agents](wiki/ai-agents/) | Agent harness, Git worktree, Claude Code, skill과 사람-AI 협업 방식 |
 | [Software Career](wiki/software-career/) | AI 시대의 성장 전략, 개발 흐름, 설계 문서와 작업 분해 |
-| [Spring](wiki/spring/) | Spring Boot 입문부터 MVC, DI, DB 접근, AOP까지 |
+| [Spring](wiki/spring/) | Spring Boot 입문부터 MVC, DI, DB 접근, JPA·Hibernate와 AOP까지 |
+| [Database](wiki/database/) | PK·FK·복합 키, 정규화, 참조 무결성과 MySQL 실행 계획 |
 | [Kotlin](wiki/kotlin/) | 기본 문법, 함수형 표현, 객체지향 구성과 안전성 규칙 |
+| [IntelliJ](wiki/intellij/) | macOS 단축키와 코드 탐색·정리 |
 | [Orca](wiki/orca/) | Worktree 중심 실행 모델, CLI, orchestration과 검토 흐름 |
 | [UX](wiki/ux/) | 비디자이너를 위한 UX 학습과 디자인 레퍼런스 활용법 |
 | [Docker](wiki/docker/) | Image, container, Compose, 보안과 운영 원칙 |
-| [Frontend](wiki/frontend/) | C4 기반 아키텍처 시각화와 Web 성능 구조 |
+| [Frontend](wiki/frontend/) | C4 기반 아키텍처 시각화, Web 성능 구조와 Orval 기반 OpenAPI 클라이언트 생성 |
 | [Git](wiki/git/) | Worktree와 GitLab tag 기반 배포 workflow |
 | [SEO](wiki/seo/) | Canonical URL과 Next.js metadata 구현 |
 | [Web Security](wiki/seo/web-security/) | Content Security Policy의 원리와 적용 기준 |
