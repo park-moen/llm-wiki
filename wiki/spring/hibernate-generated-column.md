@@ -6,7 +6,7 @@
 
 ## Overview
 
-`@GeneratedColumn`은 **JPA 표준 주석이 아니라 Hibernate의 `org.hibernate.annotations.GeneratedColumn`**이다. DB의 `GENERATED ALWAYS AS` 또는 이에 해당하는 생성 열을 entity 속성에 매핑한다. 주석의 필수 값에는 열을 계산할 SQL 식을 쓰며, Hibernate는 `INSERT`나 `UPDATE` 뒤 DB가 계산한 값을 다시 가져와 entity 상태에 반영한다. [Hibernate GeneratedColumn Javadoc](../../raw/spring/hibernate-7-1-generatedcolumn-javadoc.md)
+`@GeneratedColumn`은 **JPA 표준 주석이 아니라 Hibernate의 `org.hibernate.annotations.GeneratedColumn` 주석**이다. DB의 `GENERATED ALWAYS AS` 또는 이에 해당하는 생성 열을 entity 속성에 매핑한다. 주석의 필수 값에는 열을 계산할 SQL 식을 쓰며, Hibernate는 `INSERT`나 `UPDATE` 뒤 DB가 계산한 값을 다시 가져와 entity 상태에 반영한다. [Hibernate GeneratedColumn Javadoc](../../raw/spring/hibernate-7-1-generatedcolumn-javadoc.md)
 
 ## 무엇을 생성하는가
 

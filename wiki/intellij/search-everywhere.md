@@ -59,8 +59,8 @@ import하지 않은 class·static method·field를 사용하면 IntelliJ IDEA가
 
 현재 file의 사용하지 않는 import를 한 번에 지우고 import 문을 정리하려면 `⌃⌥O`로 **Optimize Imports**를 실행합니다. 같은 기능은 **Code → Optimize Imports**에서도 실행할 수 있습니다. Project tool window에서 directory를 선택하면 해당 directory의 모든 file 또는 local 변경 file만 대상으로 실행할 수도 있습니다. [JetBrains Optimize Imports](../../raw/intellij/2024-06-24-optimize-imports.md); [JetBrains Auto Import: Optimize Imports](../../raw/intellij/2026-08-17-auto-import-optimize-imports.md)
 
-사용하지 않는 import 하나만 제거하려면 흐리게 표시된 import 문에 caret을 두고 `⌥⏎`를 누른 뒤 **`Remove unused imports`**를 선택합니다. [JetBrains Auto Import: Optimize Imports](../../raw/intellij/2026-08-17-auto-import-optimize-imports.md); [JetBrains macOS Keymap](../../raw/intellij/2024-03-18-predefined-macos-keymap.md)
+사용하지 않는 import 하나만 제거하려면 흐리게 표시된 import 문에 caret을 두고 `⌥⏎`를 누른 뒤 **`Remove unused imports` 명령**을 선택합니다. [JetBrains Auto Import: Optimize Imports](../../raw/intellij/2026-08-17-auto-import-optimize-imports.md); [JetBrains macOS Keymap](../../raw/intellij/2024-03-18-predefined-macos-keymap.md)
 
 ## JPA entity의 DDL 생성
 
-`Registration`처럼 DDL을 만들 JPA entity source를 editor에서 연 뒤 class 이름에 caret을 둡니다. `⌥⏎`로 context actions를 열고 **`Generate DDL`**을 선택하면 entity 하나의 DDL statement를 생성할 수 있습니다. 공식 action 이름은 `Generate DDL`이며, `Generate DDL by <Entity name>` 창에서 DB type과 저장 위치·형식(File, Scratch File, Clipboard, Database Console)을 정한 뒤 preview하고 저장합니다. macOS 기본 Keymap의 `⌥⏎`는 `Alt+Enter`에 해당합니다. [JetBrains Database Versioning](../../raw/intellij/2026-08-13-database-versioning.md); [JetBrains macOS Keymap](../../raw/intellij/2024-03-18-predefined-macos-keymap.md)
+`Registration`처럼 DDL을 만들 JPA entity source를 editor에서 연 뒤 class 이름에 caret을 둡니다. `⌥⏎`로 context actions를 열고 **`Generate DDL` 항목**을 선택하면 entity 하나의 DDL statement를 생성할 수 있습니다. 공식 action 이름은 `Generate DDL`이며, `Generate DDL by <Entity name>` 창에서 DB type과 저장 위치·형식(File, Scratch File, Clipboard, Database Console)을 정한 뒤 preview하고 저장합니다. macOS 기본 Keymap의 `⌥⏎`는 `Alt+Enter`에 해당합니다. [JetBrains Database Versioning](../../raw/intellij/2026-08-13-database-versioning.md); [JetBrains macOS Keymap](../../raw/intellij/2024-03-18-predefined-macos-keymap.md)

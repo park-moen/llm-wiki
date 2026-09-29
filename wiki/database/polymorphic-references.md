@@ -6,7 +6,7 @@
 
 ## Overview
 
-**다형 참조(polymorphic reference)**는 한 행이 서로 다른 종류의 테이블 중 하나를 가리키도록, 대상의 종류와 ID를 함께 저장하는 설계다. Rails의 `Picture` 예시는 `imageable_type`에 `Employee` 또는 `Product`를, `imageable_id`에 해당 행의 ID를 저장한다. 애플리케이션에서는 하나의 연관 관계처럼 다룰 수 있지만, 이 두 열은 일반적인 데이터베이스 외래 키 하나와 같지 않다. [Rails 다형 연관](../../raw/database/rails-active-record-polymorphic-associations.md); [GitLab 다형 연관 지침](../../raw/database/gitlab-polymorphic-associations.md)
+**다형 참조**(polymorphic reference)는 한 행이 서로 다른 종류의 테이블 중 하나를 가리키도록, 대상의 종류와 ID를 함께 저장하는 설계다. Rails의 `Picture` 예시는 `imageable_type`에 `Employee` 또는 `Product`를, `imageable_id`에 해당 행의 ID를 저장한다. 애플리케이션에서는 하나의 연관 관계처럼 다룰 수 있지만, 이 두 열은 일반적인 데이터베이스 외래 키 하나와 같지 않다. [Rails 다형 연관](../../raw/database/rails-active-record-polymorphic-associations.md); [GitLab 다형 연관 지침](../../raw/database/gitlab-polymorphic-associations.md)
 
 ## 형태와 얻는 편의
 

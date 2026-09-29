@@ -52,7 +52,7 @@ Orca는 Claude Code, Codex, Cursor CLI, OpenCode 등 이미 사용하는 CLI 에
 공식 문서가 제시하는 입문 흐름은 Orca의 전체 사용법을 축약한다.
 
 1. **Add Repo**로 local checkout을 등록하고 base ref를 확인한다.
-2. 저장소 옆 **+**에서 task 이름과 start-from ref를 정해 worktree를 만든다.
+2. 저장소 옆 **+ 버튼**에서 task 이름과 start-from ref를 정해 worktree를 만든다.
 3. agent combobox에서 Claude Code, Codex, Cursor CLI 등 원하는 CLI를 실행한다.
 4. 같은 prompt를 별도 worktree의 여러 agent에게 주어 서로 다른 branch와 diff를 만든다.
 5. worktree tab을 pane 가장자리로 끌어 split하고 진행 상태를 함께 본다.
