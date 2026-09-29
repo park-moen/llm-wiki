@@ -169,6 +169,7 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 | [AI 시대 신입 개발자의 생존과 성장 판단](software-career/ai-era-junior-developer-survival-assessment-2026-08-13.md) | [Archived] AI 위임 중심 환경에서 신입 개발자가 겪는 성장 위험과 대응 원칙에 대한 시점 고정 판단 | 2026-08-13 |
 | [AI 시대의 Software Engineering 학습 전략](software-career/ai-era-software-engineering-learning-strategy-2026-08-23.md) | [Archived] 문법·API 암기에서 실행 모델, 설계 판단, 검증과 복구 중심으로 이동하는 개발자 학습 전략 | 2026-08-23 |
 | [AI 중심 실무 환경의 Full-stack 개발자 6개월 학습 로드맵](software-career/ai-native-fullstack-learning-roadmap-2026-08-23.md) | [Archived] JS·React·Next.js와 Kotlin·Spring Boot 실무를 AI 기반 기능 소유, 검증과 복구 역량으로 연결하는 6개월 로드맵 | 2026-08-23 |
+| [풀스택 개발자를 위한 SQL·DB·AWS 자격증 선택](software-career/fullstack-developer-certification-path-2026-09-29.md) | [Archived] 전문대·비전공 개발자의 SQLD·SQLP·Oracle·AWS·정보처리 자격증 선택과 유효 기간 정리 | 2026-09-29 |
 | [취업 초기 주니어를 위한 AI-Native 개발 프로세스](software-career/junior-ai-native-development-process.md) | [Archived] 이해 가능한 작은 변경, TDD, advisory subagent와 단계적 Worktree 학습을 연결한 개인 업무 방법론 | 2026-08-16 |
 | [취업 초기 주니어를 위한 AI-Native 개발 프로세스 2: Harness Engineering](software-career/junior-ai-native-development-harness-engineering.md) | [Archived] 1편의 원칙을 Superpowers Skill, human checkpoint, deterministic verification과 단계적 Worktree 운영으로 실행하는 방법 | 2026-08-16 |
 | [Frontend에서 OCP와 의존성 역전을 적용하는 실무 가이드](software-career/frontend-ocp-and-dependency-inversion-practical-guide-2026-08-24.md) | [Archived] Spring의 OCP·DIP를 TypeScript 경계, React 합성·주입과 과잉 추상화 방지 기준으로 번역한 실무 가이드 | 2026-08-24 |

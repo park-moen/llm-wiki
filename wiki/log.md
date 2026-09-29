@@ -1156,6 +1156,8 @@
 ## [2026-09-29] update | Hibernate @GeneratedColumn과 DB 생성 열
 - 같은 행의 값으로 계산하는 예시와 적용 기준 보강
 
+## [2026-09-29] query | Archived: 풀스택 개발자를 위한 SQL·DB·AWS 자격증 선택
+
 ## [2026-09-29] ingest | 외래 키의 `ON DELETE CASCADE`와 `ON DELETE SET NULL`
 - Disposition: New
 - Raw: raw/database/postgresql-18-foreign-key-on-delete-actions.md
