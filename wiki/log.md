@@ -1173,3 +1173,7 @@
 ## [2026-09-29] ingest | Primary Key, Foreign Key와 복합 키
 - Disposition: Update
 - Raw: raw/spring/jakarta-persistence-3-2-idclass-javadoc.md; raw/spring/jakarta-persistence-3-2-embeddedid-javadoc.md; raw/spring/jakarta-persistence-3-2-entity-and-composite-id-rules.md; raw/spring/2026-08-12-kotlin-no-arg-compiler-plugin.md; raw/spring/kotlin-data-classes.md; raw/spring/spring-data-jpa-repository-core-concepts.md
+
+## [2026-09-29] ingest | Orval로 OpenAPI 클라이언트 생성하기
+- Disposition: New
+- Raw: raw/frontend/orval-overview.md; raw/frontend/orval-installation.md; raw/frontend/orval-quick-start.md; raw/frontend/orval-basics.md; raw/frontend/orval-msw.md; raw/frontend/orval-input-validation.md; raw/frontend/orval-output-limitations.md

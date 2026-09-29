@@ -184,6 +184,7 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 |---------|---------|---------|
 | [프런트엔드 아키텍처를 위한 C4 모델](frontend/c4-model-for-frontend-architecture.md) | C4의 네 가지 확대 수준을 프런트엔드의 모듈과 UI 분해에 맞춰 적용하는 방법 | 2026-08-24 |
 | [ChatGPT 웹의 성능 중심 아키텍처](frontend/chatgpt-web-performance-architecture.md) | 익명 사용자의 첫 입력과 응답을 빠르게 만드는 SSR·점진적 로딩·기능 플래그·보호 계층 설계 | 2026-09-08 |
+| [Orval로 OpenAPI 클라이언트 생성하기](frontend/orval-openapi-client-generation.md) | TypeScript API 클라이언트·React Query hook·MSW mock 생성의 목적과 설정, 명세 검증 및 출력 제약 | 2026-09-29 |
 
 ## llm-wiki
 
