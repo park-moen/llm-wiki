@@ -1177,3 +1177,7 @@
 ## [2026-09-29] ingest | Orval로 OpenAPI 클라이언트 생성하기
 - Disposition: New
 - Raw: raw/frontend/orval-overview.md; raw/frontend/orval-installation.md; raw/frontend/orval-quick-start.md; raw/frontend/orval-basics.md; raw/frontend/orval-msw.md; raw/frontend/orval-input-validation.md; raw/frontend/orval-output-limitations.md
+
+## [2026-09-29] ingest | MySQL EXPLAIN의 인덱스와 Using filesort 읽기
+- Disposition: New
+- Raw: raw/database/mysql-8-4-explain-statement.md; raw/database/mysql-8-4-explain-output-format.md; raw/database/mysql-8-4-order-by-optimization.md

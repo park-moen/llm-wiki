@@ -21,6 +21,7 @@ IntelliJ IDEA의 탐색·설정·action 실행을 빠르게 찾는 방법과 sho
 | [DB 설계에서 다형 참조](database/polymorphic-references.md) | 종류·ID 쌍의 편의와 외래 키 무결성 한계, 종류별 테이블과 고정 외래 키 대안 | 2026-09-28 |
 | [외래 키의 `ON DELETE CASCADE`와 `ON DELETE SET NULL`](database/foreign-key-on-delete-actions.md) | 참조 행 삭제·외래 키 NULL 처리의 차이와 관계별 선택 기준 | 2026-09-29 |
 | [Primary Key, Foreign Key와 복합 키](database/primary-foreign-and-composite-keys.md) | PK·FK·복합 키의 DB 규칙과 Kotlin/JPA `@IdClass`·`@EmbeddedId` 매핑 비교 | 2026-09-29 |
+| [MySQL EXPLAIN의 인덱스와 Using filesort 읽기](database/mysql-explain-index-and-filesort.md) | 실행 계획의 `key`·`rows`·`Extra`를 읽고 조회 인덱스와 추가 정렬의 차이를 예시로 이해하는 방법 | 2026-09-29 |
 
 ## seo
 
