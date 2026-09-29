@@ -1,7 +1,7 @@
 # MySQL EXPLAIN의 인덱스와 Using filesort 읽기
 
 > Sources: MySQL 8.4 Reference Manual, Unknown
-> Raw: [EXPLAIN Statement](../../raw/database/mysql-8-4-explain-statement.md); [EXPLAIN Output Format](../../raw/database/mysql-8-4-explain-output-format.md); [ORDER BY Optimization](../../raw/database/mysql-8-4-order-by-optimization.md)
+> Raw: [EXPLAIN Statement](../../raw/database/mysql-8-4-explain-statement.md); [EXPLAIN Output Format](../../raw/database/mysql-8-4-explain-output-format.md); [ORDER BY Optimization](../../raw/database/mysql-8-4-order-by-optimization.md); [ORDER BY Index Choice](../../raw/database/mysql-8-4-order-by-optimization-index-choice.md); [Multiple-Column Indexes](../../raw/database/mysql-8-4-multiple-column-indexes.md); [Descending Indexes](../../raw/database/mysql-8-4-descending-indexes.md)
 > Updated: 2026-09-29
 
 ## Overview
@@ -54,6 +54,30 @@ ORDER BY title;
 ```sql
 CREATE INDEX idx_author_title ON t_post (author_id, title);
 ```
+
+## 회차별 목록에서 `ORDER BY`와 인덱스가 연결되는 이유
+
+MySQL 공식 문서는 복합 인덱스를 **인덱스 열의 값을 차례로 이어 붙여 정렬한 목록**에 비유한다. 이는 테이블의 실제 행이 그 순서대로 놓여 있다는 뜻이 아니라, 인덱스 항목을 그 순서로 읽을 수 있다는 뜻이다. 예를 들어 아래는 설명을 위해 만든 가상의 호텔 목록이다. [Multiple-Column Indexes](../../raw/database/mysql-8-4-multiple-column-indexes.md)
+
+| edition_id | sort_order | hotel |
+| --- | --- | --- |
+| 14 | 3 | C |
+| 14 | 1 | A |
+| 14 | 2 | B |
+
+```sql
+SELECT hotel
+FROM t_hotel
+WHERE edition_id = 14
+ORDER BY sort_order;
+```
+
+- `(edition_id)` 인덱스는 `14`에 속한 행을 찾는 데 쓸 수 있지만, 같은 `edition_id` 안에서 `sort_order`까지 정렬해 두지는 않는다. 이 인덱스로 행을 찾더라도 `ORDER BY`를 만족하려면 별도 정렬이 필요할 수 있다. [ORDER BY Index Choice](../../raw/database/mysql-8-4-order-by-optimization-index-choice.md)
+- `(edition_id, sort_order)` 인덱스는 먼저 `edition_id`로, 같은 값 안에서는 `sort_order`로 정렬된다. `edition_id = 14`인 구간을 인덱스 순서대로 읽으면 `A → B → C`가 되므로 MySQL이 이 인덱스를 선택할 때 추가 정렬을 피할 수 있다. [Multiple-Column Indexes](../../raw/database/mysql-8-4-multiple-column-indexes.md); [ORDER BY Index Choice](../../raw/database/mysql-8-4-order-by-optimization-index-choice.md)
+
+즉, “인덱스에 정렬 칸이 없다”는 말은 **검색 조건에 맞는 행을 찾을 수는 있어도, 인덱스 순서만으로 `ORDER BY`까지 충족하지 못한다**는 뜻이다. `WHERE`에서 앞 열을 `=`로 고정하고 그다음 열로 정렬하는 위 사례는 공식 문서의 인덱스 활용 예시에 해당한다. 이는 모든 쿼리에 적용되는 고정 공식은 아니다. 실제 선택은 조건의 선택도와 읽을 열의 비용에 따라 달라지므로, 인덱스를 추가한 뒤 `EXPLAIN`에서 사용 인덱스와 `Using filesort` 여부를 다시 확인한다. [ORDER BY Index Choice](../../raw/database/mysql-8-4-order-by-optimization-index-choice.md)
+
+여러 열을 정렬하면서 방향이 섞이면 인덱스의 각 열 방향도 함께 검토한다. 예를 들어 `ORDER BY priority DESC, sort_order ASC`에는 해당 방향의 복합 인덱스를 사용할 수 있다. MySQL은 반대 방향으로 인덱스를 읽을 수도 있으므로 `DESC`를 모든 열에 기계적으로 붙이는 규칙으로 받아들이면 안 된다. [Descending Indexes](../../raw/database/mysql-8-4-descending-indexes.md); [ORDER BY Optimization](../../raw/database/mysql-8-4-order-by-optimization.md)
 
 ## 실행 계획에서 읽을 항목
 

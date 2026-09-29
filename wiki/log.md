@@ -1181,3 +1181,7 @@
 ## [2026-09-29] ingest | MySQL EXPLAIN의 인덱스와 Using filesort 읽기
 - Disposition: New
 - Raw: raw/database/mysql-8-4-explain-statement.md; raw/database/mysql-8-4-explain-output-format.md; raw/database/mysql-8-4-order-by-optimization.md
+
+## [2026-09-29] ingest | MySQL EXPLAIN의 인덱스와 Using filesort 읽기
+- Disposition: Update
+- Raw: raw/database/mysql-8-4-multiple-column-indexes.md; raw/database/mysql-8-4-order-by-optimization-index-choice.md; raw/database/mysql-8-4-descending-indexes.md
