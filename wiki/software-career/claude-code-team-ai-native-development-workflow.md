@@ -1,8 +1,8 @@
 # Claude Code 팀의 AI-Native 개발 Workflow와 개발자 역량
 
-> Sources: Boris Cherny interview, YouTube (Unknown); Pasha interview·Beyond Coding (Unknown)
-> Raw: [Building Claude Code with Boris Cherny transcript](../../raw/software-career/building-claude-code-boris-cherny.md); [Original YouTube source provenance](../../raw/software-career/building-claude-code-boris-cherny-source-provenance.md); [From Backend Engineer to Head of Mobile transcript](../../raw/software-career/from-backend-engineer-to-head-of-mobile-lessons-uber.md)
-> Updated: 2026-08-16
+> Sources: Boris Cherny interview, YouTube (Unknown); Pasha interview·Beyond Coding (Unknown); Ayman Nadeem, 2026-09-24
+> Raw: [Building Claude Code with Boris Cherny transcript](../../raw/software-career/building-claude-code-boris-cherny.md); [Original YouTube source provenance](../../raw/software-career/building-claude-code-boris-cherny-source-provenance.md); [From Backend Engineer to Head of Mobile transcript](../../raw/software-career/from-backend-engineer-to-head-of-mobile-lessons-uber.md); [Plan mode is dead](../../raw/ai-agents/2026-09-24-plan-mode-is-dead.md)
+> Updated: 2026-09-28
 
 ## Overview
 
@@ -45,6 +45,9 @@ Codebase와 domain을 충분히 이해하면 역할이 달라진다. Boris는 pl
 ## Plan이 구현보다 먼저다
 
 인터뷰의 고생산성 workflow에서 사람이 가장 집중하는 지점은 모든 code line을 직접 입력하는 일이 아니라 **plan을 올바르게 만드는 과정**이다. Agent가 구현을 시작하기 전에 문제, scope, 가정과 접근 방식을 주고받는다.
+
+> **Status: Disputed**
+> 이는 Boris Cherny가 설명한 익숙한 코드베이스에서의 작업 방식이다. Ayman Nadeem은 Nuanced에서 긴 계획을 먼저 확정하고 구현으로 넘어가도록 분리한 흐름이 사용자 이해를 방해했다고 보고한다. 두 사례는 환경과 도구가 달라 Plan mode의 보편적인 유불리를 확정하지 않는다. [Plan mode와 지속적인 이해 형성](../ai-agents/plan-mode-as-iterative-understanding.md)에서 차이를 정리한다.
 
 좋은 plan은 다음을 드러내야 한다.
 

@@ -1095,3 +1095,79 @@
 ## [2026-09-25] ingest | Stagehand: Playwright와의 차이와 시작 방법
 - Disposition: Update
 - Raw: raw/ai-agents/stagehand-codex-integration-extract-2.md; raw/ai-agents/stagehand-speed-optimization-extract.md
+
+## [2026-09-28] ingest | LLM과 함께 프로그래밍의 즐거움과 주도권 지키기
+- Disposition: New
+- Raw: raw/software-career/2026-09-18-how-to-keep-enjoying-programming-with-llms.md; raw/software-career/2026-09-27-geeknews-enjoy-programming-with-llms.md
+
+## [2026-09-28] ingest | Plan mode와 지속적인 이해 형성
+- Disposition: New; Disputed
+- Raw: raw/ai-agents/2026-09-24-plan-mode-is-dead.md
+- Updated: Claude Code 팀의 AI-Native 개발 Workflow와 개발자 역량
+
+## [2026-09-28] ingest | 관계형 데이터베이스 정규화 원칙
+- Disposition: New
+- Raw: raw/database/microsoft-database-normalization-basics.md
+
+## [2026-09-28] ingest | 거래 시점 스냅샷과 비정규화
+- Disposition: New; Update
+- Raw: raw/database/oracle-data-warehousing-logical-design.md
+- Updated: 관계형 데이터베이스 정규화 원칙
+
+## [2026-09-28] ingest | 거래 시점 스냅샷과 비정규화
+- Disposition: Update
+- Raw: raw/database/oracle-original-versus-current-pricing.md
+
+## [2026-09-28] ingest | DB 설계에서 다형 참조
+- Disposition: New
+- Raw: raw/database/rails-active-record-polymorphic-associations.md
+
+## [2026-09-28] ingest | DB 설계에서 다형 참조
+- Disposition: Update
+- Raw: raw/database/gitlab-polymorphic-associations.md
+
+## [2026-09-28] ingest | DB 설계에서 다형 참조
+- Disposition: Update
+- Raw: raw/database/2026-08-13-postgresql-constraints.md
+
+## [2026-09-29] ingest | Hibernate @GeneratedColumn과 DB 생성 열
+- Disposition: New
+- Raw: raw/spring/hibernate-7-1-generatedcolumn-javadoc.md
+
+## [2026-09-29] ingest | Hibernate @GeneratedColumn과 DB 생성 열
+- Disposition: Update
+- Raw: raw/spring/hibernate-7-1-generated-javadoc.md
+
+## [2026-09-29] ingest | Hibernate @GeneratedColumn과 DB 생성 열
+- Disposition: Update
+- Raw: raw/spring/jakarta-persistence-3-2-generatedvalue-javadoc.md
+
+## [2026-09-29] ingest | Hibernate @GeneratedColumn과 DB 생성 열
+- Disposition: Update
+- Raw: raw/spring/2026-08-13-postgresql-18-generated-columns.md
+
+## [2026-09-29] ingest | JPA `@ElementCollection`
+- Disposition: New
+- Raw: raw/spring/jakarta-persistence-3-2-elementcollection-javadoc.md
+
+## [2026-09-29] update | JPA `@ElementCollection`
+- 기본 타입·embeddable 컬렉션의 사용 상황과 설계 예시 보강
+
+## [2026-09-29] update | Hibernate @GeneratedColumn과 DB 생성 열
+- 같은 행의 값으로 계산하는 예시와 적용 기준 보강
+
+## [2026-09-29] ingest | 외래 키의 `ON DELETE CASCADE`와 `ON DELETE SET NULL`
+- Disposition: New
+- Raw: raw/database/postgresql-18-foreign-key-on-delete-actions.md
+
+## [2026-09-29] ingest | Primary Key, Foreign Key와 복합 키
+- Disposition: New
+- Raw: raw/database/postgresql-18-primary-and-foreign-keys.md
+
+## [2026-09-29] ingest | Primary Key, Foreign Key와 복합 키
+- Disposition: Update
+- Raw: raw/database/2026-07-20-microsoft-primary-and-foreign-key-constraints.md
+
+## [2026-09-29] ingest | Primary Key, Foreign Key와 복합 키
+- Disposition: Update
+- Raw: raw/spring/jakarta-persistence-3-2-idclass-javadoc.md; raw/spring/jakarta-persistence-3-2-embeddedid-javadoc.md; raw/spring/jakarta-persistence-3-2-entity-and-composite-id-rules.md; raw/spring/2026-08-12-kotlin-no-arg-compiler-plugin.md; raw/spring/kotlin-data-classes.md; raw/spring/spring-data-jpa-repository-core-concepts.md

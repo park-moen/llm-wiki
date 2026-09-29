@@ -10,12 +10,17 @@ IntelliJ IDEA의 탐색·설정·action 실행을 빠르게 찾는 방법과 sho
 
 ## database
 
-관계형 database의 schema 제약, data integrity 규칙과 동시성 제어를 정리한다.
+관계형 database의 정규화, schema 제약, data integrity 규칙과 동시성 제어를 정리한다.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
 | [Database Unique Constraint](database/unique-constraints.md) | `UNIQUE`의 선언·복합 key·primary key와의 차이·DBMS별 `NULL` 처리와 도입 확인 사항 | 2026-09-22 |
 | [낙관적 잠금 (Optimistic Locking)](database/optimistic-locking.md) | 버전 검사를 통한 충돌 감지, DDL과의 관계, Hibernate `@Version` 및 버전 열 없는 방식 | 2026-09-24 |
+| [관계형 데이터베이스 정규화 원칙](database/database-normalization-principles.md) | 함수 종속과 중복 데이터, 정규형, 의도적인 비정규화의 판단 기준 | 2026-09-28 |
+| [거래 시점 스냅샷과 비정규화](database/transaction-snapshot-and-denormalization.md) | 현재 값의 중복 저장과 주문 당시 확정된 거래 사실을 구분하는 방법 | 2026-09-28 |
+| [DB 설계에서 다형 참조](database/polymorphic-references.md) | 종류·ID 쌍의 편의와 외래 키 무결성 한계, 종류별 테이블과 고정 외래 키 대안 | 2026-09-28 |
+| [외래 키의 `ON DELETE CASCADE`와 `ON DELETE SET NULL`](database/foreign-key-on-delete-actions.md) | 참조 행 삭제·외래 키 NULL 처리의 차이와 관계별 선택 기준 | 2026-09-29 |
+| [Primary Key, Foreign Key와 복합 키](database/primary-foreign-and-composite-keys.md) | PK·FK·복합 키의 DB 규칙과 Kotlin/JPA `@IdClass`·`@EmbeddedId` 매핑 비교 | 2026-09-29 |
 
 ## seo
 
@@ -42,6 +47,8 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring Bean과 의존관계 설정](spring/spring-beans-and-dependency-injection.md) | Component scan, Java configuration 조립 코드, DI 방식과 IntelliJ parameter 단축키 | 2026-08-13 |
 | [Spring 회원 관리 웹 MVC](spring/spring-member-web-mvc.md) | Form binding, Thymeleaf 목록·property 접근, memory 생명주기와 IntelliJ 단축키 | 2026-08-13 |
 | [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
+| [Hibernate @GeneratedColumn과 DB 생성 열](spring/hibernate-generated-column.md) | 생성 열을 쓰는 상황과 계산식 예시, 값 재조회 및 관련 주석의 차이 | 2026-09-29 |
+| [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
 | [시드 데이터 초기화와 병렬 개발](spring/seed-data-initialization-and-parallel-development.md) | 시드 데이터·초기화 코드·fixture를 구분하고 Spring profile로 병렬 개발용 데이터를 격리하는 방법 | 2026-09-17 |
 
@@ -111,6 +118,7 @@ AI agent의 병렬 작업, harness 선택, 기계적 gate와 brownfield 개인 �
 | Article | Summary | Updated |
 |---------|---------|---------|
 | [Stagehand: Playwright와의 차이와 시작 방법](ai-agents/stagehand-vs-playwright.md) | Playwright 대비 API·속도 비교 조건, SDK 사용법과 AI agent의 개발 화면 검증 시뮬레이션 | 2026-09-25 |
+| [Plan mode와 지속적인 이해 형성](ai-agents/plan-mode-as-iterative-understanding.md) | 긴 계획서 중심 흐름의 한계와 작업 중 이해·시도·확인·조정을 반복하는 접근 | 2026-09-28 |
 | [AI Agent Teams와 Git Worktree](ai-agents/agent-teams-and-git-worktrees.md) | 병렬 agent의 작업 조정과 파일 격리를 구분하고 Worktree 도입 기준을 설명 | 2026-08-16 |
 | [Agent Harness의 구조와 Deterministic Control Loop](ai-agents/agent-harness-anatomy-and-deterministic-control-loop.md) | Model 주변의 tool·context·guardrail·trace·verify·retry를 연결해 거짓 완료를 차단하는 구조 | 2026-08-16 |
 | [Superpowers의 Agent 관리와 Spec-Driven 개발 Workflow](ai-agents/superpowers-agent-management-and-spec-driven-development.md) | 사람의 intent를 spec·작은 TDD task·역할 분리 review·behavior proof로 연결하는 agent 관리 방법론 | 2026-08-16 |
@@ -149,9 +157,10 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 | [AS-IS와 TO-BE GAP 분석](software-career/as-is-to-be-gap-analysis.md) | 현재 업무 evidence와 목표 조건을 process·role·data·rule 관점에서 비교하고 전환 전략으로 연결하는 방법 | 2026-09-21 |
 | [AI Coding에서 Software Fundamentals가 더 중요해지는 이유](software-career/ai-coding-software-fundamentals.md) | AI 시대의 design concept, ubiquitous language, TDD, deep module과 사람의 전략적 설계 책임 | 2026-09-16 |
 | [AI Coding에서 Code Reading과 Intent 보존](software-career/ai-coding-code-reading-and-intent-preservation.md) | Accelerator와 vibecoder의 유지보수 계약, code reading의 역할과 intent debt 보존 방법 | 2026-09-16 |
+| [LLM과 함께 프로그래밍의 즐거움과 주도권 지키기](software-career/llm-assisted-programming-enjoyment-and-ownership.md) | 직접 코딩할 부분을 남기고 계획·조사·검토에 LLM을 활용하는 작업 방식과 다른 개발자들의 경험 | 2026-09-28 |
 | [Vibecoder에서 Accelerator로 전환하는 실천 가이드](software-career/vibecoder-to-accelerator-transition-guide-2026-09-16.md) | [Archived] 이해하지 못한 AI 변경의 크기를 줄이고 조사·plan·작은 구현·diff review·직접 복구로 전환하는 방법 | 2026-09-16 |
 | [AI를 활용한 개발자 성장과 Career 판단](software-career/ai-assisted-engineering-growth-and-career-judgment.md) | AI를 동료처럼 활용하는 학습, role-based context, fundamentals, 협업·product·migration 책임을 연결 | 2026-08-16 |
-| [Claude Code 팀의 AI-Native 개발 Workflow와 개발자 역량](software-career/claude-code-team-ai-native-development-workflow.md) | 학습·생산 mode 전환, plan 기반 병렬 agent, 다층 검증과 AI 시대의 methodical·types-first 역량 | 2026-08-16 |
+| [Claude Code 팀의 AI-Native 개발 Workflow와 개발자 역량](software-career/claude-code-team-ai-native-development-workflow.md) | 학습·생산 mode 전환, plan 기반 병렬 agent와 그 반론, 다층 검증과 AI 시대의 개발자 역량 | 2026-09-28 |
 | [최신 현업 개발 자료와 AI 네이티브 소프트웨어 엔지니어링](software-career/current-engineering-sources-and-ai-native-development.md) | 한국 빅테크 최신 공식 자료와 production AI 개발의 구현·검증·운영 구조를 연결한 학습 지도 | 2026-08-16 |
 | [한국어로 읽는 해외 기술 정보 채널 지도](software-career/korean-tech-translation-and-curation-channels.md) | Frontend·Backend·Cloud·Product·Design 직군별 번역·요약·큐레이션 채널과 조합 방법 | 2026-08-27 |
 | [Martin Fowler의 AI 시대 소프트웨어 엔지니어링 학습 가이드](software-career/martin-fowler-ai-software-engineering-study-guide.md) | AI 검증 원칙부터 mentor, source 평가, Technology Radar와 pattern까지 주니어 관점에서 풀어낸 인터뷰 학습서 | 2026-08-16 |
