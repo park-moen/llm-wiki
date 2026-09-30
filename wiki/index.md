@@ -22,6 +22,7 @@ IntelliJ IDEA의 탐색·설정·action 실행을 빠르게 찾는 방법과 sho
 | [외래 키의 `ON DELETE CASCADE`와 `ON DELETE SET NULL`](database/foreign-key-on-delete-actions.md) | 참조 행 삭제·외래 키 NULL 처리의 차이와 관계별 선택 기준 | 2026-09-29 |
 | [Primary Key, Foreign Key와 복합 키](database/primary-foreign-and-composite-keys.md) | PK·FK·복합 키의 DB 규칙과 Kotlin/JPA `@IdClass`·`@EmbeddedId` 매핑 비교 | 2026-09-29 |
 | [MySQL EXPLAIN의 인덱스와 Using filesort 읽기](database/mysql-explain-index-and-filesort.md) | 실행 계획의 `key`·`rows`·`Extra`, 복합 인덱스로 `WHERE`와 `ORDER BY`를 함께 처리하는 조건과 추가 정렬 예시 | 2026-09-29 |
+| [DB 콘텐츠 다국어화 저장 구조 선택](database/multilingual-content-schema-design.md) | 언어별 컬럼·번역 테이블·JSON 저장의 적용 조건과 조회·폴백·재검토 설계 기준 | 2026-09-30 |
 
 ## seo
 

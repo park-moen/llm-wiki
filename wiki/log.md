@@ -1185,3 +1185,7 @@
 ## [2026-09-29] ingest | MySQL EXPLAIN의 인덱스와 Using filesort 읽기
 - Disposition: Update
 - Raw: raw/database/mysql-8-4-multiple-column-indexes.md; raw/database/mysql-8-4-order-by-optimization-index-choice.md; raw/database/mysql-8-4-descending-indexes.md
+
+## [2026-09-30] ingest | DB 콘텐츠 다국어화 저장 구조 선택
+- Disposition: New
+- Raw: raw/database/rails-i18n-model-content.md; raw/database/mobility-translation-backends.md; raw/database/wagtail-content-translations.md; raw/database/shopify-translation-outdated.md; raw/database/shopify-markets-localized-fallback.md; raw/database/hibernate-fetch-strategies-n-plus-one.md
