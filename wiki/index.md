@@ -14,7 +14,8 @@ IntelliJ IDEA의 탐색·설정·action 실행을 빠르게 찾는 방법과 sho
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [Database Unique Constraint](database/unique-constraints.md) | `UNIQUE`의 선언·복합 key·primary key와의 차이·DBMS별 `NULL` 처리와 도입 확인 사항 | 2026-09-22 |
+| [Database Unique Constraint](database/unique-constraints.md) | `UNIQUE`의 선언·복합 key·primary key와의 차이·DBMS별 `NULL` 처리와 조건부 고유성 문서 연결 | 2026-10-01 |
+| [부분 유니크 인덱스와 MariaDB의 조건부 고유성 구현](database/partial-unique-indexes-and-mariadb-alternatives.md) | PostgreSQL 부분 유니크 인덱스의 사용법·선택 시점·한계와 MariaDB 생성 열 대안 | 2026-10-01 |
 | [낙관적 잠금 (Optimistic Locking)](database/optimistic-locking.md) | 버전 검사를 통한 충돌 감지, DDL과의 관계, Hibernate `@Version` 및 버전 열 없는 방식 | 2026-09-24 |
 | [관계형 데이터베이스 정규화 원칙](database/database-normalization-principles.md) | 함수 종속과 중복 데이터, 정규형, 의도적인 비정규화의 판단 기준 | 2026-09-28 |
 | [거래 시점 스냅샷과 비정규화](database/transaction-snapshot-and-denormalization.md) | 현재 값의 중복 저장과 주문 당시 확정된 거래 사실을 구분하는 방법 | 2026-09-28 |

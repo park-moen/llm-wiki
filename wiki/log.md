@@ -1189,3 +1189,8 @@
 ## [2026-09-30] ingest | DB 콘텐츠 다국어화 저장 구조 선택
 - Disposition: New
 - Raw: raw/database/rails-i18n-model-content.md; raw/database/mobility-translation-backends.md; raw/database/wagtail-content-translations.md; raw/database/shopify-translation-outdated.md; raw/database/shopify-markets-localized-fallback.md; raw/database/hibernate-fetch-strategies-n-plus-one.md
+
+## [2026-10-01] ingest | 부분 유니크 인덱스와 MariaDB의 조건부 고유성 구현
+- Disposition: New; Update
+- Raw: raw/database/postgresql-18-partial-indexes.md; raw/database/postgresql-18-partial-unique-constraints.md; raw/database/mariadb-conditional-uniqueness-virtual-columns.md; raw/database/mariadb-generated-columns-index-support.md; raw/database/2018-01-31-mariadb-partial-filtered-index-request.md
+- Updated: Database Unique Constraint

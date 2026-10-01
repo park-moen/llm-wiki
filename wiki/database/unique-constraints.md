@@ -2,7 +2,7 @@
 
 > Sources: PostgreSQL Global Development Group, Unknown; Microsoft, 2026-07-20
 > Raw: [PostgreSQL Unique Constraints](../../raw/database/postgresql-unique-constraints.md); [SQL Server Unique Constraints](../../raw/database/2026-07-20-sql-server-unique-constraints.md)
-> Updated: 2026-09-22
+> Updated: 2026-10-01
 
 ## Overview
 
@@ -47,8 +47,9 @@ PostgreSQL에서 `NULL`도 같은 값으로 취급해야 하면 `UNIQUE NULLS NO
 
 PostgreSQL과 SQL Server는 `UNIQUE` constraint를 강제하기 위해 unique index를 자동으로 만듭니다. 그러므로 constraint를 단지 application validation의 보조 수단으로 보지 말고, data rule을 선언한 schema 요소로 다룹니다. [PostgreSQL Unique Constraints](../../raw/database/postgresql-unique-constraints.md); [SQL Server Unique Constraints](../../raw/database/2026-07-20-sql-server-unique-constraints.md)
 
-기존 table에 constraint를 추가할 때는 먼저 중복 data가 있는지 확인합니다. SQL Server는 이미 중복된 값이 있으면 constraint 추가를 실패시킨다고 명시합니다. PostgreSQL에서 일부 row에만 고유성을 적용해야 한다면 일반 `UNIQUE` constraint 대신 partial unique index를 사용합니다. [SQL Server Unique Constraints](../../raw/database/2026-07-20-sql-server-unique-constraints.md); [PostgreSQL Unique Constraints](../../raw/database/postgresql-unique-constraints.md)
+기존 table에 constraint를 추가할 때는 먼저 중복 data가 있는지 확인합니다. SQL Server는 이미 중복된 값이 있으면 constraint 추가를 실패시킨다고 명시합니다. PostgreSQL에서 일부 row에만 고유성을 적용해야 한다면 일반 `UNIQUE` constraint 대신 partial unique index를 사용합니다. 사용법과 MariaDB의 조건부 고유성 대안은 [부분 유니크 인덱스와 MariaDB의 조건부 고유성 구현](partial-unique-indexes-and-mariadb-alternatives.md)에서 다룹니다. [SQL Server Unique Constraints](../../raw/database/2026-07-20-sql-server-unique-constraints.md); [PostgreSQL Unique Constraints](../../raw/database/postgresql-unique-constraints.md)
 
 ## See Also
 
+- [부분 유니크 인덱스와 MariaDB의 조건부 고유성 구현](partial-unique-indexes-and-mariadb-alternatives.md)
 - [Spring DB 접근 기술 비교](../spring/spring-database-access-technologies.md)
