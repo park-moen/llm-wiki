@@ -1194,3 +1194,11 @@
 - Disposition: New; Update
 - Raw: raw/database/postgresql-18-partial-indexes.md; raw/database/postgresql-18-partial-unique-constraints.md; raw/database/mariadb-conditional-uniqueness-virtual-columns.md; raw/database/mariadb-generated-columns-index-support.md; raw/database/2018-01-31-mariadb-partial-filtered-index-request.md
 - Updated: Database Unique Constraint
+
+## [2026-10-01] ingest | JPA 1:1 관계의 지연 로딩과 `@ManyToOne` + `UNIQUE`
+- Disposition: New
+- Raw: raw/spring/hibernate-7-1-one-to-one-lazy-association.md; raw/spring/hibernate-7-1-to-one-association-guide.md; raw/spring/jakarta-persistence-3-2-manytoone-javadoc.md; raw/spring/jakarta-persistence-3-2-onetoone-javadoc.md; raw/spring/jakarta-persistence-3-2-joincolumn-unique-javadoc.md
+
+## [2026-10-01] ingest | JPA 1:1 매핑 선택과 지연 로딩
+- Disposition: Update
+- Raw: raw/spring/jakarta-persistence-3-2-relationship-mapping-consistency.md; raw/spring/spring-data-jpa-query-methods.md

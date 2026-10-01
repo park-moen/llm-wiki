@@ -50,6 +50,7 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring Bean과 의존관계 설정](spring/spring-beans-and-dependency-injection.md) | Component scan, Java configuration 조립 코드, DI 방식과 IntelliJ parameter 단축키 | 2026-08-13 |
 | [Spring 회원 관리 웹 MVC](spring/spring-member-web-mvc.md) | Form binding, Thymeleaf 목록·property 접근, memory 생명주기와 IntelliJ 단축키 | 2026-08-13 |
 | [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
+| [JPA 1:1 매핑 선택과 지연 로딩](spring/jpa-to-one-lazy-loading-and-unique-foreign-key.md) | 전체 고유 1:1과 이력형 다대일을 구분하고, 역방향 지연 로딩과 조건부 고유 인덱스 선택 기준을 설명 | 2026-10-01 |
 | [Hibernate @GeneratedColumn과 DB 생성 열](spring/hibernate-generated-column.md) | 생성 열을 쓰는 상황과 계산식 예시, 값 재조회 및 관련 주석의 차이 | 2026-09-29 |
 | [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
