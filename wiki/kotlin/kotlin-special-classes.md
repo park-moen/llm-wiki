@@ -111,4 +111,4 @@ fun sendEmail(email: Email) {
 - [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)
 - [Kotlin Objects](kotlin-objects.md)
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
-- [Kotlin 클래스와 데이터 클래스](kotlin-classes-and-data-classes.md)
+- [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)

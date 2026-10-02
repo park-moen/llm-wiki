@@ -79,4 +79,4 @@ fun registerUser(username: String): String {
 - [Kotlin 기본 타입과 타입 추론](kotlin-basic-types.md)
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
 - [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
-- [Kotlin 클래스와 데이터 클래스](kotlin-classes-and-data-classes.md)
+- [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)

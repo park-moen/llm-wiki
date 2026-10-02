@@ -61,4 +61,4 @@ val length = nullable?.length ?: 0
 - [Kotlin 기본 타입과 타입 추론](kotlin-basic-types.md)
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
-- [Kotlin 클래스와 데이터 클래스](kotlin-classes-and-data-classes.md)
+- [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)

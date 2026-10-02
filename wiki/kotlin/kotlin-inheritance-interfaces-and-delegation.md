@@ -255,5 +255,5 @@ override       = 물려받거나 위임받은 동작을 내가 다시 정의
 
 - [Kotlin Objects](kotlin-objects.md)
 - [Kotlin 특수 클래스](kotlin-special-classes.md)
-- [Kotlin 클래스와 데이터 클래스](kotlin-classes-and-data-classes.md)
+- [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
 - [Kotlin 확장 함수](kotlin-extension-functions.md)

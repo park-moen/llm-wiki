@@ -1,12 +1,12 @@
-# Kotlin 클래스와 데이터 클래스
+# Kotlin 클래스와 `data class`
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Classes](../../raw/kotlin/classes-3.md)
-> Updated: 2026-08-10
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-03-14
+> Raw: [Classes](../../raw/kotlin/classes-3.md); [Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
+> Updated: 2026-10-02
 
 ## Overview
 
-Kotlin 클래스는 객체의 데이터인 프로퍼티(property)와 동작인 멤버 함수(member function)를 묶는다. 클래스 헤더의 매개변수로 기본 생성자를 구성할 수 있으며, 데이터 클래스(data class)는 출력·비교·복사에 필요한 멤버 함수를 자동으로 제공한다.
+Kotlin 클래스는 객체의 데이터인 프로퍼티(property)와 동작인 멤버 함수(member function)를 묶는다. 클래스 헤더의 매개변수로 기본 생성자를 구성할 수 있으며, `data class`는 출력·비교·복사에 필요한 멤버 함수를 자동으로 제공한다.
 
 ## 클래스와 프로퍼티
 
@@ -51,29 +51,37 @@ class Contact(val id: Int, var email: String) {
 contact.printId()
 ```
 
-## 데이터 클래스
+## `data class`
 
-데이터 저장이 중심인 클래스는 `data class`로 선언할 수 있다.
+`data class`는 **데이터를 담는 일이 중심인 클래스**다. 일반 `class`처럼 프로퍼티와 함수를 가질 수 있지만, 주 생성자의 프로퍼티를 바탕으로 비교·출력·복사 등에 쓰는 함수를 컴파일러가 만들어 준다. 예를 들어 이름과 ID를 한 묶음으로 전달하거나, 일부 값만 바꾼 새 값을 만드는 데 사용할 수 있다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 
 ```kotlin
 data class User(val name: String, val id: Int)
 ```
 
-컴파일러가 생성하는 멤버 함수에는 주 생성자(primary constructor)에 선언된 프로퍼티만 사용되며, 클래스 본문에 선언한 프로퍼티는 포함되지 않는다. 주요 자동 제공 기능은 다음과 같다.
+주요 자동 제공 기능은 다음과 같다. **자동 생성의 대상은 주 생성자에 `val` 또는 `var`로 선언한 프로퍼티**다. 클래스 본문에 선언한 프로퍼티는 여기에 포함되지 않는다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 
 | 기능 | 용도 |
 |---|---|
-| `toString()` | 인스턴스와 프로퍼티를 읽기 쉬운 문자열로 표현 |
-| `equals()` 또는 `==` | 인스턴스 비교 |
-| `copy()` | 기존 인스턴스를 복사하고 필요하면 일부 프로퍼티 교체 |
+| `toString()` | 인스턴스와 주 생성자 프로퍼티를 읽기 쉬운 문자열로 표현 |
+| `equals()`·`hashCode()` | 주 생성자 프로퍼티의 값으로 동등성을 비교하고 해시값 계산 |
+| `copy()` | 새 인스턴스를 만들고 지정한 프로퍼티만 다른 값으로 교체 |
+| `componentN()` | 선언 순서에 따라 프로퍼티를 꺼내 구조 분해에 사용 |
 
 ```kotlin
 val user = User("Alex", 1)
 val sameUser = user.copy()
 val renamed = user.copy(name = "Max")
+val (name, id) = renamed
 ```
 
-복사본을 변경하면 원본 인스턴스에 의존하는 코드에 영향을 주지 않고 별도의 값을 다룰 수 있다.
+`user`와 `sameUser`는 다른 인스턴스지만 주 생성자 값이 같아 `==` 비교가 성립한다. `renamed`는 `name`만 바뀐 새 인스턴스다. 구조 분해한 `name`, `id`는 주 생성자에 적은 순서대로 나온다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
+
+### 주의할 점
+
+- **`copy()`는 얕은 복사다.** `data class` 안에 변경 가능한 리스트 같은 객체가 있으면 원본과 복사본이 그 객체를 함께 참조한다. 복사본의 리스트를 수정하면 원본에서도 변경이 보인다. 따라서 `copy()`만으로 내부 객체까지 독립된다고 생각하면 안 된다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
+- **클래스 본문의 프로퍼티는 값 비교와 복사에 빠진다.** `data class Person(val name: String) { var age: Int = 0 }`에서 이름이 같고 `age`만 다른 두 인스턴스는 `equals()` 결과가 같다. `copy()`도 `age`를 복사 대상으로 삼지 않는다. 동등성을 결정해야 하는 값이라면 주 생성자에 둘지 검토해야 한다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
+- **선언에는 제약이 있다.** 주 생성자에 프로퍼티가 하나 이상 있어야 하고, 모든 주 생성자 매개변수에 `val` 또는 `var`를 붙여야 한다. `data class` 자체를 `open`, `abstract`, `sealed`, `inner`로 선언할 수 없다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 
 ## See Also
 

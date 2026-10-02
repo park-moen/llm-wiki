@@ -2,7 +2,7 @@
 
 > Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2025-02-23; Kotlin Documentation, 2026-06-29; Kotlin Documentation, Unknown
 > Raw: [Objects](../../raw/kotlin/2026-07-01-kotlin-intermediate-objects.md); [Object declarations and expressions](../../raw/kotlin/2025-02-23-kotlin-object-declarations-and-expressions.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Shared mutable state and concurrency](../../raw/kotlin/kotlin-shared-mutable-state-and-concurrency.md)
-> Updated: 2026-08-11
+> Updated: 2026-10-02
 
 ## Overview
 
@@ -177,6 +177,8 @@ val temperature = Temperature.fromFahrenheit(90.0)
 
 즉 `fromFahrenheit()`는 특별한 constructor 문법이 아니라, companion object에 들어 있는 function이 `Temperature(...)` constructor를 호출해 instance를 반환하는 구조다.
 
+이처럼 객체를 만드는 function을 factory 함수라고 부른다. Factory의 이름과 생성자 접근 범위를 어떻게 정할지는 [Kotlin factory 함수와 객체 생성 규칙](kotlin-factory-functions-and-construction-rules.md)에서 다룬다.
+
 ### Instance member와 비교
 
 ```kotlin
@@ -269,5 +271,6 @@ println(greeting) // 안녕, Kotlin
 
 ## See Also
 
-- [Kotlin 클래스와 데이터 클래스](kotlin-classes-and-data-classes.md)
+- [Kotlin factory 함수와 객체 생성 규칙](kotlin-factory-functions-and-construction-rules.md)
+- [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
 - [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)

@@ -66,5 +66,5 @@ val hasApple = "apple" in menu
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
 - [Kotlin 함수](kotlin-functions.md)
 - [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
-- [Kotlin 클래스와 데이터 클래스](kotlin-classes-and-data-classes.md)
+- [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
 - [Kotlin Null Safety](kotlin-null-safety.md)
