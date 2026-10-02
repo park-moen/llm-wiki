@@ -1202,3 +1202,37 @@
 ## [2026-10-01] ingest | JPA 1:1 매핑 선택과 지연 로딩
 - Disposition: Update
 - Raw: raw/spring/jakarta-persistence-3-2-relationship-mapping-consistency.md; raw/spring/spring-data-jpa-query-methods.md
+
+## [2026-10-02] ingest | Hibernate `@SQLRestriction`: 고정 조회 조건의 동작과 한계
+- Disposition: New
+- Raw: raw/spring/hibernate-7-1-sqlrestriction-javadoc.md; raw/spring/hibernate-7-1-sqlrestriction-user-guide.md; raw/spring/hibernate-7-1-softdelete-javadoc.md
+
+## [2026-10-02] ingest | JPA 엔티티·필드·연관 컬렉션과 DB 구조의 대응
+- Disposition: New; Update
+- Raw: raw/spring/jakarta-persistence-3-2-table-javadoc.md; raw/spring/jakarta-persistence-3-2-column-javadoc.md; raw/spring/jakarta-persistence-3-2-onetomany-javadoc.md; raw/spring/jakarta-persistence-3-2-collection-valued-attributes.md; raw/spring/hibernate-7-1-bidirectional-onetomany-guide.md; raw/database/postgresql-18-schemas.md; raw/database/mariadb-database-vs-schema.md
+- Updated: Hibernate `@SQLRestriction`: 고정 조회 조건의 동작과 한계
+
+## [2026-10-02] ingest | 갱신 손실 (Lost Update): 낙관적 잠금이 막는 동시 수정
+- Disposition: New; Update
+- Raw: raw/database/2024-04-10-jakarta-persistence-3-2-optimistic-locking.md
+- Updated: 낙관적 잠금 (Optimistic Locking)
+
+## [2026-10-02] ingest | 갱신 손실이 발생하는 대표 상황
+- Disposition: Update
+- Raw: raw/database/2026-09-17-hibernate-7-1-long-conversation-concurrency.md; raw/database/mysql-8-4-locking-reads-counter-example.md
+- Updated: 갱신 손실 (Lost Update): 낙관적 잠금이 막는 동시 수정
+
+## [2026-10-02] ingest | 낙관적 잠금과 비관적 잠금: 충돌 처리와 선택 기준
+- Disposition: New; Update
+- Raw: raw/database/2024-04-10-jakarta-persistence-3-2-pessimistic-locking.md; raw/spring/spring-data-jpa-locking-reference.md
+- Updated: 낙관적 잠금 (Optimistic Locking); 갱신 손실 (Lost Update): 낙관적 잠금이 막는 동시 수정
+
+## [2026-10-02] ingest | Kotlin 클래스와 데이터 클래스
+- Disposition: Update
+- Raw: raw/kotlin/2026-03-14-kotlin-data-classes.md
+- Updated: Kotlin 클래스와 데이터 클래스
+
+## [2026-10-02] ingest | Kotlin factory 함수와 객체 생성 규칙
+- Disposition: New; Update
+- Raw: raw/kotlin/2026-08-12-kotlin-coding-conventions-factory-functions.md; raw/kotlin/2025-11-13-kotlin-visibility-modifiers-constructors.md; raw/kotlin/2026-08-12-kotlin-classes-initializer-validation.md; raw/database/stripe-balance-transaction-signed-amounts.md
+- Updated: Kotlin Objects

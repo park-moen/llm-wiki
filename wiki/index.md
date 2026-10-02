@@ -16,7 +16,9 @@ IntelliJ IDEA의 탐색·설정·action 실행을 빠르게 찾는 방법과 sho
 |---------|---------|---------|
 | [Database Unique Constraint](database/unique-constraints.md) | `UNIQUE`의 선언·복합 key·primary key와의 차이·DBMS별 `NULL` 처리와 조건부 고유성 문서 연결 | 2026-10-01 |
 | [부분 유니크 인덱스와 MariaDB의 조건부 고유성 구현](database/partial-unique-indexes-and-mariadb-alternatives.md) | PostgreSQL 부분 유니크 인덱스의 사용법·선택 시점·한계와 MariaDB 생성 열 대안 | 2026-10-01 |
-| [낙관적 잠금 (Optimistic Locking)](database/optimistic-locking.md) | 버전 검사를 통한 충돌 감지, DDL과의 관계, Hibernate `@Version` 및 버전 열 없는 방식 | 2026-09-24 |
+| [낙관적 잠금 (Optimistic Locking)](database/optimistic-locking.md) | 버전 검사를 통한 충돌 감지와 실패 처리, DDL과의 관계, Hibernate `@Version` 및 버전 열 없는 방식 | 2026-10-02 |
+| [낙관적 락과 비관적 락: 충돌 처리와 선택 기준](database/optimistic-vs-pessimistic-locking.md) | JPA 락 방식의 시점·동작·실패 처리 비교와 Spring Data JPA 적용 및 선택 기준 | 2026-10-02 |
+| [갱신 손실 (Lost Update): 낙관적 잠금이 막는 동시 수정](database/lost-update-optimistic-locking.md) | 동시 편집·오래 열린 화면·카운터·서로 다른 필드의 덮어쓰기 사례와 `@Version` 충돌 검사 | 2026-10-02 |
 | [관계형 데이터베이스 정규화 원칙](database/database-normalization-principles.md) | 함수 종속과 중복 데이터, 정규형, 의도적인 비정규화의 판단 기준 | 2026-09-28 |
 | [거래 시점 스냅샷과 비정규화](database/transaction-snapshot-and-denormalization.md) | 현재 값의 중복 저장과 주문 당시 확정된 거래 사실을 구분하는 방법 | 2026-09-28 |
 | [DB 설계에서 다형 참조](database/polymorphic-references.md) | 종류·ID 쌍의 편의와 외래 키 무결성 한계, 종류별 테이블과 고정 외래 키 대안 | 2026-09-28 |
@@ -51,6 +53,8 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring 회원 관리 웹 MVC](spring/spring-member-web-mvc.md) | Form binding, Thymeleaf 목록·property 접근, memory 생명주기와 IntelliJ 단축키 | 2026-08-13 |
 | [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
 | [JPA 1:1 매핑 선택과 지연 로딩](spring/jpa-to-one-lazy-loading-and-unique-foreign-key.md) | 전체 고유 1:1과 이력형 다대일을 구분하고, 역방향 지연 로딩과 조건부 고유 인덱스 선택 기준을 설명 | 2026-10-01 |
+| [Hibernate `@SQLRestriction`: 고정 조회 조건의 동작과 한계](spring/hibernate-sqlrestriction.md) | 엔티티·연관 컬렉션의 차이, 고정 SQL 조건의 조합 방식과 `@Filter`·`@SoftDelete`와의 차이 | 2026-10-02 |
+| [JPA 엔티티·필드·연관 컬렉션과 DB 구조의 대응](spring/jpa-entity-association-collection-mapping.md) | 엔티티·객체·필드·연관 컬렉션을 DB 테이블·행·열·외래 키와 연결해 설명 | 2026-10-02 |
 | [Hibernate @GeneratedColumn과 DB 생성 열](spring/hibernate-generated-column.md) | 생성 열을 쓰는 상황과 계산식 예시, 값 재조회 및 관련 주석의 차이 | 2026-09-29 |
 | [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
@@ -84,10 +88,11 @@ Kotlin 언어의 기본 문법, 자료구조, 함수형·객체지향 구성 요
 | [Kotlin 컬렉션](kotlin/kotlin-collections.md) | List, Set, Map의 읽기 전용·변경 가능 형태와 주요 연산 | 2026-08-10 |
 | [Kotlin 제어 흐름](kotlin/kotlin-control-flow.md) | if·when 조건식, 범위와 for·while 반복문 | 2026-08-10 |
 | [Kotlin 함수](kotlin/kotlin-functions.md) | 함수 선언, 이름 있는 인자, 기본값, Unit, 단일 표현식과 조기 반환 | 2026-08-10 |
-| [Kotlin 클래스와 데이터 클래스](kotlin/kotlin-classes-and-data-classes.md) | 클래스의 프로퍼티·생성자·멤버 함수와 데이터 클래스의 자동 생성 기능 | 2026-08-10 |
+| [Kotlin factory 함수와 객체 생성 규칙](kotlin/kotlin-factory-functions-and-construction-rules.md) | factory와 생성자의 차이, 결제 원장 부호 예시, 직접 생성 우회와 JPA 제약 | 2026-10-02 |
+| [Kotlin 클래스와 `data class`](kotlin/kotlin-classes-and-data-classes.md) | 클래스 기본 문법과 `data class`의 자동 생성 함수·구조 분해·얕은 복사·비교 대상 규칙 | 2026-10-02 |
 | [Kotlin 상속, 인터페이스와 위임](kotlin/kotlin-inheritance-interfaces-and-delegation.md) | `open` 상속과 override부터 abstract class·interface·`by` delegation까지의 선택 기준 | 2026-08-12 |
 | [Kotlin 특수 클래스](kotlin/kotlin-special-classes.md) | sealed class·enum class·inline value class의 목적, 문법과 선택 기준 | 2026-08-12 |
-| [Kotlin Objects](kotlin/kotlin-objects.md) | 초보자를 위한 class·instance 비교와 object, data object, companion object, object expression | 2026-08-11 |
+| [Kotlin Objects](kotlin/kotlin-objects.md) | 초보자를 위한 class·instance 비교와 object, data object, companion object, object expression | 2026-10-02 |
 | [Kotlin Null Safety](kotlin/kotlin-null-safety.md) | nullable 타입, null 검사, 안전 호출과 Elvis 연산자 | 2026-08-10 |
 | [Kotlin 고차 함수와 람다](kotlin/kotlin-higher-order-functions-and-lambdas.md) | 함수 타입, 고차 함수, 람다·익명 함수, 클로저와 리시버 함수 리터럴의 핵심 규칙 | 2026-08-10 |
 | [Kotlin 확장 함수](kotlin/kotlin-extension-functions.md) | 기존 클래스를 수정하지 않고 receiver 기반 함수를 추가하는 문법과 설계 방식 | 2026-08-10 |
