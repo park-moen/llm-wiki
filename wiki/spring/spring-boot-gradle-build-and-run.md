@@ -1,12 +1,42 @@
 # Spring Boot Gradle 빌드와 JAR 실행
 
-> Sources: 김영한, 2026-01-30
-> Raw: [프로젝트 환경 설정: 빌드하고 실행하기](../../raw/spring/spring-boot-build-and-run.md); [프로젝트 환경 설정 PDF companion](../../raw/spring/spring-project-environment-setup.md)
-> Updated: 2026-08-12
+> Sources: 김영한, 2026-01-30; Spring Boot, Unknown; Gradle, Unknown; Oracle, Unknown
+> Raw: [프로젝트 환경 설정: 빌드하고 실행하기](../../raw/spring/spring-boot-build-and-run.md); [프로젝트 환경 설정 PDF companion](../../raw/spring/spring-project-environment-setup.md); [Spring Boot Gradle 실행 JAR 패키징](../../raw/spring/spring-boot-gradle-packaging-executable-archives.md); [Gradle Java plugin task](../../raw/spring/gradle-java-plugin-tasks.md); [Spring Boot Gradle 애플리케이션 실행](../../raw/spring/spring-boot-gradle-running-application.md); [Java JAR 파일 형식](../../raw/spring/java-jar-file-specification.md); [Java JAR 파일 소개](../../raw/spring/java-packaging-programs-in-jar-files.md); [Java의 JAR 실행 명령](../../raw/spring/java-command-jar-execution.md); [Gradle 기본 개념](../../raw/spring/gradle-core-concepts.md)
+> Updated: 2026-10-04
 
 ## Overview
 
-Spring Boot application은 IDE 안에서만 실행하는 것이 아니라 Gradle Wrapper로 build해 실행 가능한 JAR로 만들 수 있다. 생성된 JAR에는 application과 실행에 필요한 구성이 함께 들어가므로 server에 복사한 뒤 `java -jar`로 실행할 수 있다. Build 전에 IDE에서 실행 중인 application을 종료해 같은 port를 중복 사용하지 않도록 해야 한다.
+**JAR은 여러 파일을 하나로 묶은 파일이고, `bootJar`는 Spring Boot 애플리케이션을 실행할 수 있는 JAR을 만드는 Gradle 작업이다.** `./gradlew build`를 실행하면 보통 이 작업도 함께 실행된다. 생성된 JAR은 서버에 복사해 `java -jar`로 실행할 수 있다.
+
+## 먼저, JAR이란?
+
+JAR은 ZIP 형식을 바탕으로 여러 파일을 하나로 묶은 파일이다. Java 프로그램의 코드가 컴파일된 파일과 설정·이미지 같은 자료를 함께 담을 수 있다. 파일명은 보통 `hello-spring.jar`처럼 `.jar`로 끝난다. **JAR은 파일의 형식**이지, 그 자체로 Spring Boot 전용 기술이나 실행 명령은 아니다.
+
+`java -jar hello-spring.jar`는 Java에게 그 파일 속 프로그램을 시작하라는 명령이다. 이 방식으로 실행하려면 JAR 안에 시작할 class를 알려주는 정보가 있어야 한다. 프로그램이 사용하는 library도 실행할 때 찾을 수 있어야 한다. 따라서 **모든 JAR 파일이 파일 하나만으로 실행되는 것은 아니다.**
+
+## `jar`와 `bootJar`는 무엇이 다른가?
+
+Gradle은 프로젝트를 build하는 도구다. Gradle에서 **task는 한 가지 작업의 이름**이고, **plugin은 필요한 작업들을 Gradle에 추가하는 기능**이다. 이름이 비슷하지만 `jar`는 파일 확장자이기도 하고, 일반 JAR을 만드는 Gradle task의 이름이기도 하다.
+
+| 이름 | 뜻 | 결과 |
+|------|----|------|
+| `.jar` | 묶음 파일의 형식 | `hello-spring.jar` 같은 파일 |
+| `jar` | Gradle Java plugin의 작업 | 주로 프로젝트의 코드와 자료를 담은 일반 JAR |
+| `bootJar` | Spring Boot Gradle plugin의 작업 | 코드와 실행에 필요한 library를 함께 담은 실행 가능한 JAR |
+
+## `bootJar`의 의미와 사용 이유
+
+Spring Boot plugin과 Gradle `java` plugin을 적용하면 `bootJar` 작업이 생긴다. 이 작업은 Spring Boot 애플리케이션의 코드와 자료를 `BOOT-INF/classes`에, 실행에 필요한 library를 `BOOT-INF/lib`에 넣어 JAR을 만든다. 서버에는 이 JAR을 복사하고 `java -jar`로 실행할 수 있어서 배포가 간단해진다.
+
+일반 `jar` 작업은 프로젝트의 코드와 자료를 묶는다. Spring Boot plugin의 기본 설정에서는 이 파일명에 `plain`이 붙어 `bootJar` 결과물과 구분된다. 예를 들어 `hello-spring-plain.jar`가 보이면 Spring Boot 실행용 JAR이라고 생각하고 배포하지 않는다.
+
+## `bootJar`를 사용하지 않으면?
+
+상황을 구분해야 한다.
+
+1. **명령을 직접 호출하지 않은 경우:** `./gradlew build` 또는 `./gradlew assemble`을 실행하면 기본 task 연결에 따라 `bootJar`도 실행된다. 별도로 `./gradlew bootJar`를 입력할 필요는 없다.
+2. **`bootJar`를 비활성화하거나 실행하지 않아 실행 JAR을 만들지 않은 경우:** `jar` task가 활성화되어 있다면 일반 JAR은 만들 수 있지만, 그 파일만 복사해 `java -jar`로 Spring Boot 애플리케이션을 실행하는 배포 방식에는 사용할 수 없다. 별도의 의존성 classpath와 실행 설정이 필요하다.
+3. **JAR 없이 개발 중 실행하려는 경우:** `./gradlew bootRun`을 사용하면 archive를 먼저 만들지 않고 runtime classpath로 애플리케이션을 실행할 수 있다.
 
 ## Build 전에 IDE 실행 종료
 

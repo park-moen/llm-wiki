@@ -1236,3 +1236,11 @@
 - Disposition: New; Update
 - Raw: raw/kotlin/2026-08-12-kotlin-coding-conventions-factory-functions.md; raw/kotlin/2025-11-13-kotlin-visibility-modifiers-constructors.md; raw/kotlin/2026-08-12-kotlin-classes-initializer-validation.md; raw/database/stripe-balance-transaction-signed-amounts.md
 - Updated: Kotlin Objects
+
+## [2026-10-04] ingest | Spring Boot Gradle 빌드와 JAR 실행
+- Disposition: Update
+- Raw: raw/spring/spring-boot-gradle-packaging-executable-archives.md; raw/spring/gradle-java-plugin-tasks.md; raw/spring/spring-boot-gradle-running-application.md
+
+## [2026-10-04] ingest | Spring Boot Gradle 빌드와 JAR 실행
+- Disposition: Update
+- Raw: raw/spring/java-jar-file-specification.md; raw/spring/java-packaging-programs-in-jar-files.md; raw/spring/java-command-jar-execution.md; raw/spring/gradle-core-concepts.md

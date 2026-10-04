@@ -45,7 +45,7 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [스프링 입문 학습 로드맵](spring/spring-learning-roadmap.md) | 실습으로 전체 개발 사이클을 익힌 뒤 핵심 원리와 웹·데이터 기술로 확장하는 학습 경로 | 2026-08-12 |
 | [Spring Boot 프로젝트 생성과 첫 실행](spring/spring-boot-project-setup.md) | Spring Initializr 프로젝트 생성, 기본 구조, 버전 지침과 내장 Tomcat 실행 확인 | 2026-08-12 |
 | [Spring Boot Starter와 의존성 구조](spring/spring-boot-starter-dependencies.md) | Starter의 전이 의존성, 주요 library와 IntelliJ에서 dependency tree를 확인하는 방법 | 2026-08-12 |
-| [Spring Boot Gradle 빌드와 JAR 실행](spring/spring-boot-gradle-build-and-run.md) | Gradle Wrapper build, JAR 산출물과 `java -jar` 실행·port 충돌 대응 | 2026-08-12 |
+| [Spring Boot Gradle 빌드와 JAR 실행](spring/spring-boot-gradle-build-and-run.md) | JAR 파일의 뜻부터 Gradle `jar`·`bootJar`의 차이, 실행 JAR 배포와 `bootRun`까지 설명 | 2026-10-04 |
 | [Spring MVC View 렌더링과 Thymeleaf](spring/spring-mvc-view-rendering.md) | MVC 책임 분리, `@RequestParam`, Thymeleaf 렌더링과 IntelliJ Parameter Info | 2026-08-12 |
 | [Spring MVC API 응답과 HttpMessageConverter](spring/spring-mvc-api-response.md) | `@ResponseBody`, JavaBean property, Jackson converter와 IntelliJ 구문 완성 단축키 | 2026-08-12 |
 | [Spring 회원 관리 백엔드와 테스트](spring/spring-member-backend-and-testing.md) | Repository·Service 구현, Given–When–Then과 예외 테스트, DI 및 IntelliJ 단축키 | 2026-08-13 |
