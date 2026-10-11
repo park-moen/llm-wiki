@@ -1,8 +1,8 @@
 # Spring 회원 관리 백엔드와 테스트
 
-> Sources: 김영한, 2026-01-30
-> Raw: [회원 관리 예제 - 백엔드 개발 PDF companion](../../raw/spring/spring-member-backend-development.md); [회원 관리 예제 - 비즈니스 요구사항 강의](../../raw/spring/spring-member-management-requirements-lecture.md); [회원 Domain과 Repository 구현 강의](../../raw/spring/spring-member-domain-repository-implementation-lecture.md); [회원 Repository 테스트 케이스 강의](../../raw/spring/spring-member-repository-test-lecture.md); [회원 Service 구현 강의](../../raw/spring/spring-member-service-implementation-lecture.md); [회원 Service 테스트 강의](../../raw/spring/spring-member-service-test-lecture.md)
-> Updated: 2026-08-13
+> Sources: 김영한, 2026-01-30; Inflearn Spring 정률 할인 정책 개발 강의 사용자 제공 스크립트, Unknown
+> Raw: [회원 관리 예제 - 백엔드 개발 PDF companion](../../raw/spring/spring-member-backend-development.md); [회원 관리 예제 - 비즈니스 요구사항 강의](../../raw/spring/spring-member-management-requirements-lecture.md); [회원 Domain과 Repository 구현 강의](../../raw/spring/spring-member-domain-repository-implementation-lecture.md); [회원 Repository 테스트 케이스 강의](../../raw/spring/spring-member-repository-test-lecture.md); [회원 Service 구현 강의](../../raw/spring/spring-member-service-implementation-lecture.md); [회원 Service 테스트 강의](../../raw/spring/spring-member-service-test-lecture.md); [정률 할인 정책 개발 강의](../../raw/spring/spring-rate-discount-policy-development-lecture.md)
+> Updated: 2026-10-11
 
 ## Overview
 
@@ -110,14 +110,14 @@ Test 수가 많아지면 IDE의 class 단위 실행이나 Gradle test task로 �
 - Interface method 구현: macOS `Option + Enter`로 intention menu를 열고 `Implement Methods`를 선택한다.
 - Import 보조: 강의에서는 `Ctrl + Space` 또는 macOS `Option + Enter`를 사용한다.
 - 현재 구문 완성: macOS `Command + Shift + Enter`를 사용한다.
-- AssertJ static import: macOS `Option + Enter`로 static import option을 선택한다.
+- AssertJ static import: macOS `Option + Enter`로 static import option을 선택한다. 정률 할인 정책 개발 강의에서는 Windows `Alt + Enter`도 안내한다.
 - Rename refactoring: 강의 표기는 `Shift + F6`이며, 동일한 이름의 참조를 함께 변경한다.
 - Return value를 local variable로 추출: macOS `Command + Option + V`를 사용한다.
 - Refactor menu: 강의 표기는 `Ctrl + T`다.
 - Extract Method: macOS `Command + Option + M`을 사용한다.
-- Test class 생성: macOS `Command + Shift + T`로 `Create New Test`를 열고 JUnit 5를 선택한다.
+- Test class 생성: macOS `Command + Shift + T`로 `Create New Test`를 열고 JUnit 5를 선택한다. 정률 할인 정책 개발 강의에서 확인한 Windows 대응 단축키는 `Ctrl + Shift + T`다.
 - 이전 실행 반복: macOS `Ctrl + R`, Windows `Shift + F10`을 사용한다.
-- Windows·Linux의 Test class 생성 대응 key는 이번 raw에 제시되지 않으므로 추정하지 않는다. 현재 IntelliJ keymap에서 `Implement Methods`, `Complete Current Statement`, `Static Import`, `Rename`, `Introduce Variable`, `Refactor This`, `Extract Method`, `Create New Test`, `Run Context Configuration` action을 조회한다.
+- 회원 관리 강의 원문에는 Windows·Linux의 Test class 생성 대응 key가 제시되지 않았다. 정률 할인 정책 개발 강의로 Windows 단축키는 확인했으며, Linux 단축키는 원문에 없어 추정하지 않는다. 그 밖의 환경별 단축키는 현재 IntelliJ keymap에서 `Implement Methods`, `Complete Current Statement`, `Static Import`, `Rename`, `Introduce Variable`, `Refactor This`, `Extract Method`, `Create New Test`, `Run Context Configuration` action을 조회한다.
 
 ## Service의 business 규칙과 테스트
 
@@ -177,6 +177,8 @@ Constructor로 외부의 Repository를 받게 하면 Service와 test가 같은 i
 `@AfterEach`에서는 `repository.clearStore()`를 호출해 다음 test에 회원 data가 누적되지 않게 한다. `@BeforeEach`의 fixture 생성과 `@AfterEach`의 상태 정리를 함께 사용하면 각 test가 독립적으로 실행된다.
 
 ## See Also
+
+- [할인 정책 확장과 단위 테스트](discount-policy-extension-and-testing.md)
 
 - [Spring Bean과 의존관계 설정](spring-beans-and-dependency-injection.md)
 - [Spring 회원 관리 웹 MVC](spring-member-web-mvc.md)

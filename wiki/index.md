@@ -42,14 +42,15 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [스프링 입문 학습 로드맵](spring/spring-learning-roadmap.md) | 실습으로 전체 개발 사이클을 익힌 뒤 핵심 원리와 웹·데이터 기술로 확장하는 학습 경로 | 2026-08-12 |
+| [스프링 입문 학습 로드맵](spring/spring-learning-roadmap.md) | 입문 실습에서 기본편의 객체 지향 설계·container·Bean 관리로 이어지는 학습 경로 | 2026-10-11 |
 | [Spring Boot 프로젝트 생성과 첫 실행](spring/spring-boot-project-setup.md) | Spring Initializr 프로젝트 생성, 기본 구조, 버전 지침과 내장 Tomcat 실행 확인 | 2026-08-12 |
 | [Spring Boot Starter와 의존성 구조](spring/spring-boot-starter-dependencies.md) | Starter의 전이 의존성, 주요 library와 IntelliJ에서 dependency tree를 확인하는 방법 | 2026-08-12 |
 | [Spring Boot Gradle 빌드와 JAR 실행](spring/spring-boot-gradle-build-and-run.md) | JAR 파일의 뜻부터 Gradle `jar`·`bootJar`의 차이, 실행 JAR 배포와 `bootRun`까지 설명 | 2026-10-04 |
 | [Spring MVC View 렌더링과 Thymeleaf](spring/spring-mvc-view-rendering.md) | MVC 책임 분리, `@RequestParam`, Thymeleaf 렌더링과 IntelliJ Parameter Info | 2026-08-12 |
 | [Spring MVC API 응답과 HttpMessageConverter](spring/spring-mvc-api-response.md) | `@ResponseBody`, JavaBean property, Jackson converter와 IntelliJ 구문 완성 단축키 | 2026-08-12 |
-| [Spring 회원 관리 백엔드와 테스트](spring/spring-member-backend-and-testing.md) | Repository·Service 구현, Given–When–Then과 예외 테스트, DI 및 IntelliJ 단축키 | 2026-08-13 |
-| [Spring Bean과 의존관계 설정](spring/spring-beans-and-dependency-injection.md) | Component scan, Java configuration 조립 코드, DI 방식과 IntelliJ parameter 단축키 | 2026-08-13 |
+| [Spring 회원 관리 백엔드와 테스트](spring/spring-member-backend-and-testing.md) | Repository·Service 구현, Given–When–Then과 예외 테스트, DI 및 IntelliJ 단축키 | 2026-10-11 |
+| [할인 정책 확장과 단위 테스트](spring/discount-policy-extension-and-testing.md) | 정률 할인 테스트, 주문 서비스의 DIP·OCP 문제와 AppConfig로 정책 교체 | 2026-10-11 |
+| [Spring Bean과 의존관계 설정](spring/spring-beans-and-dependency-injection.md) | Bean 등록·DI 입문과 AppConfig, container·scan·자동 주입·singleton 상세 연결 | 2026-10-11 |
 | [Spring 회원 관리 웹 MVC](spring/spring-member-web-mvc.md) | Form binding, Thymeleaf 목록·property 접근, memory 생명주기와 IntelliJ 단축키 | 2026-08-13 |
 | [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
 | [JPA 1:1 매핑 선택과 지연 로딩](spring/jpa-to-one-lazy-loading-and-unique-foreign-key.md) | 전체 고유 1:1과 이력형 다대일을 구분하고, 역방향 지연 로딩과 조건부 고유 인덱스 선택 기준을 설명 | 2026-10-01 |
@@ -59,6 +60,16 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
 | [시드 데이터 초기화와 병렬 개발](spring/seed-data-initialization-and-parallel-development.md) | 시드 데이터·초기화 코드·fixture를 구분하고 Spring profile로 병렬 개발용 데이터를 격리하는 방법 | 2026-09-17 |
+| [스프링 핵심 원리 기본편 학습 안내](spring/spring-core-learning-roadmap.md) | 기본편의 학습 순서, 입문편과의 차이, 자료 버전과 첫 단원 슬라이드 연결 | 2026-10-11 |
+| [객체 지향 설계와 Spring의 SOLID 원칙](spring/spring-object-oriented-design-and-solid.md) | Spring의 목적, 역할·구현 분리, SOLID와 인터페이스 도입 비용 | 2026-10-11 |
+| [기본편 회원·주문 도메인 설계](spring/spring-core-member-order-design.md) | 기본편의 회원·주문 API, 할인 위임과 초기 구현 의존성의 한계 | 2026-10-11 |
+| [AppConfig와 IoC·DI](spring/spring-appconfig-ioc-di.md) | AppConfig로 생성·연결 책임 분리, SRP·DIP·OCP와 Spring 전환 | 2026-10-11 |
+| [Spring container와 Bean 조회](spring/spring-container-bean-lookup.md) | ApplicationContext 생성, 타입·상속별 Bean 조회와 BeanDefinition | 2026-10-11 |
+| [Spring singleton과 Configuration](spring/spring-singleton-and-configuration.md) | 공유 상태의 위험, singleton registry와 @Configuration의 메서드 호출 보장 | 2026-10-11 |
+| [Spring component scan의 범위와 충돌](spring/spring-component-scan.md) | 탐색 범위, stereotype, 필터와 자동·수동 등록 충돌 | 2026-10-11 |
+| [Spring 자동 주입과 Bean 선택](spring/spring-autowiring-and-bean-selection.md) | 생성자 주입, 선택적 의존성, Qualifier·Primary와 List·Map 전략 선택 | 2026-10-11 |
+| [Spring Bean 초기화와 종료 콜백](spring/spring-bean-lifecycle.md) | 의존관계 주입 후 초기화, 종료 콜백과 외부 라이브러리 설정 | 2026-10-11 |
+| [Spring Bean scope와 Provider](spring/spring-bean-scopes-and-provider.md) | singleton·prototype·웹 scope, Provider와 scoped proxy의 지연 조회 | 2026-10-11 |
 
 ## statistics
 

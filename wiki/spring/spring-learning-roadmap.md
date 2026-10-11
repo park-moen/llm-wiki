@@ -1,8 +1,8 @@
 # 스프링 입문 학습 로드맵
 
-> Sources: 김영한, 2026-01-30
-> Raw: [스프링 입문 첫 강의](../../raw/spring/spring-introduction-course-overview.md); [프로젝트 환경 설정: 스프링 부트 프로젝트 생성](../../raw/spring/project-setup-and-spring-initializr.md); [강의 전체 참고 PDF companion](../../raw/spring/spring-course-overview.md); [다음으로 PDF companion](../../raw/spring/spring-next-steps.md)
-> Updated: 2026-08-12
+> Sources: 김영한, 2026-01-30; 김영한, Unknown (스프링 핵심 원리 - 기본편)
+> Raw: [스프링 입문 첫 강의](../../raw/spring/spring-introduction-course-overview.md); [프로젝트 환경 설정: 스프링 부트 프로젝트 생성](../../raw/spring/project-setup-and-spring-initializr.md); [강의 전체 참고 PDF companion](../../raw/spring/spring-course-overview.md); [다음으로 PDF companion](../../raw/spring/spring-next-steps.md); [0. 스프링 핵심 원리 - 기본편 v2023-12-04 PDF companion](../../raw/spring/spring-core-course-overview.md); [10. 다음으로 PDF companion](../../raw/spring/spring-core-next-steps.md)
+> Updated: 2026-10-11
 
 ## Overview
 
@@ -41,6 +41,12 @@
 
 강의 마지막 참고 자료는 다음 학습 경로로 [스프링 완전 정복 로드맵](https://www.inflearn.com/roadmaps/373)과 [스프링 부트와 JPA 실무 완전 정복 로드맵](https://www.inflearn.com/roadmaps/149)을 제시한다. 입문에서 전체 흐름을 경험한 뒤 핵심 원리와 실무 JPA로 확장하는 순서다.
 
+## 기본편 자료로 이어서 학습하기
+
+입문편 다음 단계의 [스프링 핵심 원리 기본편 학습 안내](spring-core-learning-roadmap.md)는 별도 과정의 PDF를 기반으로 정리한다. 입문편의 회원 관리 예제와 기본편의 회원·주문 예제는 API와 학습 목적이 다르므로 구분해 읽는다.
+
+기본편 마무리 자료도 먼저 실습에서 해결할 문제를 경험한 뒤 필요한 원리를 학습하는 순서를 설명한다. 기본편에서 container와 Bean 관리 원리를 익힌 다음 웹·데이터 접근으로 이어지는 상세 흐름은 [기본편 학습 안내](spring-core-learning-roadmap.md)에 연결했다.
+
 ## See Also
 
 - [Spring Boot 프로젝트 생성과 첫 실행](spring-boot-project-setup.md)
@@ -49,3 +55,4 @@
 - [Spring 회원 관리 웹 MVC](spring-member-web-mvc.md)
 - [Spring DB 접근 기술 비교](spring-database-access-technologies.md)
 - [Spring AOP와 공통 관심사 분리](spring-aop-cross-cutting-concerns.md)
+- [스프링 핵심 원리 기본편 학습 안내](spring-core-learning-roadmap.md)

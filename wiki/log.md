@@ -1244,3 +1244,68 @@
 ## [2026-10-04] ingest | Spring Boot Gradle 빌드와 JAR 실행
 - Disposition: Update
 - Raw: raw/spring/java-jar-file-specification.md; raw/spring/java-packaging-programs-in-jar-files.md; raw/spring/java-command-jar-execution.md; raw/spring/gradle-core-concepts.md
+
+## [2026-10-11] ingest | 할인 정책 확장과 단위 테스트
+- Disposition: New; Update
+- Raw: raw/spring/spring-rate-discount-policy-development-lecture.md
+- Updated: Spring 회원 관리 백엔드와 테스트
+
+## [2026-10-11] ingest | 스프링 핵심 원리 기본편 학습 안내
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-course-overview.md
+- Updated: 스프링 입문 학습 로드맵
+
+## [2026-10-11] ingest | 스프링 핵심 원리 기본편 학습 안내 — 별도 PPT 범위
+- Disposition: Update
+- Raw: raw/spring/spring-core-object-oriented-design-outline.md
+
+## [2026-10-11] ingest | 기본편 회원·주문 도메인 설계
+- Disposition: New
+- Raw: raw/spring/spring-core-member-order-example.md
+
+## [2026-10-11] ingest | AppConfig와 IoC·DI
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-object-oriented-principles-application.md
+- Updated: 할인 정책 확장과 단위 테스트
+- Updated: Spring Bean과 의존관계 설정
+
+## [2026-10-11] ingest | Spring container와 Bean 조회
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-container-and-beans.md
+- Updated: Spring Bean과 의존관계 설정
+
+## [2026-10-11] ingest | Spring singleton과 Configuration
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-singleton-container.md
+- Updated: Spring Bean과 의존관계 설정
+
+## [2026-10-11] ingest | Spring component scan의 범위와 충돌
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-component-scan.md
+- Updated: Spring Bean과 의존관계 설정
+
+## [2026-10-11] ingest | Spring 자동 주입과 Bean 선택
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-autowiring.md
+- Updated: Spring Bean과 의존관계 설정
+
+## [2026-10-11] ingest | Spring Bean 초기화와 종료 콜백
+- Disposition: New
+- Raw: raw/spring/spring-core-bean-lifecycle.md
+
+## [2026-10-11] ingest | Spring Bean scope와 Provider
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-bean-scopes.md
+- Updated: Spring Bean 초기화와 종료 콜백
+- Updated: Spring Bean과 의존관계 설정
+
+## [2026-10-11] ingest | 스프링 핵심 원리 기본편 학습 안내 — 후속 학습
+- Disposition: Update
+- Raw: raw/spring/spring-core-next-steps.md
+- Updated: 스프링 입문 학습 로드맵
+
+## [2026-10-11] ingest | 객체 지향 설계와 Spring의 SOLID 원칙
+- Disposition: New; Update
+- Raw: raw/spring/spring-core-object-oriented-design-slides.md
+- Updated: 스프링 핵심 원리 기본편 학습 안내
+- Updated: AppConfig와 IoC·DI
