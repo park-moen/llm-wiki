@@ -1,8 +1,8 @@
 # Kotlin 상속, 인터페이스와 위임
 
-> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-07-01
-> Raw: [Classes and interfaces](../../raw/kotlin/2026-07-01-kotlin-intermediate-classes-interfaces.md); [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md)
-> Updated: 2026-08-12
+> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-09-02; Kotlin Documentation, 2026-09-02
+> Raw: [Classes and interfaces](../../raw/kotlin/2026-07-01-kotlin-intermediate-classes-interfaces.md); [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Open and special classes — 2026-09-02](../../raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -46,6 +46,25 @@ Kotlin class는 기본적으로 다른 class가 상속할 수 없다. 이는 의
 ## Open class와 override
 
 Interface나 abstract class가 맞지 않고 완성된 구체 class를 확장해야 한다면 class 선언 앞에 `open`을 붙인다.
+
+### Interface나 추상 클래스가 맞지 않는 경우
+
+공식 tour의 “interface나 추상 클래스를 사용할 수 없는 경우”는 구체적인 요구와 함께 읽어야 한다. 대표적인 경우는 **부모 클래스 자체도 객체로 만들고, 그 클래스를 확장한 자식도 만들고 싶을 때**다. 추상 클래스와 interface는 직접 객체를 만들 수 없으므로 이 요구를 그대로 충족하지 못한다. Interface에는 생성자도 없으므로, 아래 `Vehicle`처럼 생성자로 상태를 받아 보관하는 구체 클래스 역할을 대신할 수 없다.
+
+`open class`는 직접 객체를 만들 수 있으면서 상속을 허용한다. 다음은 tour의 `Vehicle`과 `Car` 선언에 부모 객체 생성도 덧붙인 학습 예제다.
+
+```kotlin
+open class Vehicle(val make: String, val model: String)
+
+class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model)
+
+val vehicle = Vehicle("Toyota", "Corolla")
+val car = Car("Toyota", "Corolla", 4)
+```
+
+`Vehicle`을 추상 클래스로 바꾸면 `Vehicle(...)`을 직접 호출해 객체를 만들 수 없다. 공통 역할만 정의할 때는 interface를, 직접 객체로 만들지 않을 공통 기반을 정의할 때는 추상 클래스를 고려한다. 부모 자체도 사용할 구체 클래스라면 `open class`가 맞는다. 이는 앞의 “클래스 사이에서 코드를 공유하려면 먼저 추상 클래스를 고려한다”는 기준과 함께 적용하는 선택 기준이다.
+
+### 상속과 override 문법
 
 ```kotlin
 open class Vehicle(val make: String, val model: String)
@@ -215,6 +234,10 @@ class SmartMessenger(
 
 Delegation은 inheritance hierarchy를 추가하는 대신 기존 instance의 동작을 재사용한다. 따라서 대부분의 동작은 그대로 전달하면서 일부 동작만 바꾸는 wrapper를 만들 때 유용하다.
 
+### 프로퍼티 위임과 구분하기
+
+Interface 위임의 `by`는 interface의 멤버 구현을 맡긴다. 프로퍼티 선언에서도 `by`를 쓸 수 있지만, 이 경우에는 getter·setter의 처리를 위임 객체의 `getValue()`·`setValue()`에 맡긴다. `lazy`와 `observable`을 포함한 구체적인 사용법은 [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)에 정리했다.
+
 ### 위임에서 주의할 점
 
 Wrapper가 property를 override해도 delegate 내부의 member function이 그 값을 자동으로 사용하는 것은 아니다. 공식 `DrawingTool` 예제에서 `CanvasSession.color`는 `blue`로 override되지만, 위임된 `PenTool.draw()`는 `PenTool` 자신의 `black`을 사용한다.
@@ -252,6 +275,8 @@ override       = 물려받거나 위임받은 동작을 내가 다시 정의
 ```
 
 ## See Also
+
+- [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)
 
 - [Kotlin Objects](kotlin-objects.md)
 - [Kotlin 특수 클래스](kotlin-special-classes.md)

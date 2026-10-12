@@ -1,8 +1,8 @@
 # Kotlin 함수
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Functions](../../raw/kotlin/functions-3.md)
-> Updated: 2026-08-10
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
+> Raw: [Functions](../../raw/kotlin/functions-3.md); [Null safety — intermediate tour](../../raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -70,11 +70,17 @@ fun registerUser(username: String): String {
 }
 ```
 
+### nullable 값 확보와 조기 반환
+
+`val value = nullableValue ?: return ...` 형태로 필요한 값이 없을 때 함수를 끝낼 수 있다. 정상 경로에서는 확보한 값을 사용하므로 null 검사 중첩을 줄일 수 있다. 안전한 cast와 조기 반환, 재고 수량 검사 예제는 [Kotlin Null Safety](kotlin-null-safety.md)에 정리했다.
+
 ## 람다와의 관계
 
 람다는 함수를 값으로 표현해 다른 함수에 전달하거나 함수에서 반환하고, 별도로 호출할 수 있게 한다. 함수 타입과 람다 문법, 후행 람다, 익명 함수에 관한 상세 규칙은 별도 문서에서 다룬다.
 
 ## See Also
+
+- [Kotlin Null Safety](kotlin-null-safety.md)
 
 - [Kotlin 기본 타입과 타입 추론](kotlin-basic-types.md)
 - [Kotlin 제어 흐름](kotlin-control-flow.md)

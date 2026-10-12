@@ -1309,3 +1309,28 @@
 - Raw: raw/spring/spring-core-object-oriented-design-slides.md
 - Updated: 스프링 핵심 원리 기본편 학습 안내
 - Updated: AppConfig와 IoC·DI
+
+## [2026-10-12] ingest | Kotlin 특수 클래스
+- Disposition: Update
+- Raw: raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md
+- Updated: Kotlin 상속, 인터페이스와 위임
+- Notes: 앞서 저장한 raw를 기존 Wiki에 통합했습니다. 특수 클래스 문서에 상태와 오류 종류를 함께 표현하는 예제를 추가하고, 상속 문서에 open class를 선택하는 이유를 보완했습니다.
+
+## [2026-10-12] ingest | Kotlin 프로퍼티와 접근·위임
+- Disposition: New; Update
+- Raw: raw/kotlin/2026-09-02-kotlin-intermediate-properties.md
+- Updated: Kotlin 클래스와 `data class`
+- Updated: Kotlin 확장 함수
+- Updated: Kotlin 상속, 인터페이스와 위임
+
+## [2026-10-12] ingest | Kotlin Null Safety
+- Disposition: Update
+- Raw: raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md
+- Updated: Kotlin 컬렉션
+- Updated: Kotlin 함수
+
+## [2026-10-12] ingest | Kotlin 라이브러리와 API 사용
+- Disposition: New; Update
+- Raw: raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md
+- Updated: Kotlin Objects
+- Updated: Kotlin 프로퍼티와 접근·위임

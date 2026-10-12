@@ -1,8 +1,8 @@
 # Kotlin 컬렉션
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Collections](../../raw/kotlin/collections-3.md)
-> Updated: 2026-08-10
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
+> Raw: [Collections](../../raw/kotlin/collections-3.md); [Null safety — intermediate tour](../../raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -59,6 +59,12 @@ menu["coconut"] = 150
 val missing = menu["pineapple"] // null
 val hasApple = "apple" in menu
 ```
+
+## null을 제외하거나 결과 부재 처리하기
+
+`filterNotNull()`은 기존 리스트의 null 원소를 제외하고, `listOfNotNull()`은 null을 제외해 리스트를 생성한다. 변환과 null 결과 제거를 함께 하려면 `mapNotNull()`을 사용한다. 빈 컬렉션의 최댓값·최솟값은 `maxOrNull()`·`minOrNull()`로 조회하면 null로 처리할 수 있다.
+
+조건을 만족하는 원소가 정확히 하나인지 확인할 때는 `singleOrNull { ... }`을 쓴다. 일치하는 원소가 없거나 여럿이면 null을 반환한다. 변환 결과에서 처음 non-null 값을 찾는 `firstNotNullOfOrNull()`과 빈 컬렉션에 null을 반환하는 `reduceOrNull()`의 비교·예제는 [Kotlin Null Safety](kotlin-null-safety.md)에 정리했다.
 
 ## See Also
 

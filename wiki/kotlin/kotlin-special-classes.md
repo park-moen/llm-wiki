@@ -1,8 +1,8 @@
 # Kotlin 특수 클래스
 
-> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-06-29
-> Raw: [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md)
-> Updated: 2026-08-12
+> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-06-29; Kotlin Documentation, 2026-09-02
+> Raw: [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Open and special classes — 2026-09-02](../../raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -105,6 +105,43 @@ fun sendEmail(email: Email) {
 상태마다 담는 data나 구현이 다르면 sealed class
 하나의 원시적 값을 의미 있는 별도 type으로 감싸면 inline value class
 ```
+
+## Sealed class와 enum class를 함께 쓰는 예제
+
+공식 tour의 연습문제는 두 방식을 함께 사용한다. 전체 작업 상태는 `Status` 계층으로 나누고, 오류 상태 안에서 고정된 오류 종류를 `Problem` enum으로 구분한다.
+
+```kotlin
+sealed class Status {
+    data object Loading : Status()
+    data class Error(val problem: Problem) : Status() {
+        enum class Problem {
+            NETWORK,
+            TIMEOUT,
+            UNKNOWN
+        }
+    }
+
+    data class OK(val data: List<String>) : Status()
+}
+```
+
+`Loading`에는 추가 데이터가 없고, `OK`에는 결과 목록이 있으며, `Error`에는 오류 종류가 있다. 상태마다 담는 데이터가 달라 sealed 계층으로 표현한다. `NETWORK`, `TIMEOUT`, `UNKNOWN`은 고정된 이름 목록이므로 enum으로 표현한다. 두 문법은 서로 다른 수준의 분류를 맡는다.
+
+```kotlin
+fun handleStatus(status: Status) {
+    when (status) {
+        is Status.Loading -> println("Loading...")
+        is Status.OK -> println("Data received: ${status.data}")
+        is Status.Error -> when (status.problem) {
+            Status.Error.Problem.NETWORK -> println("Network issue")
+            Status.Error.Problem.TIMEOUT -> println("Request timed out")
+            Status.Error.Problem.UNKNOWN -> println("Unknown error occurred")
+        }
+    }
+}
+```
+
+바깥 `when`은 전체 상태를, 오류 분기 안의 `when`은 오류 종류를 처리한다. 이는 위의 선택 기준을 실제로 조합한 예제다.
 
 ## See Also
 

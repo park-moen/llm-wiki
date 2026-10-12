@@ -1,8 +1,8 @@
 # Kotlin 확장 함수
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Extension functions](../../raw/kotlin/kotlin-intermediate-extension-functions.md)
-> Updated: 2026-08-10
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
+> Raw: [Extension functions](../../raw/kotlin/kotlin-intermediate-extension-functions.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -37,11 +37,17 @@ fun HttpClient.post(url: String): HttpResponse =
 
 `HttpClient` 인스턴스가 리시버이므로 확장 함수 본문에서 해당 클래스의 `request()`를 직접 호출할 수 있다. 새로운 네트워크 로직을 핵심 클래스에 중복 구현하지 않고, 일반적인 사용 사례를 읽기 쉬운 API로 제공하는 방식이다.
 
+## 확장 프로퍼티와의 관계
+
+기존 클래스에서 계산한 값을 프로퍼티 표기로 제공하려면 확장 프로퍼티를 사용할 수 있다. 확장 함수와 마찬가지로 receiver를 지정하지만, `receiver.property` 형태로 접근한다. 확장 프로퍼티에는 backing field가 없어 새 상태를 보관할 수 없다. 선언과 getter 예제는 [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)에 정리했다.
+
 ## Extension-oriented design
 
 확장 함수는 여러 위치에서 정의할 수 있으므로 핵심 기능과 유용하지만 필수적이지 않은 기능을 분리하는 설계를 지원한다. 이를 통해 중심 클래스는 기본 책임에 집중하고, 편의 API는 별도의 확장 함수 집합으로 구성할 수 있다. Kotlin standard library와 여러 Kotlin 라이브러리에서도 이 접근을 사용한다.
 
 ## See Also
+
+- [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)
 
 - [Kotlin 함수](kotlin-functions.md)
 - [Kotlin 컬렉션](kotlin-collections.md)

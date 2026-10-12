@@ -1,8 +1,8 @@
 # Kotlin Objects
 
-> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2025-02-23; Kotlin Documentation, 2026-06-29; Kotlin Documentation, Unknown
-> Raw: [Objects](../../raw/kotlin/2026-07-01-kotlin-intermediate-objects.md); [Object declarations and expressions](../../raw/kotlin/2025-02-23-kotlin-object-declarations-and-expressions.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Shared mutable state and concurrency](../../raw/kotlin/kotlin-shared-mutable-state-and-concurrency.md)
-> Updated: 2026-10-02
+> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2025-02-23; Kotlin Documentation, 2026-06-29; Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
+> Raw: [Objects](../../raw/kotlin/2026-07-01-kotlin-intermediate-objects.md); [Object declarations and expressions](../../raw/kotlin/2025-02-23-kotlin-object-declarations-and-expressions.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Shared mutable state and concurrency](../../raw/kotlin/kotlin-shared-mutable-state-and-concurrency.md); [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -215,6 +215,10 @@ BigBen.ring()
 
 위 코드에서 companion object의 이름은 `Bonger`지만 호출은 `BigBen.ring()`처럼 class 이름으로 한다.
 
+### Companion object 멤버 import
+
+Package의 wildcard import와 달리 companion object의 멤버는 `*`로 import할 수 없다. 필요한 멤버를 개별적으로 지정한다. 표준 라이브러리의 예는 `import kotlin.time.Duration.Companion.minutes`와 `import kotlin.time.Duration.Companion.hours`다. 이 확장 프로퍼티를 가져오면 `30.minutes`·`0.5.hours`로 `Duration` 값을 만들 수 있다. 전체 예제는 [Kotlin 라이브러리와 API 사용](kotlin-libraries-and-apis.md)에 정리했다.
+
 ### 기억할 문장
 
 **Companion object는 instance 안에 들어가는 복사본이 아니라, class에 연결된 하나의 공유 object다.**
@@ -270,6 +274,8 @@ println(greeting) // 안녕, Kotlin
 5. 마지막으로 object expression이 이름 있는 object declaration과 어떻게 다른지 살펴본다.
 
 ## See Also
+
+- [Kotlin 라이브러리와 API 사용](kotlin-libraries-and-apis.md)
 
 - [Kotlin factory 함수와 객체 생성 규칙](kotlin-factory-functions-and-construction-rules.md)
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)

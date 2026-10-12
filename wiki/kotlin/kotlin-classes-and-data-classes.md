@@ -1,8 +1,8 @@
 # Kotlin 클래스와 `data class`
 
-> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-03-14
-> Raw: [Classes](../../raw/kotlin/classes-3.md); [Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
-> Updated: 2026-10-02
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-03-14; Kotlin Documentation, 2026-09-02
+> Raw: [Classes](../../raw/kotlin/classes-3.md); [Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md)
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -19,6 +19,8 @@ class Contact(val id: Int, var email: String) {
 ```
 
 인스턴스 생성 후 변경할 필요가 없는 프로퍼티는 `val`로 선언하는 것이 권장된다. 클래스 헤더의 매개변수에 `val`이나 `var`를 붙이지 않으면 인스턴스 생성 후 프로퍼티로 접근할 수 없다. 프로퍼티에는 함수 매개변수처럼 기본값을 줄 수 있다.
+
+프로퍼티 표기로 값을 읽고 쓰는 동작은 getter·setter를 거친다. 기본 접근자는 컴파일러가 제공하며, 필요하면 접근 과정에 로직을 추가할 수 있다. 실제 저장 공간인 backing field와 `field` 사용법은 [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)에 정리했다.
 
 ## 인스턴스와 생성자
 
@@ -84,6 +86,8 @@ val (name, id) = renamed
 - **선언에는 제약이 있다.** 주 생성자에 프로퍼티가 하나 이상 있어야 하고, 모든 주 생성자 매개변수에 `val` 또는 `var`를 붙여야 한다. `data class` 자체를 `open`, `abstract`, `sealed`, `inner`로 선언할 수 없다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 
 ## See Also
+
+- [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)
 
 - [Kotlin Objects](kotlin-objects.md)
 - [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)
