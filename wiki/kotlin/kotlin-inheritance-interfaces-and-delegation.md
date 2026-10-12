@@ -274,6 +274,83 @@ by             = 그 행동을 다른 객체에게 맡김
 override       = 물려받거나 위임받은 동작을 내가 다시 정의
 ```
 
+## 직접 작성하는 연습: 알림 기능 위임과 일부 override
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+PrefixNotifier가 Notifier 구현을 delegate에 by로 위임하도록 선언하세요. send만 override해 접두어를 붙이고, ping은 위임된 구현을 사용하세요.
+
+### 시작 코드
+
+```kotlin
+interface Notifier {
+    fun send(message: String)
+    fun ping(): String
+}
+
+class ConsoleNotifier : Notifier {
+    override fun send(message: String) {
+        println(message)
+    }
+    override fun ping(): String = "pong"
+}
+
+class PrefixNotifier(private val delegate: Notifier) : Notifier /* TODO: by로 delegate에 위임 */ {
+    override fun send(message: String) {
+        TODO("접두어를 붙여 delegate.send 호출")
+    }
+}
+
+fun main() {
+    val notifier = PrefixNotifier(ConsoleNotifier())
+    notifier.send("hello")
+    println(notifier.ping())
+}
+```
+
+### 예상 출력
+
+```text
+[app] hello
+pong
+```
+
+> [!tip]- 힌트
+> 직접 override하지 않은 interface 멤버는 위임 객체가 처리합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> interface Notifier {
+>     fun send(message: String)
+>     fun ping(): String
+> }
+>
+> class ConsoleNotifier : Notifier {
+>     override fun send(message: String) {
+>         println(message)
+>     }
+>     override fun ping(): String = "pong"
+> }
+>
+> class PrefixNotifier(private val delegate: Notifier) : Notifier by delegate {
+>     override fun send(message: String) {
+>         delegate.send("[app] $message")
+>     }
+> }
+>
+> fun main() {
+>     val notifier = PrefixNotifier(ConsoleNotifier())
+>     notifier.send("hello")
+>     println(notifier.ping())
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+send의 override를 제거하면 출력이 어떻게 달라지는지 먼저 예상하고 실행하세요.
+
 ## See Also
 
 - [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)

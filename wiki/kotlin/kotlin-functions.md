@@ -78,6 +78,53 @@ fun registerUser(username: String): String {
 
 람다는 함수를 값으로 표현해 다른 함수에 전달하거나 함수에서 반환하고, 별도로 호출할 수 있게 한다. 함수 타입과 람다 문법, 후행 람다, 익명 함수에 관한 상세 규칙은 별도 문서에서 다룬다.
 
+## 직접 작성하는 연습: 기본값이 있는 금액 함수
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+총액을 계산하는 함수를 작성하세요. 배송비 기본값은 0이고, 배송비가 필요한 호출에서는 이름 있는 인자를 사용하세요.
+
+### 시작 코드
+
+```kotlin
+fun calculateTotal(price: Int, quantity: Int, shipping: Int /* TODO: 기본값 0 지정 */): Int {
+    return TODO("총액 계산")
+}
+
+fun main() {
+    println(calculateTotal(price = 10, quantity = 2))
+    println(calculateTotal(price = 10, quantity = 2, shipping = 3))
+}
+```
+
+### 예상 출력
+
+```text
+20
+23
+```
+
+> [!tip]- 힌트
+> 매개변수의 기본값은 타입 뒤에 = 값으로 지정합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> fun calculateTotal(price: Int, quantity: Int, shipping: Int = 0): Int {
+>     return price * quantity + shipping
+> }
+>
+> fun main() {
+>     println(calculateTotal(price = 10, quantity = 2))
+>     println(calculateTotal(price = 10, quantity = 2, shipping = 3))
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+같은 함수를 = 표현식 하나로 다시 작성하세요.
+
 ## See Also
 
 - [Kotlin Null Safety](kotlin-null-safety.md)

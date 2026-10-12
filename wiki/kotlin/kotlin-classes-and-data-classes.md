@@ -85,6 +85,61 @@ val (name, id) = renamed
 - **클래스 본문의 프로퍼티는 값 비교와 복사에 빠진다.** `data class Person(val name: String) { var age: Int = 0 }`에서 이름이 같고 `age`만 다른 두 인스턴스는 `equals()` 결과가 같다. `copy()`도 `age`를 복사 대상으로 삼지 않는다. 동등성을 결정해야 하는 값이라면 주 생성자에 둘지 검토해야 한다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 - **선언에는 제약이 있다.** 주 생성자에 프로퍼티가 하나 이상 있어야 하고, 모든 주 생성자 매개변수에 `val` 또는 `var`를 붙여야 한다. `data class` 자체를 `open`, `abstract`, `sealed`, `inner`로 선언할 수 없다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 
+## 직접 작성하는 연습: 상품 복사와 원본 비교
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+이름과 가격을 가진 data class Product를 선언하세요. copy로 가격만 바꾼 객체와, 아무 값도 바꾸지 않은 객체를 만드세요.
+
+### 시작 코드
+
+```kotlin
+// TODO: name: String과 price: Int를 가진 data class Product 선언
+
+fun main() {
+    val original = Product("book", 10)
+    val discounted = TODO("가격을 7로 바꾼 복사본")
+    val same = TODO("값을 유지한 복사본")
+    println(original.price)
+    println(discounted.price)
+    println(original == same)
+    println(original == discounted)
+}
+```
+
+### 예상 출력
+
+```text
+10
+7
+true
+false
+```
+
+> [!tip]- 힌트
+> data class의 copy는 지정한 프로퍼티만 바꾼 새 객체를 반환합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> data class Product(val name: String, val price: Int)
+>
+> fun main() {
+>     val original = Product("book", 10)
+>     val discounted = original.copy(price = 7)
+>     val same = original.copy()
+>     println(original.price)
+>     println(discounted.price)
+>     println(original == same)
+>     println(original == discounted)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+discounted의 이름도 바꿔 보고 original의 이름이 유지되는지 확인하세요.
+
 ## See Also
 
 - [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)

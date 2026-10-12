@@ -2,7 +2,7 @@
 
 > Sources: Kotlin Documentation, Unknown
 > Raw: [Higher-order functions and lambdas](../../raw/kotlin/higher-order-functions-and-lambdas.md); [Functions](../../raw/kotlin/functions-3.md); [Lambda expressions with receiver](../../raw/kotlin/kotlin-intermediate-lambdas-with-receiver.md)
-> Updated: 2026-08-10
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -194,6 +194,60 @@ val mainMenu = menu("Main Menu") {
 ```
 
 Kotlin standard library의 `buildList()`와 `buildString()`도 이 설계 패턴의 예다. 리시버가 있는 람다는 type-safe builder와 결합해 타입 문제를 런타임이 아니라 컴파일 시점에 찾는 DSL을 만드는 데 사용할 수 있다.
+
+## 직접 작성하는 연습: 계산 방법을 함수로 전달
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+함수를 받는 transformEach를 완성하세요. for에서 transform을 호출해 결과를 모으고, 호출부에서는 각 값을 두 배로 만드는 람다를 전달하세요.
+
+### 시작 코드
+
+```kotlin
+fun transformEach(values: List<Int>, transform: (Int) -> Int): List<Int> {
+    val results = mutableListOf<Int>()
+    for (value in values) {
+        // TODO: transform에 value를 전달해 results에 추가
+    }
+    return results
+}
+
+fun main() {
+    val doubled = transformEach(listOf(1, 2, 3)) { TODO("두 배로 변환하는 람다") }
+    println(doubled)
+}
+```
+
+### 예상 출력
+
+```text
+[2, 4, 6]
+```
+
+> [!tip]- 힌트
+> transform은 함수 값이므로 transform(value)로 호출합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> fun transformEach(values: List<Int>, transform: (Int) -> Int): List<Int> {
+>     val results = mutableListOf<Int>()
+>     for (value in values) {
+>         results.add(transform(value))
+>     }
+>     return results
+> }
+>
+> fun main() {
+>     val doubled = transformEach(listOf(1, 2, 3)) { value -> value * 2 }
+>     println(doubled)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+호출부의 람다만 바꿔 각 값에 1을 더하세요. transformEach 본문은 유지하세요.
 
 ## See Also
 

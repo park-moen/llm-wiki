@@ -1334,3 +1334,9 @@
 - Raw: raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md
 - Updated: Kotlin Objects
 - Updated: Kotlin 프로퍼티와 접근·위임
+
+## [2026-10-12] practice | Kotlin Wiki 직접 작성 연습
+- Scope: wiki/kotlin 문서 15개
+- Changes: 시작 코드, 예상 출력, 접힌 힌트·정답, 추가 변형 과제를 각 문서에 추가했습니다.
+- Basis: 각 문서의 기존 설명과 Raw 출처에 근거한 개념을 학습용 예제로 재구성했습니다.
+- Verification: 정답 코드 15개를 로컬 Kotlin compiler로 컴파일하고 실행해 예상 출력과 대조했습니다. 문서에 저장된 코드, 링크, index, 공백 검사와 raw 보존도 확인했습니다.

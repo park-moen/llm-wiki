@@ -2,7 +2,7 @@
 
 > Sources: Kotlin Documentation, 2026-08-12; Kotlin Documentation, 2025-11-13; Kotlin Documentation, 2025-02-23; Stripe Documentation, Unknown; Jakarta Persistence Specification, 2024-04-10
 > Raw: [Coding conventions: factory functions](../../raw/kotlin/2026-08-12-kotlin-coding-conventions-factory-functions.md); [Visibility modifiers: constructors](../../raw/kotlin/2025-11-13-kotlin-visibility-modifiers-constructors.md); [Classes: constructors and initializer blocks](../../raw/kotlin/2026-08-12-kotlin-classes-initializer-validation.md); [Object declarations and expressions](../../raw/kotlin/2025-02-23-kotlin-object-declarations-and-expressions.md); [Stripe balance transaction](../../raw/database/stripe-balance-transaction-signed-amounts.md); [Jakarta Persistence entity rules](../../raw/spring/jakarta-persistence-3-2-entity-and-composite-id-rules.md)
-> Updated: 2026-10-02
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -86,6 +86,84 @@ fun recordExample(amount: Long) {
 ### JPA 엔티티라면
 
 위 `private constructor` 예시를 JPA 엔티티에 그대로 붙이면 안 된다. Jakarta Persistence는 엔티티에 `public` 또는 `protected` 무인자 생성자를 요구하고, 엔티티 class가 `final`이어서는 안 된다고 규정한다. 따라서 실제 `PaymentLedger`가 JPA 엔티티라면 사용하는 JPA 설정에 맞는 생성자를 두고, 애플리케이션의 factory와 생성·저장 경로 검증을 함께 설계해야 한다. **질문의 리뷰만으로는 실제 코드의 생성자 가시성, 엔티티 여부, DB 제약을 확인할 수 없다.**
+
+## 직접 작성하는 연습: factory로 금액 부호 결정
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+일반 Kotlin 클래스의 생성자를 private으로 두세요. approve와 cancel은 양수 입력을 검사하고, cancel은 음수로 저장하세요. 이 연습은 문서의 부호 규칙만 다룹니다.
+
+### 시작 코드
+
+```kotlin
+class Entry /* TODO: 외부 직접 생성을 막는 접근 범위 */ constructor(val signedAmount: Long) {
+    init {
+        require(signedAmount != 0L)
+    }
+    companion object {
+        fun approve(amount: Long): Entry {
+            TODO("양수 입력 검사")
+            return Entry(amount)
+        }
+        fun cancel(amount: Long): Entry {
+            TODO("양수 입력 검사")
+            return TODO("음수 금액으로 Entry 생성")
+        }
+    }
+}
+
+fun main() {
+    val approval = Entry.approve(50L)
+    val cancellation = Entry.cancel(50L)
+    println(approval.signedAmount)
+    println(cancellation.signedAmount)
+    println(approval.signedAmount + cancellation.signedAmount)
+}
+```
+
+### 예상 출력
+
+```text
+50
+-50
+0
+```
+
+> [!tip]- 힌트
+> factory는 일반 함수이고 private constructor는 외부 직접 생성을 막습니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> class Entry private constructor(val signedAmount: Long) {
+>     init {
+>         require(signedAmount != 0L)
+>     }
+>     companion object {
+>         fun approve(amount: Long): Entry {
+>             require(amount > 0L)
+>             return Entry(amount)
+>         }
+>         fun cancel(amount: Long): Entry {
+>             require(amount > 0L)
+>             return Entry(-amount)
+>         }
+>     }
+> }
+>
+> fun main() {
+>     val approval = Entry.approve(50L)
+>     val cancellation = Entry.cancel(50L)
+>     println(approval.signedAmount)
+>     println(cancellation.signedAmount)
+>     println(approval.signedAmount + cancellation.signedAmount)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+main에 Entry(50L)를 추가해 접근 제한을 확인하고, Entry.cancel(0L)의 검증 실패도 확인하세요.
 
 ## See Also
 

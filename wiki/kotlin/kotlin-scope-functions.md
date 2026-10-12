@@ -2,7 +2,7 @@
 
 > Sources: Kotlin Documentation, Unknown
 > Raw: [Scope functions](../../raw/kotlin/kotlin-intermediate-scope-functions.md)
-> Updated: 2026-08-10
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -90,6 +90,65 @@ with(canvas) {
 ## 선택 원칙
 
 Scope function은 단순히 코드를 짧게 만들기 위한 문법이 아니다. 객체를 설정하는 것이 목적이면 `apply`, 결과 계산이면 `run`이나 `let`, 기존 chain을 유지하며 부가 동작을 넣는다면 `also`, 한 객체의 여러 동작을 묶는다면 `with`가 의도를 더 직접적으로 드러낸다.
+
+## 직접 작성하는 연습: apply로 초기화하고 let으로 결과 만들기
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+apply에서 프로필 이름을 설정하고, let으로 이름 길이를 계산하세요. 객체와 계산 결과의 타입을 비교하세요.
+
+### 시작 코드
+
+```kotlin
+class Profile {
+    var name: String = ""
+}
+
+fun main() {
+    val profile: Profile = Profile().apply {
+        // TODO: apply 안에서 name을 Mina로 설정
+    }
+    val length: Int = profile.let {
+        TODO("let에서 이름 길이 반환")
+    }
+    println(profile.name)
+    println(length)
+}
+```
+
+### 예상 출력
+
+```text
+Mina
+4
+```
+
+> [!tip]- 힌트
+> apply는 같은 객체를 반환하고 let은 람다의 마지막 표현식을 반환합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> class Profile {
+>     var name: String = ""
+> }
+>
+> fun main() {
+>     val profile: Profile = Profile().apply {
+>         name = "Mina"
+>     }
+>     val length: Int = profile.let {
+>         it.name.length
+>     }
+>     println(profile.name)
+>     println(length)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+let을 run으로 바꾸고 it 대신 receiver의 멤버에 접근해 같은 결과를 만드세요.
 
 ## See Also
 

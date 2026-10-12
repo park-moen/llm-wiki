@@ -104,6 +104,54 @@ fun main() {
 
 Opt-in 방식의 상세 규칙은 원문에 연결된 [Opt-in requirements](https://kotlinlang.org/docs/opt-in-requirements.html)에서 확인할 수 있다.
 
+## 직접 작성하는 연습: Duration 확장 프로퍼티 import
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+Duration과 companion object의 minutes·hours를 각각 import하세요. 두 시간 값을 만들어 비교하세요. companion object 멤버에는 wildcard import를 쓰지 마세요.
+
+### 시작 코드
+
+```kotlin
+// TODO: Duration 클래스 import
+// TODO: hours 멤버 import
+// TODO: minutes 멤버 import
+
+fun main() {
+    val wait: Duration = TODO("30분 Duration")
+    val halfHour: Duration = TODO("0.5시간 Duration")
+    println(wait == halfHour)
+}
+```
+
+### 예상 출력
+
+```text
+true
+```
+
+> [!tip]- 힌트
+> 클래스를 import하는 것과 companion object에 선언된 확장 프로퍼티를 import하는 것을 구분하세요.
+
+> [!success]- 정답 확인
+> ```kotlin
+> import kotlin.time.Duration
+> import kotlin.time.Duration.Companion.hours
+> import kotlin.time.Duration.Companion.minutes
+>
+> fun main() {
+>     val wait: Duration = 30.minutes
+>     val halfHour: Duration = 0.5.hours
+>     println(wait == halfHour)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+wait만 20.minutes로 바꾸면 비교 결과가 어떻게 달라지는지 확인하세요.
+
 ## See Also
 
 - [Kotlin 컬렉션](kotlin-collections.md)

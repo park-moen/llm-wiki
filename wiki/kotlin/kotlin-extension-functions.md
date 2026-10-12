@@ -45,6 +45,52 @@ fun HttpClient.post(url: String): HttpResponse =
 
 확장 함수는 여러 위치에서 정의할 수 있으므로 핵심 기능과 유용하지만 필수적이지 않은 기능을 분리하는 설계를 지원한다. 이를 통해 중심 클래스는 기본 책임에 집중하고, 편의 API는 별도의 확장 함수 집합으로 구성할 수 있다. Kotlin standard library와 여러 Kotlin 라이브러리에서도 이 접근을 사용한다.
 
+## 직접 작성하는 연습: Int에 양수 검사 함수 추가
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+Int를 receiver로 받는 isPositive 확장 함수를 작성하세요. receiver가 0보다 큰지 반환하세요.
+
+### 시작 코드
+
+```kotlin
+// TODO: Int.isPositive()를 선언하고 Boolean 반환
+
+fun main() {
+    println(3.isPositive())
+    println(0.isPositive())
+    println((-2).isPositive())
+}
+```
+
+### 예상 출력
+
+```text
+true
+false
+false
+```
+
+> [!tip]- 힌트
+> 확장 함수 본문에서 receiver 값은 this로 참조합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> fun Int.isPositive(): Boolean = this > 0
+>
+> fun main() {
+>     println(3.isPositive())
+>     println(0.isPositive())
+>     println((-2).isPositive())
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+String을 receiver로 받는 surround 함수를 만들어 앞뒤에 괄호를 붙여 보세요.
+
 ## See Also
 
 - [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)

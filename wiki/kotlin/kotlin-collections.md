@@ -66,6 +66,58 @@ val hasApple = "apple" in menu
 
 조건을 만족하는 원소가 정확히 하나인지 확인할 때는 `singleOrNull { ... }`을 쓴다. 일치하는 원소가 없거나 여럿이면 null을 반환한다. 변환 결과에서 처음 non-null 값을 찾는 `firstNotNullOfOrNull()`과 빈 컬렉션에 null을 반환하는 `reduceOrNull()`의 비교·예제는 [Kotlin Null Safety](kotlin-null-safety.md)에 정리했다.
 
+## 직접 작성하는 연습: 상품 목록과 재고 Map 수정
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+변경 가능한 상품 목록에 book을 추가하고 pen을 제거하세요. 재고 Map에는 book 수량을 2로 저장하세요.
+
+### 시작 코드
+
+```kotlin
+fun main() {
+    val products = mutableListOf("pen", "cup")
+    // TODO: products에 book 추가
+    // TODO: products에서 pen 제거
+    val stock = mutableMapOf("cup" to 1)
+    // TODO: stock에 book 수량 2 저장
+    println(products)
+    println(stock["book"])
+    println(stock["pen"])
+}
+```
+
+### 예상 출력
+
+```text
+[cup, book]
+2
+null
+```
+
+> [!tip]- 힌트
+> MutableList의 add·remove와 Map의 []를 사용하세요.
+
+> [!success]- 정답 확인
+> ```kotlin
+> fun main() {
+>     val products = mutableListOf("pen", "cup")
+>     products.add("book")
+>     products.remove("pen")
+>     val stock = mutableMapOf("cup" to 1)
+>     stock["book"] = 2
+>     println(products)
+>     println(stock["book"])
+>     println(stock["pen"])
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+products 선언을 listOf로 바꾸면 어떤 수정이 불가능해지는지 확인하세요.
+
 ## See Also
 
 - [Kotlin 기본 타입과 타입 추론](kotlin-basic-types.md)

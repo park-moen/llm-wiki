@@ -161,6 +161,79 @@ class Thermostat {
 | 첫 접근까지 초기화를 미루고 결과 재사용 | `by lazy` |
 | 값 변경에 로그나 알림 등으로 반응 | `observable` |
 
+## 직접 작성하는 연습: setter 변환과 lazy 초기화 확인
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+name의 setter에서 field로 첫 글자를 대문자로 저장하세요. label은 lazy로 초기화하며 init을 출력한 뒤 name을 반환하도록 작성하세요.
+
+### 시작 코드
+
+```kotlin
+class Profile {
+    var name: String = ""
+        set(value) {
+            TODO("field에 첫 글자를 대문자로 바꾼 값 저장")
+        }
+    val label: String by lazy {
+        TODO("init 출력 후 name 반환")
+    }
+}
+
+fun main() {
+    val profile = Profile()
+    profile.name = "mina"
+    println(profile.name)
+    println(profile.label)
+    profile.name = "june"
+    println(profile.name)
+    println(profile.label)
+}
+```
+
+### 예상 출력
+
+```text
+Mina
+init
+Mina
+June
+Mina
+```
+
+> [!tip]- 힌트
+> setter는 저장 과정을 바꾸고 lazy는 처음 얻은 결과를 저장합니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> class Profile {
+>     var name: String = ""
+>         set(value) {
+>             field = value.replaceFirstChar { it.uppercase() }
+>         }
+>     val label: String by lazy {
+>         println("init")
+>         name
+>     }
+> }
+>
+> fun main() {
+>     val profile = Profile()
+>     profile.name = "mina"
+>     println(profile.name)
+>     println(profile.label)
+>     profile.name = "june"
+>     println(profile.name)
+>     println(profile.label)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+label을 get() = name으로 바꾸고 마지막 출력이 어떻게 달라지는지 비교하세요.
+
 ## See Also
 
 - [Kotlin 라이브러리와 API 사용](kotlin-libraries-and-apis.md)

@@ -273,6 +273,68 @@ println(greeting) // 안녕, Kotlin
 4. `Temperature.fromFahrenheit(...)`가 companion object function 호출임을 확인한다.
 5. 마지막으로 object expression이 이름 있는 object declaration과 어떻게 다른지 살펴본다.
 
+## 직접 작성하는 연습: object와 companion object 호출 구분
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+Logger object의 log를 구현하고 User의 companion object에 guest 함수를 만드세요. Logger()를 생성하지 않고 로그를 남기세요.
+
+### 시작 코드
+
+```kotlin
+object Logger {
+    fun log(message: String) {
+        TODO("message 출력")
+    }
+}
+
+class User(val name: String) {
+    companion object {
+        fun guest(): User = TODO("Guest 이름의 User 생성")
+    }
+}
+
+fun main() {
+    val user = User.guest()
+    Logger.log(user.name)
+}
+```
+
+### 예상 출력
+
+```text
+Guest
+```
+
+> [!tip]- 힌트
+> Logger는 하나의 객체 이름이고 User.guest는 클래스 이름을 통한 companion 함수 호출입니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> object Logger {
+>     fun log(message: String) {
+>         println(message)
+>     }
+> }
+>
+> class User(val name: String) {
+>     companion object {
+>         fun guest(): User = User("Guest")
+>     }
+> }
+>
+> fun main() {
+>     val user = User.guest()
+>     Logger.log(user.name)
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+Logger()로 호출해 보고 일반 클래스와 생성 문법이 어떻게 다른지 확인하세요.
+
 ## See Also
 
 - [Kotlin 라이브러리와 API 사용](kotlin-libraries-and-apis.md)

@@ -147,6 +147,56 @@ fun getNotificationPreferences(user: Any, emailEnabled: Boolean, smsEnabled: Boo
 
 `user`가 `User`가 아니면 빈 리스트를 반환하고, 이름이 null이면 `Guest`를 사용한다. `takeIf { 조건 }`은 조건이 참이면 원래 값을, 거짓이면 null을 반환한다. `listOfNotNull()`이 그 null을 제외하므로 활성화된 알림 문구만 목록에 들어간다. `mapNotNull()`과 `takeIf`도 같은 원리로 활성 사용자 이름만 골라낼 수 있다.
 
+## 직접 작성하는 연습: 알 수 없는 입력의 문자열 길이
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+Any? 입력을 as?로 String으로 다루세요. 문자열이면 길이를, 문자열이 아니거나 null이면 0을 반환하세요.
+
+### 시작 코드
+
+```kotlin
+fun textLength(value: Any?): Int {
+    return TODO("as?, ?., ?: 조합")
+}
+
+fun main() {
+    println(textLength("Kotlin"))
+    println(textLength(7))
+    println(textLength(null))
+}
+```
+
+### 예상 출력
+
+```text
+6
+0
+0
+```
+
+> [!tip]- 힌트
+> 타입 확인 실패와 입력 null을 같은 기본값으로 처리할 수 있습니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> fun textLength(value: Any?): Int {
+>     return (value as? String)?.length ?: 0
+> }
+>
+> fun main() {
+>     println(textLength("Kotlin"))
+>     println(textLength(7))
+>     println(textLength(null))
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+as?를 as로 바꾸고 문자열이 아닌 입력에서 어떤 오류가 발생하는지 확인하세요.
+
 ## See Also
 
 - [Kotlin 기본 타입과 타입 추론](kotlin-basic-types.md)

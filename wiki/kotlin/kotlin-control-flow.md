@@ -2,7 +2,7 @@
 
 > Sources: Kotlin Documentation, Unknown
 > Raw: [Control flow](../../raw/kotlin/control-flow-3.md)
-> Updated: 2026-08-10
+> Updated: 2026-10-12
 
 ## Overview
 
@@ -68,6 +68,56 @@ do {
     cakesBaked++
 } while (cakesBaked < cakesEaten)
 ```
+
+## 직접 작성하는 연습: 수량별 처리 상태 분류
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+`classify()`에 when을 작성하세요. 음수면 invalid, 0이면 empty, 양수면 ready를 반환합니다. for로 모든 수량을 순회하세요.
+
+### 시작 코드
+
+```kotlin
+fun classify(quantity: Int): String = TODO("when으로 수량 분류")
+
+fun main() {
+    val quantities = listOf(-1, 0, 2)
+    // TODO: quantities를 for로 순회하며 classify 결과 출력
+}
+```
+
+### 예상 출력
+
+```text
+invalid
+empty
+ready
+```
+
+> [!tip]- 힌트
+> 조건을 직접 쓰는 when에는 주제를 넣지 않습니다.
+
+> [!success]- 정답 확인
+> ```kotlin
+> fun classify(quantity: Int): String = when {
+>     quantity < 0 -> "invalid"
+>     quantity == 0 -> "empty"
+>     else -> "ready"
+> }
+>
+> fun main() {
+>     val quantities = listOf(-1, 0, 2)
+>     for (quantity in quantities) {
+>         println(classify(quantity))
+>     }
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+양수 중 1만 low로 분류하도록 분기를 추가하세요.
 
 ## See Also
 

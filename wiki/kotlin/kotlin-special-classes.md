@@ -143,6 +143,72 @@ fun handleStatus(status: Status) {
 
 바깥 `when`은 전체 상태를, 오류 분기 안의 `when`은 오류 종류를 처리한다. 이는 위의 선택 기준을 실제로 조합한 예제다.
 
+## 직접 작성하는 연습: sealed 상태와 enum 오류 종류 조합
+
+본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
+
+### 할 일
+
+Result 계층과 ErrorCode 목록을 사용해 describe의 when을 완성하세요. Loading은 loading, Success는 data, Error는 오류 종류 이름을 반환하세요.
+
+### 시작 코드
+
+```kotlin
+enum class ErrorCode { NETWORK, TIMEOUT }
+
+sealed class Result {
+    data object Loading : Result()
+    data class Success(val data: String) : Result()
+    data class Error(val code: ErrorCode) : Result()
+}
+
+fun describe(result: Result): String = TODO("else 없이 상태별 when 작성")
+
+fun main() {
+    println(describe(Result.Loading))
+    println(describe(Result.Success("done")))
+    println(describe(Result.Error(ErrorCode.NETWORK)))
+}
+```
+
+### 예상 출력
+
+```text
+loading
+done
+NETWORK
+```
+
+> [!tip]- 힌트
+> 추가 값이 없는 Loading과 데이터를 담는 Success·Error의 분기 문법을 비교하세요.
+
+> [!success]- 정답 확인
+> ```kotlin
+> enum class ErrorCode { NETWORK, TIMEOUT }
+>
+> sealed class Result {
+>     data object Loading : Result()
+>     data class Success(val data: String) : Result()
+>     data class Error(val code: ErrorCode) : Result()
+> }
+>
+> fun describe(result: Result): String = when (result) {
+>     Result.Loading -> "loading"
+>     is Result.Success -> result.data
+>     is Result.Error -> result.code.toString()
+> }
+>
+> fun main() {
+>     println(describe(Result.Loading))
+>     println(describe(Result.Success("done")))
+>     println(describe(Result.Error(ErrorCode.NETWORK)))
+> }
+> ```
+
+### 한 번 더 바꿔 보기
+
+Result에 Canceled 상태를 추가하고 describe를 수정하기 전 컴파일 오류를 확인하세요.
+
 ## See Also
 
 - [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)
