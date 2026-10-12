@@ -93,22 +93,24 @@ Docker image·container·storage·network와 Docker Compose 기반 다중 contai
 
 Kotlin 언어의 기본 문법, 자료구조, 함수형·객체지향 구성 요소와 안전성 규칙을 정리한다.
 
+처음에는 아래 순서대로 읽고, 각 글의 직접 작성 연습을 풀어 보세요.
+
 | Article | Summary | Updated |
 |---------|---------|---------|
 | [Kotlin 기본 타입과 타입 추론](kotlin/kotlin-basic-types.md) | 기본 타입의 범주, 타입 추론, 명시적 타입과 초기화 규칙; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 컬렉션](kotlin/kotlin-collections.md) | List, Set, Map의 읽기 전용·변경 가능 형태와 주요 연산; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin 제어 흐름](kotlin/kotlin-control-flow.md) | if·when 조건식, 범위와 for·while 반복문; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin 함수](kotlin/kotlin-functions.md) | 함수 선언, 이름 있는 인자, 기본값, Unit, 단일 표현식과 조기 반환; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin factory 함수와 객체 생성 규칙](kotlin/kotlin-factory-functions-and-construction-rules.md) | factory와 생성자의 차이, 결제 원장 부호 예시, 직접 생성 우회와 JPA 제약; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin 컬렉션](kotlin/kotlin-collections.md) | List, Set, Map의 읽기 전용·변경 가능 형태와 주요 연산; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin 클래스와 `data class`](kotlin/kotlin-classes-and-data-classes.md) | 클래스 기본 문법과 `data class`의 자동 생성 함수·구조 분해·얕은 복사·비교 대상 규칙; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 프로퍼티와 접근·위임](kotlin/kotlin-properties.md) | getter·setter와 field, 확장·위임 프로퍼티, lazy 초기화와 observable 변경 알림; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 상속, 인터페이스와 위임](kotlin/kotlin-inheritance-interfaces-and-delegation.md) | 부모 객체 생성과 상속을 함께 허용하는 `open`의 용도, override·abstract class·interface·`by` 선택 기준; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 특수 클래스](kotlin/kotlin-special-classes.md) | sealed class·enum class·inline value class의 선택 기준과 상태·오류 종류를 함께 표현하는 예제; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin Objects](kotlin/kotlin-objects.md) | 초보자를 위한 class·instance 비교와 object, data object, companion object, object expression; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin Null Safety](kotlin/kotlin-null-safety.md) | nullable 타입과 안전 호출, smart cast·as?, 컬렉션의 null 처리와 Elvis 조기 반환; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin 고차 함수와 람다](kotlin/kotlin-higher-order-functions-and-lambdas.md) | 함수 타입, 고차 함수, 람다·익명 함수, 클로저와 리시버 함수 리터럴의 핵심 규칙; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin 확장 함수](kotlin/kotlin-extension-functions.md) | 기존 클래스를 수정하지 않고 receiver 기반 함수를 추가하는 문법과 설계 방식; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin Scope Functions](kotlin/kotlin-scope-functions.md) | let·apply·run·also·with의 객체 접근 방식, 반환값과 선택 기준; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin 상속, 인터페이스와 위임](kotlin/kotlin-inheritance-interfaces-and-delegation.md) | 부모 객체 생성과 상속을 함께 허용하는 `open`의 용도, override·abstract class·interface·`by` 선택 기준; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin Objects](kotlin/kotlin-objects.md) | 초보자를 위한 class·instance 비교와 object, data object, companion object, object expression; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin 특수 클래스](kotlin/kotlin-special-classes.md) | sealed class·enum class·inline value class의 선택 기준과 상태·오류 종류를 함께 표현하는 예제; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin 프로퍼티와 접근·위임](kotlin/kotlin-properties.md) | getter·setter와 field, 확장·위임 프로퍼티, lazy 초기화와 observable 변경 알림; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin factory 함수와 객체 생성 규칙](kotlin/kotlin-factory-functions-and-construction-rules.md) | factory와 생성자의 차이, 결제 원장 부호 예시, 직접 생성 우회와 JPA 제약; 직접 작성하는 연습 포함 | 2026-10-12 |
 | [Kotlin 라이브러리와 API 사용](kotlin/kotlin-libraries-and-apis.md) | 표준 라이브러리와 import, 별도 의존성 추가, companion 멤버 import와 API opt-in; 직접 작성하는 연습 포함 | 2026-10-12 |
 
 ## git
