@@ -1,8 +1,8 @@
 # Kotlin 상속, 인터페이스와 위임
 
-> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-09-02; Kotlin Documentation, 2026-09-02
-> Raw: [Classes and interfaces](../../raw/kotlin/2026-07-01-kotlin-intermediate-classes-interfaces.md); [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Open and special classes — 2026-09-02](../../raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-09-02; Kotlin Documentation, 2026-09-02; Kotlin Documentation, Unknown; Svetlana Isakova, 2020-07-16; Kotlin Language Specification, Unknown
+> Raw: [Classes and interfaces](../../raw/kotlin/2026-07-01-kotlin-intermediate-classes-interfaces.md); [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Open and special classes — 2026-09-02](../../raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md); [Interfaces](../../raw/kotlin/kotlin-interfaces.md); [What's new in Kotlin 2.2.0 — JVM excerpts](../../raw/kotlin/kotlin-whatsnew22.md); [Kotlin 1.4-M3: Generating Default Methods in Interfaces](../../raw/kotlin/2020-07-16-jetbrains-jvm-default-methods-design-2.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -274,6 +274,18 @@ by             = 그 행동을 다른 객체에게 맡김
 override       = 물려받거나 위임받은 동작을 내가 다시 정의
 ```
 
+## override 호출과 초기화의 관계
+
+일반 멤버의 override는 실행 시 객체의 구현과 관련된다. 부모 생성·초기화 과정에서 open 멤버를 호출하면 자식의 초기화가 끝나기 전에 자식 구현에 진입할 수 있다. 아직 초기화되지 않은 자식 프로퍼티의 값에 의존하지 않는다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
+이것은 [확장 함수의 정적 선택](kotlin-extension-functions.md)과 다르다. 같은 점 호출 문법이어도 멤버 override와 확장 함수가 같은 방식으로 결정되는 것은 아니다. [객체 초기화 순서](kotlin-object-initialization-order.md)와 함께 읽는다.
+
+## 인터페이스 본문은 JVM에서 어떻게 보이는가
+
+인터페이스는 프로퍼티를 선언할 수 있지만 backing field로 인스턴스 상태를 저장하지는 않는다. 기본 구현 메서드의 JVM 표현은 compiler와 `-jvm-default` 설정에 따라 달라진다. [Interfaces](../../raw/kotlin/kotlin-interfaces.md)
+
+수집한 과거 JetBrains 글은 `DefaultImpls`와 JVM default method 전환 설계를 설명한다. Kotlin `2.2.0`의 변경 사항과 현재 Interfaces 문서는 새로운 설정을 설명하므로 과거 글의 compiler flag를 그대로 현재 프로젝트의 기본값으로 옮기지 않는다. [Kotlin 1.4-M3: Generating Default Methods in Interfaces](../../raw/kotlin/2020-07-16-jetbrains-jvm-default-methods-design-2.md); [What's new in Kotlin 2.2.0 — JVM excerpts](../../raw/kotlin/kotlin-whatsnew22.md)
+
 ## 직접 작성하는 연습: 알림 기능 위임과 일부 override
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -359,3 +371,7 @@ send의 override를 제거하면 출력이 어떻게 달라지는지 먼저 예�
 - [Kotlin 특수 클래스](kotlin-special-classes.md)
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
 - [Kotlin 확장 함수](kotlin-extension-functions.md)
+
+- 학습 순서 이전: [Kotlin factory 함수와 객체 생성 규칙](kotlin-factory-functions-and-construction-rules.md)
+- 학습 순서 다음: [Kotlin 제네릭·variance·타입 소거](kotlin-generics-and-type-erasure.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

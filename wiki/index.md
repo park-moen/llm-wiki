@@ -116,27 +116,84 @@ Docker image·container·storage·network와 Docker Compose 기반 다중 contai
 
 ## kotlin
 
-Kotlin 언어의 기본 문법, 자료구조, 함수형·객체지향 구성 요소와 안전성 규칙을 정리한다.
+Kotlin/JVM의 문법에서 시작해 타입·객체·함수의 내부 원리와 JVM 실행, 비동기·동시성으로 이어지는 학습 경로입니다.
 
-처음에는 아래 순서대로 읽고, 각 글의 직접 작성 연습을 풀어 보세요.
+아래 여섯 단계의 순서대로 읽고 각 문서의 연습을 실행해 보세요. 기존 문법 문서는 유지하고 관련 내부 동작을 보강했으며, 독립적인 주제는 새 문서로 연결했습니다. 예제는 별도 파일에서 실행하는 학습용 코드이며 제품 코드의 권장 설정을 뜻하지 않습니다.
+
+언어가 보장하는 규칙, compiler가 생성한 표현, JVM의 실행 중 최적화를 구분합니다. 수집한 명세·설계 노트와 과거 JetBrains 글은 버전 범위가 다르므로 각 문서의 Raw와 버전 안내를 함께 확인하세요.
+
+### 1. 실행과 기본 문법
+
+처음에는 컴파일 문서의 앞부분만 읽고, 스코프·타입·분기·함수·null 처리로 진행합니다. 컴파일러 내부 구조는 뒤에서 다시 읽어도 됩니다.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [Kotlin 기본 타입과 타입 추론](kotlin/kotlin-basic-types.md) | 기본 타입의 범주, 타입 추론, 명시적 타입과 초기화 규칙; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 제어 흐름](kotlin/kotlin-control-flow.md) | if·when 조건식, 범위와 for·while 반복문; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 함수](kotlin/kotlin-functions.md) | 함수 선언, 이름 있는 인자, 기본값, Unit, 단일 표현식과 조기 반환; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 컬렉션](kotlin/kotlin-collections.md) | List, Set, Map의 읽기 전용·변경 가능 형태와 주요 연산; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 클래스와 `data class`](kotlin/kotlin-classes-and-data-classes.md) | 클래스 기본 문법과 `data class`의 자동 생성 함수·구조 분해·얕은 복사·비교 대상 규칙; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin Null Safety](kotlin/kotlin-null-safety.md) | nullable 타입과 안전 호출, smart cast·as?, 컬렉션의 null 처리와 Elvis 조기 반환; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 고차 함수와 람다](kotlin/kotlin-higher-order-functions-and-lambdas.md) | 함수 타입, 고차 함수, 람다·익명 함수, 클로저와 리시버 함수 리터럴의 핵심 규칙; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 확장 함수](kotlin/kotlin-extension-functions.md) | 기존 클래스를 수정하지 않고 receiver 기반 함수를 추가하는 문법과 설계 방식; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin Scope Functions](kotlin/kotlin-scope-functions.md) | let·apply·run·also·with의 객체 접근 방식, 반환값과 선택 기준; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 상속, 인터페이스와 위임](kotlin/kotlin-inheritance-interfaces-and-delegation.md) | 부모 객체 생성과 상속을 함께 허용하는 `open`의 용도, override·abstract class·interface·`by` 선택 기준; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin Objects](kotlin/kotlin-objects.md) | 초보자를 위한 class·instance 비교와 object, data object, companion object, object expression; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 특수 클래스](kotlin/kotlin-special-classes.md) | sealed class·enum class·inline value class의 선택 기준과 상태·오류 종류를 함께 표현하는 예제; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 프로퍼티와 접근·위임](kotlin/kotlin-properties.md) | getter·setter와 field, 확장·위임 프로퍼티, lazy 초기화와 observable 변경 알림; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin 컴파일과 실행: 소스에서 JVM까지](kotlin/kotlin-compilation-and-execution.md) | 소스·bytecode·JVM의 관계, K2의 분석·IR·코드 생성, 디버깅과 증분 컴파일의 기초 | 2026-10-15 |
+| [Kotlin 스코프와 이름 해석](kotlin/kotlin-scopes-and-name-resolution.md) | 선언 스코프·문장 스코프, 이름 가림과 초기화 순서, JavaScript 호이스팅과의 구분 | 2026-10-15 |
+| [Kotlin 기본 타입과 타입 추론](kotlin/kotlin-basic-types.md) | 기본 타입과 정적 타입 추론, Any·Unit·Nothing의 구분과 수치 표현 연결; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin 숫자의 JVM 표현과 boxing](kotlin/kotlin-numeric-representation-and-boxing.md) | Int·Int?·제네릭 숫자의 표현, 값 비교와 참조 비교, 정수 연산과 부동소수점 주의점 | 2026-10-15 |
+| [Kotlin 제어 흐름](kotlin/kotlin-control-flow.md) | 분기·반복 문법과 표현식 타입·단축 평가·실패 경로; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin 함수](kotlin/kotlin-functions.md) | 함수 선언·기본값·Unit과 인자 평가 순서·overload·Java 호출 구분; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin Null Safety](kotlin/kotlin-null-safety.md) | nullable·안전 호출·smart cast의 안정성과 platform type 경계; 기존 연습 포함 | 2026-10-15 |
+
+### 2. 객체와 상태
+
+클래스와 생성자를 익힌 뒤 초기화·프로퍼티·참조를 연결합니다. 클래스 문서의 data class·copy 절은 동등성 문서를 읽은 후 다시 확인하세요.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Kotlin 클래스와 `data class`](kotlin/kotlin-classes-and-data-classes.md) | 클래스·주 생성자·init 구분, data class 생성 함수와 얕은 복사; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin 생성자와 객체 초기화 순서](kotlin/kotlin-object-initialization-order.md) | 부모·주 생성자·프로퍼티·init·보조 생성자의 순서, 초기화 중 open 호출과 object 초기화 | 2026-10-15 |
+| [Kotlin 프로퍼티와 접근·위임](kotlin/kotlin-properties.md) | getter·setter·field와 위임 변환, lazy·lateinit 초기화 전략; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin 객체 참조·동등성·불변성](kotlin/kotlin-object-references-and-equality.md) | 객체 공유와 참조 값 전달, val과 불변성의 차이, equals·hashCode와 얕은 복사 | 2026-10-15 |
+| [Kotlin Objects](kotlin/kotlin-objects.md) | object·companion object·object expression과 초기화·공유 상태 구분; 기존 연습 포함 | 2026-10-15 |
 | [Kotlin factory 함수와 객체 생성 규칙](kotlin/kotlin-factory-functions-and-construction-rules.md) | factory와 생성자의 차이, 결제 원장 부호 예시, 직접 생성 우회와 JPA 제약; 직접 작성하는 연습 포함 | 2026-10-12 |
-| [Kotlin 라이브러리와 API 사용](kotlin/kotlin-libraries-and-apis.md) | 표준 라이브러리와 import, 별도 의존성 추가, companion 멤버 import와 API opt-in; 직접 작성하는 연습 포함 | 2026-10-12 |
+
+### 3. 타입과 함수의 원리
+
+상속과 제네릭을 바탕으로 호출 대상 선택, receiver, closure와 inline을 배웁니다. 제네릭의 List 예제는 원소 타입 관계를 보기 위한 것으로, 컬렉션 연산은 다음 단계에서 다룹니다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Kotlin 상속, 인터페이스와 위임](kotlin/kotlin-inheritance-interfaces-and-delegation.md) | open·override·interface·by와 초기화 중 호출, JVM default 구현의 버전 차이; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin 제네릭·variance·타입 소거](kotlin/kotlin-generics-and-type-erasure.md) | in·out의 읽기·쓰기 제약, star projection과 실행 시 타입 정보, reified의 한계 | 2026-10-15 |
+| [Kotlin 확장 함수](kotlin/kotlin-extension-functions.md) | receiver와 확장 문법, 정적 선택·멤버 우선·여러 receiver 구분; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin 고차 함수와 람다](kotlin/kotlin-higher-order-functions-and-lambdas.md) | 함수 타입·람다·closure와 mutable 캡처, JVM 람다 생성 방식; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin Scope Functions](kotlin/kotlin-scope-functions.md) | let·apply·run·also·with의 객체 접근 방식, 반환값과 선택 기준; 직접 작성하는 연습 포함 | 2026-10-12 |
+| [Kotlin inline·noinline·crossinline·reified](kotlin/kotlin-inline-and-reified.md) | 호출 지점 확장과 코드 크기, 비지역 반환, 저장할 람다와 reified 타입 검사 | 2026-10-15 |
+| [Kotlin 특수 클래스](kotlin/kotlin-special-classes.md) | sealed·enum·value class의 선택 기준과 boxing·타입 별칭·생성 코드 구분; 기존 연습 포함 | 2026-10-15 |
+
+### 4. 데이터 처리
+
+참조 공유와 read-only의 차이를 바탕으로 컬렉션을 다루고, Sequence에서 실제 평가 시점·순서·비용을 비교합니다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Kotlin 컬렉션](kotlin/kotlin-collections.md) | List·Set·Map, read-only·불변·참조 공유와 구현별 순서·동등성; 기존 연습 포함 | 2026-10-15 |
+| [Kotlin Sequence와 지연 평가](kotlin/kotlin-sequences-and-lazy-evaluation.md) | Iterable과 Sequence의 연산 순서, terminal 연산·중간 컬렉션·작은 작업의 추가 비용 | 2026-10-15 |
+
+### 5. JVM과 실무 연동
+
+메모리·예외·Java 연동을 읽은 뒤 라이브러리의 실행 의존성과 바이너리 계약을 확인합니다. 첫 컴파일 문서의 IR·증분 컴파일 절도 이 단계에서 다시 읽습니다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Kotlin/JVM 메모리·호출 frame·JIT](kotlin/kotlin-jvm-memory-and-execution.md) | JVM의 stack·heap·method area, 클래스 로딩·초기화와 HotSpot 최적화의 구분 | 2026-10-15 |
+| [Kotlin 예외 전파와 자원 정리](kotlin/kotlin-exceptions-and-resource-management.md) | try 표현식·catch 선택·finally·use, Unit·Nothing과 일반 예외·취소의 구분 | 2026-10-15 |
+| [Kotlin Java 연동·reflection·JVM 선언](kotlin/kotlin-java-interop-and-reflection.md) | platform type, top-level·프로퍼티·기본 인자의 Java 표현, KClass·Class·reflection과 버전 의존성 | 2026-10-15 |
+| [Kotlin 라이브러리와 API 사용](kotlin/kotlin-libraries-and-apis.md) | import·의존성·API 사용과 reflection 실행 의존성·바이너리 계약; 기존 연습 포함 | 2026-10-15 |
+
+### 6. 비동기와 동시성
+
+coroutine의 사용 흐름과 suspend 변환을 연결한 뒤 실행 문맥, 취소·실패, Flow와 공유 상태를 배웁니다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Kotlin coroutine 기초와 suspend의 내부 동작](kotlin/kotlin-coroutines-and-suspension.md) | 중단과 thread blocking, Continuation·CPS·상태 머신, 언어 기능과 kotlinx.coroutines의 역할 | 2026-10-15 |
+| [Kotlin CoroutineContext와 dispatcher](kotlin/kotlin-coroutine-context-and-dispatchers.md) | Job·CoroutineName·dispatcher의 역할, 문맥 상속·withContext와 thread 전환·blocking 경계 | 2026-10-15 |
+| [Kotlin 구조화된 동시성·취소·예외 전파](kotlin/kotlin-structured-concurrency-and-cancellation.md) | scope·Job 부모 자식 관계, 협력적 취소와 finally, launch·async·supervisor의 예외 처리 | 2026-10-15 |
+| [Kotlin Flow·StateFlow의 실행과 상태 전달](kotlin/kotlin-flow-and-stateflow.md) | cold flow의 수집과 실행, flowOn·buffer, StateFlow의 최신 상태·동등성 기반 병합과 원자적 update | 2026-10-15 |
+| [Kotlin/JVM 공유 상태·가시성·원자성](kotlin/kotlin-shared-state-and-memory-visibility.md) | JVM 메모리 모델과 happens-before, Volatile의 한계, atomic·Mutex·상태 격리 선택 | 2026-10-15 |
 
 ## git
 

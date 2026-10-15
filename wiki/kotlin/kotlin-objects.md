@@ -1,8 +1,8 @@
 # Kotlin Objects
 
-> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2025-02-23; Kotlin Documentation, 2026-06-29; Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
-> Raw: [Objects](../../raw/kotlin/2026-07-01-kotlin-intermediate-objects.md); [Object declarations and expressions](../../raw/kotlin/2025-02-23-kotlin-object-declarations-and-expressions.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Shared mutable state and concurrency](../../raw/kotlin/kotlin-shared-mutable-state-and-concurrency.md); [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2025-02-23; Kotlin Documentation, 2026-06-29; Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02; Kotlin Language Specification, Unknown; Oracle Java SE Documentation, Unknown
+> Raw: [Objects](../../raw/kotlin/2026-07-01-kotlin-intermediate-objects.md); [Object declarations and expressions](../../raw/kotlin/2025-02-23-kotlin-object-declarations-and-expressions.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Shared mutable state and concurrency](../../raw/kotlin/kotlin-shared-mutable-state-and-concurrency.md); [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md); [Chapter 5. Loading, Linking, and Initializing](../../raw/kotlin/kotlin-jvm-jvm-loading-linking-initialization.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -273,6 +273,12 @@ println(greeting) // 안녕, Kotlin
 4. `Temperature.fromFahrenheit(...)`가 companion object function 호출임을 확인한다.
 5. 마지막으로 object expression이 이름 있는 object declaration과 어떻게 다른지 살펴본다.
 
+## 초기화 시점과 상태의 생명주기
+
+object 선언의 초기화와 object expression을 만났을 때 인스턴스를 생성하는 동작은 구분한다. companion object 역시 일반 인스턴스의 프로퍼티 초기화와 같은 문법으로 단정하지 않는다. 기존 초기화 규칙은 [객체 초기화 순서](kotlin-object-initialization-order.md)의 인스턴스·클래스 구분과 함께 읽는다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md); [Chapter 5. Loading, Linking, and Initializing](../../raw/kotlin/kotlin-jvm-jvm-loading-linking-initialization.md)
+
+JVM에서 클래스 초기화를 안전하게 수행하는 것과 이후 object 안의 `var`를 여러 thread가 바꾸는 것은 별개의 문제다. 안전하게 만들어진 singleton도 공유 mutable 상태를 가질 수 있다. 기존 counter 예제의 복합 증가 문제는 [공유 상태와 가시성](kotlin-shared-state-and-memory-visibility.md)에서 이어서 다룬다. [Chapter 5. Loading, Linking, and Initializing](../../raw/kotlin/kotlin-jvm-jvm-loading-linking-initialization.md)
+
 ## 직접 작성하는 연습: object와 companion object 호출 구분
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -342,3 +348,7 @@ Logger()로 호출해 보고 일반 클래스와 생성 문법이 어떻게 다�
 - [Kotlin factory 함수와 객체 생성 규칙](kotlin-factory-functions-and-construction-rules.md)
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
 - [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)
+
+- 학습 순서 이전: [Kotlin 객체 참조·동등성·불변성](kotlin-object-references-and-equality.md)
+- 학습 순서 다음: [Kotlin factory 함수와 객체 생성 규칙](kotlin-factory-functions-and-construction-rules.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

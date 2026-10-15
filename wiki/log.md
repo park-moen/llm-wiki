@@ -1430,3 +1430,98 @@
 ## [2026-10-15] index | JPA 학습 순서 정렬
 - Updated: wiki/index.md — Spring 영역에 JPA 전용 목록과 읽기 안내를 추가하고, 학습 안내·기존 기초·신규 학습 문서·심화 도구 순서로 정렬했습니다.
 - Preserved: 기존 항목의 제목·요약·Updated 날짜와 다른 주제 영역을 유지했습니다.
+
+## [2026-10-15] ingest | Kotlin 내부 동작과 단계별 학습 경로
+- Disposition: New; Update
+- Raw: raw/kotlin/2024-04-25-jetbrains-k2-compiler-performance-2.md
+- Raw: raw/kotlin/2025-05-26-jetbrains-sources-bytecode-debugging.md
+- Raw: raw/kotlin/2022-07-15-jetbrains-incremental-compilation-2.md
+- Raw: raw/kotlin/2020-07-16-jetbrains-jvm-default-methods-design-2.md
+- Raw: raw/kotlin/kotlin-spec-scopes-and-identifiers.md
+- Raw: raw/kotlin/kotlin-spec-type-system.md
+- Raw: raw/kotlin/kotlin-spec-type-inference.md
+- Raw: raw/kotlin/kotlin-spec-declarations.md
+- Raw: raw/kotlin/kotlin-spec-expressions.md
+- Raw: raw/kotlin/kotlin-spec-overload-resolution.md
+- Raw: raw/kotlin/kotlin-spec-coroutines.md
+- Raw: raw/kotlin/kotlin-numbers.md
+- Raw: raw/kotlin/kotlin-generics.md
+- Raw: raw/kotlin/kotlin-inline-functions.md
+- Raw: raw/kotlin/kotlin-extensions.md
+- Raw: raw/kotlin/kotlin-delegated-properties.md
+- Raw: raw/kotlin/kotlin-value-classes.md
+- Raw: raw/kotlin/kotlin-collections-overview.md
+- Raw: raw/kotlin/kotlin-sequences.md
+- Raw: raw/kotlin/kotlin-java-interop.md
+- Raw: raw/kotlin/kotlin-java-to-kotlin-interop.md
+- Raw: raw/kotlin/kotlin-reflection.md
+- Raw: raw/kotlin/kotlin-exceptions.md
+- Raw: raw/kotlin/kotlin-interfaces.md
+- Raw: raw/kotlin/kotlin-equality.md
+- Raw: raw/kotlin/kotlin-context-dispatchers.md
+- Raw: raw/kotlin/kotlin-coroutine-exceptions.md
+- Raw: raw/kotlin/kotlin-whatsnew20.md
+- Raw: raw/kotlin/kotlin-whatsnew22.md
+- Raw: raw/kotlin/kotlin-jvm-jvm-runtime-areas.md
+- Raw: raw/kotlin/kotlin-jvm-jvm-loading-linking-initialization.md
+- Raw: raw/kotlin/kotlin-jvm-java-memory-model.md
+- Raw: raw/kotlin/kotlin-jvm-hotspot-performance.md
+- Raw: raw/kotlin/kotlin-coroutines-design-design-note.md
+- Raw: raw/kotlin/kotlin-coroutines-codegen-implementation-note.md
+- Raw: raw/kotlin/kotlin-cancellation.md
+- Raw: raw/kotlin/kotlin-flow.md
+- Raw: raw/kotlin/kotlin-shared-mutable-state-and-concurrency-full-guide.md
+- Raw: raw/kotlin/kotlin-coroutines-basics.md
+- Raw: raw/kotlin/kotlin-stateflow-api.md
+- Created: wiki/kotlin/kotlin-compilation-and-execution.md
+- Created: wiki/kotlin/kotlin-scopes-and-name-resolution.md
+- Created: wiki/kotlin/kotlin-numeric-representation-and-boxing.md
+- Created: wiki/kotlin/kotlin-object-references-and-equality.md
+- Created: wiki/kotlin/kotlin-object-initialization-order.md
+- Created: wiki/kotlin/kotlin-generics-and-type-erasure.md
+- Created: wiki/kotlin/kotlin-inline-and-reified.md
+- Created: wiki/kotlin/kotlin-sequences-and-lazy-evaluation.md
+- Created: wiki/kotlin/kotlin-jvm-memory-and-execution.md
+- Created: wiki/kotlin/kotlin-exceptions-and-resource-management.md
+- Created: wiki/kotlin/kotlin-java-interop-and-reflection.md
+- Created: wiki/kotlin/kotlin-coroutines-and-suspension.md
+- Created: wiki/kotlin/kotlin-coroutine-context-and-dispatchers.md
+- Created: wiki/kotlin/kotlin-structured-concurrency-and-cancellation.md
+- Created: wiki/kotlin/kotlin-flow-and-stateflow.md
+- Created: wiki/kotlin/kotlin-shared-state-and-memory-visibility.md
+- Updated: Kotlin 기본 타입과 타입 추론
+- Updated: Kotlin 제어 흐름
+- Updated: Kotlin 함수
+- Updated: Kotlin Null Safety
+- Updated: Kotlin 클래스와 `data class`
+- Updated: Kotlin 프로퍼티와 접근·위임
+- Updated: Kotlin Objects
+- Updated: Kotlin 상속, 인터페이스와 위임
+- Updated: Kotlin 확장 함수
+- Updated: Kotlin 고차 함수와 람다
+- Updated: Kotlin 특수 클래스
+- Updated: Kotlin 컬렉션
+- Updated: Kotlin 라이브러리와 API 사용
+- Navigation: Kotlin 문서 31개에 이전·다음·전체 학습 순서 링크를 추가했습니다.
+- Index: 기존 Kotlin 문서를 보존하고 실행·문법, 객체·상태, 타입·함수, 데이터 처리, JVM·연동, 비동기·동시성의 여섯 단계로 정렬했습니다.
+- Verification: 독립적인 Kotlin 예제 20개를 로컬 Kotlin compiler로 컴파일·실행해 예상 출력과 일치하는지 확인했습니다.
+
+## [2026-10-15] ingest | no material: raw/kotlin/2024-04-25-jetbrains-k2-compiler-performance.md
+- Disposition: No material
+- Note: 본문은 보완 수집본과 같으며 저자 metadata를 잘못 추출한 첫 수집본입니다. 보완본 raw/kotlin/2024-04-25-jetbrains-k2-compiler-performance-2.md를 근거로 사용하고 첫 수집본은 보존했습니다.
+
+## [2026-10-15] ingest | no material: raw/kotlin/2022-07-15-jetbrains-incremental-compilation.md
+- Disposition: No material
+- Note: 본문은 보완 수집본과 같으며 저자 metadata를 잘못 추출한 첫 수집본입니다. 보완본 raw/kotlin/2022-07-15-jetbrains-incremental-compilation-2.md를 근거로 사용하고 첫 수집본은 보존했습니다.
+
+## [2026-10-15] ingest | no material: raw/kotlin/2020-07-16-jetbrains-jvm-default-methods-design.md
+- Disposition: No material
+- Note: 본문은 보완 수집본과 같으며 저자 metadata를 잘못 추출한 첫 수집본입니다. 보완본 raw/kotlin/2020-07-16-jetbrains-jvm-default-methods-design-2.md를 근거로 사용하고 첫 수집본은 보존했습니다.
+
+## [2026-10-15] lint | 0 issues found, 0 auto-fixed
+- Scope: Kotlin 학습 문서 31개와 여섯 단계의 목차를 검사했습니다.
+- Evidence: 근거 검사 의심 36건은 HEAD의 기존 문서와 동일한 연습·한국어 설명이며 신규 의심 항목은 없습니다. raw 참조 오류와 대상 문서의 미참조 원본은 0건입니다.
+- Links: 내부 링크 484개, 목차의 문서·갱신일·표 구조와 문서 간 이전·다음 연결을 확인했습니다.
+- Examples: 로컬 Kotlin/JVM compiler 2.4.0과 JDK 21 환경에서 독립 예제 20개의 예상 출력을 확인했습니다. coroutine·reflection 예제에는 IDE에 포함된 해당 라이브러리를 사용했습니다.
+- Preserved: 기존 연습 15개와 raw 파일 462개의 내용을 보존했습니다.
+- Limits: bytecode·JIT·실행 시간에 대한 성능 benchmark와 실제 서비스 통합 실행은 수행하지 않았습니다.

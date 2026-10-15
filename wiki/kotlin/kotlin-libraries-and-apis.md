@@ -1,8 +1,8 @@
 # Kotlin 라이브러리와 API 사용
 
-> Sources: Kotlin Documentation, 2026-09-02
-> Raw: [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, 2026-09-02; Kotlin Documentation, Unknown; Andrey Uskov, 2022-07-15
+> Raw: [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md); [Calling Kotlin from Java](../../raw/kotlin/kotlin-java-to-kotlin-interop.md); [Reflection](../../raw/kotlin/kotlin-reflection.md); [A New Approach to Incremental Compilation in Kotlin](../../raw/kotlin/2022-07-15-jetbrains-incremental-compilation-2.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -104,6 +104,14 @@ fun main() {
 
 Opt-in 방식의 상세 규칙은 원문에 연결된 [Opt-in requirements](https://kotlinlang.org/docs/opt-in-requirements.html)에서 확인할 수 있다.
 
+## import·의존성·바이너리 계약 구분
+
+`import`는 소스에서 이름을 해석하는 방법이며, classpath에 없는 라이브러리를 다운로드하는 명령이 아니다. JVM에서 노출되는 메서드·field·annotation과 Kotlin 소스의 선언 형태도 동일하지 않을 수 있다. [Java 연동과 reflection](kotlin-java-interop-and-reflection.md)에서 선언이 보이는 형태를 확인한다. [Calling Kotlin from Java](../../raw/kotlin/kotlin-java-to-kotlin-interop.md)
+
+일부 reflection 기능은 `kotlin-reflect`처럼 별도의 실행 의존성을 요구한다. 타입을 소스에서 참조할 수 있는지와 실행 시 필요한 라이브러리가 있는지도 구분한다. [Reflection](../../raw/kotlin/kotlin-reflection.md)
+
+공개 API를 바꾸면 호출자가 의존한 바이너리 계약과 재컴파일 범위에 영향이 생길 수 있다. 증분 컴파일 글의 ABI 설명은 이 관계를 이해하는 자료이며, 수집 당시 compiler의 모든 설정을 현재 권장값으로 쓰라는 의미는 아니다. [A New Approach to Incremental Compilation in Kotlin](../../raw/kotlin/2022-07-15-jetbrains-incremental-compilation-2.md)
+
 ## 직접 작성하는 연습: Duration 확장 프로퍼티 import
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -158,3 +166,7 @@ wait만 20.minutes로 바꾸면 비교 결과가 어떻게 달라지는지 확�
 - [Kotlin 확장 함수](kotlin-extension-functions.md)
 - [Kotlin 프로퍼티와 접근·위임](kotlin-properties.md)
 - [Kotlin Objects](kotlin-objects.md)
+
+- 학습 순서 이전: [Kotlin Java 연동·reflection·JVM 선언](kotlin-java-interop-and-reflection.md)
+- 학습 순서 다음: [Kotlin coroutine 기초와 suspend의 내부 동작](kotlin-coroutines-and-suspension.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

@@ -1,0 +1,530 @@
+# Calling Kotlin from Java
+
+> Source: https://kotlinlang.org/docs/java-to-kotlin-interop.html
+> Collected: 2026-10-15
+> Published: Unknown
+> Scope: Complete article body; navigation omitted.
+
+# Calling Kotlin from Java
+
+Kotlin code can be easily called from Java. For example, instances of a Kotlin class can be seamlessly created and operated in Java methods. However, there are certain differences between Java and Kotlin that require attention when integrating Kotlin code into Java. On this page, we'll describe the ways to tailor the interop of your Kotlin code with its Java clients.
+
+## Properties
+
+A Kotlin property is compiled to the following Java elements:
+
+- a getter method, with the name calculated by prepending the `get` prefix.
+- a setter method, with the name calculated by prepending the `set` prefix (only for `var` properties).
+- a private field, with the same name as the property name (only for properties with backing fields).
+
+For example, `var firstName: String` compiles to the following Java declarations:
+
+private String firstName;
+public String getFirstName() {
+return firstName;
+}
+public void setFirstName(String firstName) {
+this.firstName = firstName;
+}
+
+If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter is the same as the property name, and the name of the setter is obtained by replacing `is` with `set`. For example, for a property `isOpen`, the getter is called `isOpen()` and the setter is called `setOpen()`. This rule applies for properties of any type, not just `Boolean`.
+
+## Package-level functions
+
+All the functions and properties declared in a file `app.kt` inside a package `org.example`, including extension functions, are compiled into static methods of a Java class named `org.example.AppKt`.
+
+// app.kt
+package org.example
+class Util
+fun getTime() { /\*...\*/ }
+
+// Java
+new org.example.Util();
+org.example.AppKt.getTime();
+
+To set a custom name to the generated Java class, use the `@JvmName` annotation:
+
+@file:JvmName("DemoUtils")
+package org.example
+class Util
+fun getTime() { /\*...\*/ }
+
+// Java
+new org.example.Util();
+org.example.DemoUtils.getTime();
+
+Having multiple files with the same generated Java class name (the same package and the same name or the same [`@JvmName`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-name/index.html) annotation) is normally an error. However, the compiler can generate a single Java facade class which has the specified name and contains all the declarations from all the files which have that name. To enable the generation of such a facade, use the [`@JvmMultifileClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-multifile-class/index.html) annotation in all such files.
+
+// oldutils.kt
+@file:JvmName("Utils")
+@file:JvmMultifileClass
+package org.example
+fun getTime() { /\*...\*/ }
+
+// newutils.kt
+@file:JvmName("Utils")
+@file:JvmMultifileClass
+package org.example
+fun getDate() { /\*...\*/ }
+
+// Java
+org.example.Utils.getTime();
+org.example.Utils.getDate();
+
+## Instance fields
+
+If you need to expose a Kotlin property as a field in Java, annotate it with the [`@JvmField`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-field/index.html) annotation. The field has the same visibility as the underlying property. You can annotate a property with `@JvmField` if it:
+
+- has a backing field
+- is not private
+- does not have `open`, `override` or `const` modifiers
+- is not a delegated property
+
+class User(id: String) {
+@JvmField val ID = id
+}
+
+// Java
+class JavaClient {
+public String getID(User user) {
+return user.ID;
+}
+}
+
+[Late-Initialized](https://kotlinlang.org/docs/properties.html#late-initialized-properties-and-variables) properties are also exposed as fields. The visibility of the field is the same as the visibility of the `lateinit` property setter.
+
+## Static fields
+
+Kotlin properties declared in a named object or a companion object have static backing fields either in that named object or in the class containing the companion object.
+
+Usually these fields are private, but they can be exposed in one of the following ways:
+
+- [`@JvmField`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-field/index.html) annotation
+- `lateinit` modifier
+- `const` modifier
+
+Annotating such a property with `@JvmField` makes it a static field with the same visibility as the property itself.
+
+class Key(val value: Int) {
+companion object {
+@JvmField
+val COMPARATOR: Comparator<Key> = compareBy<Key> { it.value }
+}
+}
+
+// Java
+Key.COMPARATOR.compare(key1, key2);
+// public static final field in Key class
+
+A [late-initialized](https://kotlinlang.org/docs/properties.html#late-initialized-properties-and-variables) property in an object or a companion object has a static backing field with the same visibility as the property setter.
+
+object Singleton {
+lateinit var provider: Provider
+}
+
+// Java
+Singleton.provider = new Provider();
+// public static non-final field in Singleton class
+
+Properties declared as `const` (in classes as well as at the top level) are turned into static fields in Java:
+
+// file example.kt
+object Obj {
+const val CONST = 1
+}
+class C {
+companion object {
+const val VERSION = 9
+}
+}
+const val MAX = 239
+
+In Java:
+
+int constant = Obj.CONST;
+int max = ExampleKt.MAX;
+int version = C.VERSION;
+
+## Static methods
+
+Kotlin represents package-level functions as static methods. You can also generate static methods for functions defined in named objects or companion objects if you annotate such functions with the [`@JvmStatic`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/) annotation.
+
+If you use `@JvmStatic` on a function in a companion object, the compiler generates both a static method in the enclosing class and an instance method in the companion object:
+
+// Kotlin
+class C {
+companion object {
+@JvmStatic fun callStatic() {}
+fun callNonStatic() {}
+}
+}
+
+In Java, you can call `callStatic()` on both the enclosing class and the companion object, while `callNonStatic()` is only available through the companion object:
+
+// Java
+C.callStatic(); // Success
+C.callNonStatic(); // Error: not a static method
+C.Companion.callStatic(); // Instance method remains
+C.Companion.callNonStatic(); // Success
+
+For a named object (a singleton), `@JvmStatic` turns the function into a static method of the object's class but doesn't generate a separate instance method:
+
+// Kotlin
+object Obj {
+@JvmStatic fun callStatic() {}
+fun callNonStatic() {}
+}
+
+In Java, you can call the `callStatic()` method on the named object, while `callNonStatic()` is only available through the singleton instance:
+
+// Java
+Obj.callStatic(); // Success
+Obj.callNonStatic(); // Error: not a static method
+Obj.INSTANCE.callNonStatic(); // Success, the call passed through the singleton instance
+
+You can also annotate a function in an interface's companion object with `@JvmStatic`. Such functions compile to static methods in interfaces:
+
+interface ChatBot {
+companion object {
+@JvmStatic fun greet(username: String) {
+println("Hello, $username")
+}
+}
+}
+
+You can also apply the `@JvmStatic` annotation to the property of an object or a companion object, making its getter and setter methods static members in that object or the class containing the companion object.
+
+## Default methods in interfaces
+
+When targeting the JVM, Kotlin compiles functions declared in interfaces to [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html) unless [configured otherwise](https://kotlinlang.org/docs/java-to-kotlin-interop.html#compatibility-modes-for-default-methods). These are concrete methods in interfaces that Java classes can inherit directly, without reimplementation.
+
+Here is an example of a Kotlin interface with a default method:
+
+interface Robot {
+fun move() { println("~walking~") } // will be default in the Java interface
+fun speak(): Unit
+}
+
+The default implementation is available for Java classes implementing the interface.
+
+//Java implementation
+public class C3PO implements Robot {
+// move() implementation from Robot is available implicitly
+@Override
+public void speak() {
+System.out.println("I beg your pardon, sir");
+}
+}
+
+C3PO c3po = new C3PO();
+c3po.move(); // default implementation from the Robot interface
+c3po.speak();
+
+Implementations of the interface can override default methods.
+
+//Java
+public class BB8 implements Robot {
+//own implementation of the default method
+@Override
+public void move() {
+System.out.println("~rolling~");
+}
+@Override
+public void speak() {
+System.out.println("Beep-beep");
+}
+}
+
+### Compatibility modes for default methods
+
+Kotlin provides three modes for controlling how functions in interfaces are compiled to JVM default methods. These modes determine whether the compiler generates compatibility bridges and static methods in `DefaultImpls` classes.
+
+You can control this behavior using the `-jvm-default` compiler option:
+
+The `-jvm-default` compiler option replaces the deprecated `-Xjvm-default` option.
+
+Learn more about compatibility modes:
+
+#### enable
+
+Default behavior. Generates default implementations in interfaces and includes compatibility bridges and `DefaultImpls` classes. This mode maintains compatibility with older compiled Kotlin code.
+
+#### no-compatibility
+
+Generates only default implementations in interfaces. Skips compatibility bridges and `DefaultImpls` classes. Use this mode for new codebases that don't interact with code that relies on `DefaultImpls` classes. This can break binary compatibility with older Kotlin code.
+
+If interface delegation is used, all interface methods are delegated.
+
+#### disable
+
+Disables default implementations in interfaces. Only compatibility bridges and `DefaultImpls` classes are generated.
+
+## Visibility
+
+The Kotlin maps visibility modifiers to Java as follows:
+
+- `private` members remain `private`.
+- `private` top-level declarations become `private` top-level declarations in Java. Package-private accessors are also included if accessed from within a class.
+- `protected` members remain `protected`.
+
+  Note that Java allows accessing protected members from other classes in the same package, and Kotlin doesn't.
+- `internal` declarations become `public` in Java.
+
+  The Kotlin compiler mangles the names of `internal` members in bytecode. This prevents accidental overrides across modules, for example, when extending a Kotlin class from Java, and allows overloading for members with the same signature.
+
+  Note that the names of public members of `internal` classes aren't mangled and remain callable from Java.
+- `public` members remain `public`.
+
+## KClass
+
+Sometimes you need to call a Kotlin method with a parameter of type `KClass`. There is no automatic conversion from `Class` to `KClass`, so you have to do it manually by invoking the equivalent of the `Class<T>.kotlin` extension property:
+
+kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
+
+## Handling signature clashes with @JvmName
+
+Sometimes we have a named function in Kotlin, for which we need a different JVM name in bytecode. The most prominent example happens due to type erasure:
+
+fun List<String>.filterValid(): List<String>
+fun List<Int>.filterValid(): List<Int>
+
+These two functions can not be defined side-by-side, because their JVM signatures are the same: `filterValid(Ljava/util/List;)Ljava/util/List;`. If we really want them to have the same name in Kotlin, we can annotate one (or both) of them with [`@JvmName`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-name/index.html) and specify a different name as an argument:
+
+fun List<String>.filterValid(): List<String>
+@JvmName("filterValidInt")
+fun List<Int>.filterValid(): List<Int>
+
+From Kotlin, they are accessible by the same name `filterValid`, but from Java it is `filterValid` and `filterValidInt`.
+
+The same trick applies when we need to have a property `x` along with a function `getX()`:
+
+val x: Int
+@JvmName("getX_prop")
+get() = 15
+fun getX() = 10
+
+To change the names of generated accessor methods for properties without explicitly implemented getters and setters, you can use `@get:JvmName` and `@set:JvmName`:
+
+@get:JvmName("x")
+@set:JvmName("changeX")
+var x: Int = 23
+
+## Overloads generation
+
+Normally, if you write a Kotlin function with default parameter values, it's visible in Java only as a full signature, with all parameters present.
+
+You can use the [`@IntroducedAt`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-introduced-at/) annotation or the [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation to generate overloads for optional parameters.
+
+Use `@IntroducedAt` when you add new optional parameters to published APIs and want the generated overloads to reflect the version in which each parameter was introduced. The compiler uses this information to automatically generate the corresponding hidden overloads.
+
+This gives you version-based overload generation and helps preserve binary compatibility for callers compiled against older versions of your library.
+
+The `@IntroducedAt` annotation is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained). To opt in, use the `@OptIn(ExperimentalVersionOverloading::class)` annotation.
+
+Here's an example where the `Button()` function receives multiple optional parameters over several API versions:
+
+@OptIn(ExperimentalVersionOverloading::class)
+fun Button(
+label: String = "",
+color: Color = DefaultColor,
+@IntroducedAt("1.1") borderColor: Color = DefaultBorderColor,
+@IntroducedAt("1.2") borderStyle: Style = DefaultBorderStyle,
+@IntroducedAt("1.2") borderWidth: Int = 1,
+onClick: () -> Unit
+) {
+// Function body
+}
+
+Based on these versions, the compiler generates hidden overloads for the original API and for each API version that introduced new optional parameters:
+
+// Original API
+Button(
+label: String,
+color: Color,
+onClick: () -> Unit
+)
+// Version 1.1
+Button(
+label: String,
+color: Color,
+borderColor: Color,
+onClick: () -> Unit
+)
+// Version 1.2
+Button(
+label: String,
+color: Color,
+borderColor: Color,
+borderStyle: Style,
+borderWidth: Int,
+onClick: () -> Unit
+)
+
+If you want to expose multiple overloads to Java callers, you can also use the [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation.
+
+The annotation also works for constructors, static methods, and so on. It can't be used on abstract methods, including methods defined in interfaces. For example, consider a `Circle` class with default parameter values:
+
+class Circle @JvmOverloads constructor(centerX: Int, centerY: Int, radius: Double = 1.0) {
+@JvmOverloads fun draw(label: String, lineWidth: Int = 1, color: String = "red") { /\*...\*/ }
+}
+
+For every parameter with a default value, this generates one additional overload, which has this parameter and all parameters to the right of it in the parameter list removed. In this example, the following is generated:
+
+// Constructors:
+Circle(int centerX, int centerY, double radius)
+Circle(int centerX, int centerY)
+// Methods
+void draw(String label, int lineWidth, String color) { }
+void draw(String label, int lineWidth) { }
+void draw(String label) { }
+
+Since both `@IntroducedAt` and `@JvmOverloads` annotations generate overloads, using them together can create conflicting overloads. If you use both annotations, the compiler reports a warning. If you suppress the warning, the compiler prioritizes overloads generated from the `@IntroducedAt` annotation.
+
+Note that, as described in [Secondary constructors](https://kotlinlang.org/docs/classes.html#secondary-constructors), if a class has default values for all constructor parameters, a public constructor with no arguments is generated for it. This works even if the `@JvmOverloads` annotation is not specified.
+
+## Checked exceptions
+
+Kotlin does not have checked exceptions. So, normally the Java signatures of Kotlin functions do not declare exceptions thrown. Thus, if you have a function in Kotlin like this:
+
+// example.kt
+package demo
+fun writeToFile() {
+/\*...\*/
+throw IOException()
+}
+
+And you want to call it from Java and catch the exception:
+
+// Java
+try {
+demo.Example.writeToFile();
+} catch (IOException e) {
+// error: writeToFile() does not declare IOException in the throws list
+// ...
+}
+
+You get an error message from the Java compiler, because `writeToFile()` does not declare `IOException`. To work around this problem, use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throws/index.html) annotation in Kotlin:
+
+@Throws(IOException::class)
+fun writeToFile() {
+/\*...\*/
+throw IOException()
+}
+
+## Null-safety
+
+When calling Kotlin functions from Java, nobody prevents us from passing `null` as a non-nullable parameter. That's why Kotlin generates runtime checks for all public functions that expect non-nulls. This way we get a `NullPointerException` in the Java code immediately.
+
+## Variant generics
+
+When Kotlin classes make use of [declaration-site variance](https://kotlinlang.org/docs/generics.html#declaration-site-variance), there are two options of how their usages are seen from the Java code. For example, imagine you have the following class and two functions that use it:
+
+class Box<out T>(val value: T)
+interface Base
+class Derived : Base
+fun boxDerived(value: Derived): Box<Derived> = Box(value)
+fun unboxBase(box: Box<Base>): Base = box.value
+
+A naive way of translating these functions into Java would be this:
+
+Box<Derived> boxDerived(Derived value) { ... }
+Base unboxBase(Box<Base> box) { ... }
+
+The problem is that in Kotlin you can write `unboxBase(boxDerived(Derived()))` but in Java that would be impossible because in Java the class `Box` is invariant in its parameter `T`, and thus `Box<Derived>` is not a subtype of `Box<Base>`. To make this work in Java, you would have to define `unboxBase` as follows:
+
+Base unboxBase(Box<? extends Base> box) { ... }
+
+This declaration uses Java's wildcards types (`? extends Base`) to emulate declaration-site variance through use-site variance, because it is all Java has.
+
+To make Kotlin APIs work in Java, the compiler generates `Box<Super>` as `Box<? extends Super>` for covariantly defined `Box` (or `Foo<? super Bar>` for contravariantly defined `Foo`) when it appears as a parameter. When it's a return value, wildcards are not generated, because otherwise Java clients will have to deal with them (and it's against the common Java coding style). Therefore, the functions from our example are actually translated as follows:
+
+// return type - no wildcards
+Box<Derived> boxDerived(Derived value) { ... }
+// parameter - wildcards
+Base unboxBase(Box<? extends Base> box) { ... }
+
+When the argument type is final, there's usually no point in generating the wildcard, so `Box<String>` is always `Box<String>`, no matter what position it takes.
+
+If you need wildcards where they are not generated by default, use the `@JvmWildcard` annotation:
+
+fun boxDerived(value: Derived): Box<@JvmWildcard Derived> = Box(value)
+// is translated to
+// Box<? extends Derived> boxDerived(Derived value) { ... }
+
+In the opposite case, if you don't need wildcards where they are generated, use `@JvmSuppressWildcards`:
+
+fun unboxBase(box: Box<@JvmSuppressWildcards Base>): Base = box.value
+// is translated to
+// Base unboxBase(Box<Base> box) { ... }
+
+`@JvmSuppressWildcards` can be used not only on individual type arguments, but on entire declarations, such as functions or classes, causing all wildcards inside them to be suppressed.
+
+### Translation of type Nothing
+
+The type [`Nothing`](https://kotlinlang.org/docs/exceptions.html#the-nothing-type) is special, because it has no natural counterpart in Java. Indeed, every Java reference type, including `java.lang.Void`, accepts `null` as a value, and `Nothing` doesn't accept even that. So, this type cannot be accurately represented in the Java world. This is why Kotlin generates a raw type where an argument of type `Nothing` is used:
+
+fun emptyList(): List<Nothing> = listOf()
+// is translated to
+// List emptyList() { ... }
+
+## Inline value classes
+
+If you want Java code to work smoothly with Kotlin's [inline value classes](https://kotlinlang.org/docs/inline-classes.html), you can use the [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/) annotation or the `-Xjvm-expose-boxed` compiler option. These approaches ensure Kotlin generates the necessary boxed representations for Java interoperability.
+
+By default, Kotlin compiles inline value classes to use unboxed representations, which are often inaccessible from Java. For example, you can't call the constructor for the `MyInt` class from Java:
+
+@JvmInline
+value class MyInt(val value: Int)
+
+So the following Java code fails:
+
+MyInt input = new MyInt(5);
+
+You can use the `@JvmExposeBoxed` annotation so that Kotlin generates a public constructor that you can call from Java directly. You can apply the annotation at the following levels to ensure fine-grained control over what's exposed to Java:
+
+- Class
+- Constructor
+- Function
+
+Before using the `@JvmExposeBoxed` annotation in your code, you must opt in by using `@OptIn(ExperimentalStdlibApi::class)`. For example:
+
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+@JvmInline
+value class MyInt(val value: Int)
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+fun MyInt.timesTwoBoxed(): MyInt = MyInt(this.value \* 2)
+
+With these annotations, Kotlin generates a Java-accessible constructor for the `MyInt` class and a variant for the extension function that uses the boxed form of the value class. So the following Java code runs successfully:
+
+MyInt input = new MyInt(5);
+MyInt output = ExampleKt.timesTwoBoxed(input);
+
+To apply this behavior to all inline value classes and the functions that use them within a module, compile it with the `-Xjvm-expose-boxed` option. Compiling with this option has the same effect as if every declaration in the module has the `@JvmExposeBoxed` annotation.
+
+### Inherited functions
+
+The `@JvmExposeBoxed` annotation doesn't automatically generate boxed representations for inherited functions.
+
+To generate the necessary representation for an inherited function, override it in the implementing or extending class:
+
+interface IdTransformer {
+fun transformId(rawId: UInt): UInt = rawId
+}
+// Doesn't generate a boxed representation for the transformId() function
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+class LightweightTransformer : IdTransformer
+// Generates a boxed representation for the transformId() function
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+class DefaultTransformer : IdTransformer {
+override fun transformId(rawId: UInt): UInt = super.transformId(rawId)
+}
+
+To learn how inheritance works in Kotlin and how to call superclass implementations using the `super` keyword, see [Inheritance](https://kotlinlang.org/docs/inheritance.html#calling-the-superclass-implementation).
+
+13 August 2026
+
+[Calling Java from Kotlin](https://kotlinlang.org/docs/java-interop.html)[Using Java records in Kotlin](https://kotlinlang.org/docs/jvm-records.html)

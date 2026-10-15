@@ -169,3 +169,7 @@ main에 Entry(50L)를 추가해 접근 제한을 확인하고, Entry.cancel(0L)�
 
 - [Kotlin Objects](kotlin-objects.md): `companion object`가 무엇인지
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md): class와 생성자의 기본 문법
+
+- 학습 순서 이전: [Kotlin Objects](kotlin-objects.md)
+- 학습 순서 다음: [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

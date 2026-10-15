@@ -1,8 +1,8 @@
 # Kotlin 확장 함수
 
-> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
-> Raw: [Extension functions](../../raw/kotlin/kotlin-intermediate-extension-functions.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02; Kotlin Language Specification, Unknown
+> Raw: [Extension functions](../../raw/kotlin/kotlin-intermediate-extension-functions.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md); [Extensions](../../raw/kotlin/kotlin-extensions.md); [Kotlin language specification — Overload resolution](../../raw/kotlin/kotlin-spec-overload-resolution.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -44,6 +44,28 @@ fun HttpClient.post(url: String): HttpResponse =
 ## Extension-oriented design
 
 확장 함수는 여러 위치에서 정의할 수 있으므로 핵심 기능과 유용하지만 필수적이지 않은 기능을 분리하는 설계를 지원한다. 이를 통해 중심 클래스는 기본 책임에 집중하고, 편의 API는 별도의 확장 함수 집합으로 구성할 수 있다. Kotlin standard library와 여러 Kotlin 라이브러리에서도 이 접근을 사용한다.
+
+## 확장 함수는 정적으로 선택된다
+
+확장 함수는 기존 클래스에 새 virtual 멤버를 실제로 넣지 않는다. 호출 지점에서 receiver의 선언 타입 등을 기준으로 후보를 선택한다. 다음은 공식 규칙을 작게 바꾼 학습용 예제다. [Extensions](../../raw/kotlin/kotlin-extensions.md)
+
+```kotlin
+open class Shape
+class Circle : Shape()
+fun Shape.label() = "shape"
+fun Circle.label() = "circle"
+
+fun main() {
+    val value: Shape = Circle()
+    println(value.label())
+}
+```
+
+출력은 `shape`다. 실제 객체가 Circle이라는 사실만으로 `Circle.label()`이 동적으로 선택되지 않는다. 사용 가능한 멤버 함수와 같은 signature의 확장 함수가 경쟁하면 멤버가 우선하는 규칙도 구분한다. [Extensions](../../raw/kotlin/kotlin-extensions.md); [Kotlin language specification — Overload resolution](../../raw/kotlin/kotlin-spec-overload-resolution.md)
+
+## 여러 receiver가 있는 경우
+
+클래스 안에 확장 함수를 선언하면 그 클래스를 가리키는 dispatch receiver와 확장 대상을 가리키는 extension receiver가 함께 존재할 수 있다. `this`가 무엇인지 모호하면 qualified `this`로 드러낸다. Scope Functions의 `this`·`it` 선택도 변수 이름이 숨기는 호출 대상을 확인하는 관점에서 읽는다. [Extensions](../../raw/kotlin/kotlin-extensions.md)
 
 ## 직접 작성하는 연습: Int에 양수 검사 함수 추가
 
@@ -99,3 +121,7 @@ String을 receiver로 받는 surround 함수를 만들어 앞뒤에 괄호를 �
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
 - [Kotlin Scope Functions](kotlin-scope-functions.md)
+
+- 학습 순서 이전: [Kotlin 제네릭·variance·타입 소거](kotlin-generics-and-type-erasure.md)
+- 학습 순서 다음: [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

@@ -1,8 +1,8 @@
 # Kotlin Null Safety
 
-> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
-> Raw: [Null safety](../../raw/kotlin/null-safety-3.md); [Null safety — intermediate tour](../../raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02; Kotlin Language Specification, Unknown
+> Raw: [Null safety](../../raw/kotlin/null-safety-3.md); [Null safety — intermediate tour](../../raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md); [Kotlin language specification — Type inference](../../raw/kotlin/kotlin-spec-type-inference.md); [Kotlin language specification — Type system](../../raw/kotlin/kotlin-spec-type-system.md); [Calling Java from Kotlin](../../raw/kotlin/kotlin-java-interop.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -147,6 +147,18 @@ fun getNotificationPreferences(user: Any, emailEnabled: Boolean, smsEnabled: Boo
 
 `user`가 `User`가 아니면 빈 리스트를 반환하고, 이름이 null이면 `Guest`를 사용한다. `takeIf { 조건 }`은 조건이 참이면 원래 값을, 거짓이면 null을 반환한다. `listOfNotNull()`이 그 null을 제외하므로 활성화된 알림 문구만 목록에 들어간다. `mapNotNull()`과 `takeIf`도 같은 원리로 활성 사용자 이름만 골라낼 수 있다.
 
+## smart cast는 검사 결과가 유지될 때만 가능하다
+
+smart cast는 코드 흐름에서 얻은 타입·null 정보를 뒤의 사용 지점에 적용한다. 그 사이에 값이 바뀔 수 있거나 getter가 호출할 때마다 다른 값을 반환하면 검사 결과를 그대로 사용할 수 없을 수 있다. 명세는 smart cast를 적용할 지점의 안정성을 구분한다. [Kotlin language specification — Type inference](../../raw/kotlin/kotlin-spec-type-inference.md)
+
+불안정한 프로퍼티는 지역 `val`에 읽은 값을 보관하고 그 값을 검사하는 방법을 검토할 수 있다. 이 방법은 검사와 사용이 같은 값을 대상으로 하도록 만드는 것이지, 원래 공유 객체 전체를 동기화하는 기능은 아니다. [Kotlin language specification — Type inference](../../raw/kotlin/kotlin-spec-type-inference.md)
+
+## Java와 초기화 경계에서는 별도 확인이 필요하다
+
+Java의 nullability 정보가 없는 값은 platform type으로 다뤄질 수 있다. Kotlin에서 non-null 변수로 받았다고 실제 null 유입이 불가능해지는 것은 아니며 assertion·접근 시 예외가 날 수 있다. 값의 출처와 annotation을 확인한다. [Calling Java from Kotlin](../../raw/kotlin/kotlin-java-interop.md)
+
+객체의 초기화가 끝나기 전에 프로퍼티에 접근하는 문제도 nullable 타입 표기만으로 모두 해결되지 않는다. [생성자와 초기화 순서](kotlin-object-initialization-order.md)에서 정상 초기화 이전의 접근을 구분한다.
+
 ## 직접 작성하는 연습: 알 수 없는 입력의 문자열 길이
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -203,3 +215,7 @@ as?를 as로 바꾸고 문자열이 아닌 입력에서 어떤 오류가 발생�
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
+
+- 학습 순서 이전: [Kotlin 함수](kotlin-functions.md)
+- 학습 순서 다음: [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

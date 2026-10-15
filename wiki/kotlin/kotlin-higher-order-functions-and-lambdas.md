@@ -1,8 +1,8 @@
 # Kotlin 고차 함수와 람다
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Higher-order functions and lambdas](../../raw/kotlin/higher-order-functions-and-lambdas.md); [Functions](../../raw/kotlin/functions-3.md); [Lambda expressions with receiver](../../raw/kotlin/kotlin-intermediate-lambdas-with-receiver.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Language Specification, Unknown
+> Raw: [Higher-order functions and lambdas](../../raw/kotlin/higher-order-functions-and-lambdas.md); [Functions](../../raw/kotlin/functions-3.md); [Lambda expressions with receiver](../../raw/kotlin/kotlin-intermediate-lambdas-with-receiver.md); [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md); [Inline functions](../../raw/kotlin/kotlin-inline-functions.md); [What's new in Kotlin 2.0.0 — compiler and JVM excerpts](../../raw/kotlin/kotlin-whatsnew20.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -195,6 +195,31 @@ val mainMenu = menu("Main Menu") {
 
 Kotlin standard library의 `buildList()`와 `buildString()`도 이 설계 패턴의 예다. 리시버가 있는 람다는 type-safe builder와 결합해 타입 문제를 런타임이 아니라 컴파일 시점에 찾는 DSL을 만드는 데 사용할 수 있다.
 
+## closure는 외부의 무엇을 기억하는가
+
+람다는 자신을 둘러싼 스코프의 변수를 캡처할 수 있으며 Kotlin에서는 캡처한 지역 mutable 변수도 바꿀 수 있다. 함수가 종료된 뒤에도 반환된 람다를 호출할 수 있는 이유를 단순히 지역 이름이 사라졌다는 설명만으로 이해하면 안 된다. 캡처한 상태에 접근하는 함수 값이 남는 것이다. [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md); [Inline functions](../../raw/kotlin/kotlin-inline-functions.md)
+
+```kotlin
+fun makeCounter(): () -> Int {
+    var count = 0
+    return { ++count }
+}
+
+fun main() {
+    val counter = makeCounter()
+    println(counter())
+    println(counter())
+}
+```
+
+출력은 차례로 `1`, `2`다. 함수 값을 여러 곳에서 호출하면 캡처한 mutable 상태의 공유도 생길 수 있다. closure의 존재와 thread safety는 별도 문제다. [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md)
+
+## JVM에서 항상 익명 클래스인가
+
+Kotlin `2.0.0`에서는 `invokedynamic`이 람다 생성의 기본 방식이 되었다. 따라서 모든 람다가 항상 별도 익명 클래스 파일을 만든다는 설명은 버전·설정 없이 일반화하면 안 된다. inline 가능한 람다는 호출 지점에 확장되는 다른 경로도 있다. [What's new in Kotlin 2.0.0 — compiler and JVM excerpts](../../raw/kotlin/kotlin-whatsnew20.md); [Inline functions](../../raw/kotlin/kotlin-inline-functions.md)
+
+함수 객체·캡처와 호출 비용을 본 뒤 [inline과 reified](kotlin-inline-and-reified.md)를 읽는다. 디컴파일 결과는 특정 compiler 설정의 관찰 결과이며 언어 전체의 영구적 구현 계약은 아니다.
+
 ## 직접 작성하는 연습: 계산 방법을 함수로 전달
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -255,3 +280,7 @@ fun main() {
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin 확장 함수](kotlin-extension-functions.md)
 - [Kotlin Scope Functions](kotlin-scope-functions.md)
+
+- 학습 순서 이전: [Kotlin 확장 함수](kotlin-extension-functions.md)
+- 학습 순서 다음: [Kotlin Scope Functions](kotlin-scope-functions.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

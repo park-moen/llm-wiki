@@ -1,8 +1,8 @@
 # Kotlin 제어 흐름
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Control flow](../../raw/kotlin/control-flow-3.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Language Specification, Unknown
+> Raw: [Control flow](../../raw/kotlin/control-flow-3.md); [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -69,6 +69,12 @@ do {
 } while (cakesBaked < cakesEaten)
 ```
 
+## 분기 표현식에도 타입이 있다
+
+`if`·`when`을 값으로 사용하면 선택한 분기의 결과가 전체 표현식의 값이 된다. compiler는 가능한 분기의 타입을 함께 고려한다. `throw`처럼 정상 결과를 만들지 않는 분기는 `Nothing`으로 설명되므로 정상 값을 반환하는 다른 분기와 함께 사용할 수 있다. [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md)
+
+`if`의 조건이 실행되고 선택된 본문만 평가되는 것, `&&`·`||`가 단축 평가하는 것도 실행 순서의 일부다. 분기 안에 부수 효과가 있다면 선택되지 않은 쪽의 함수가 호출된다고 기대하지 않는다. `when`의 빠짐없는 분기 검사와 sealed 계층은 [특수 클래스](kotlin-special-classes.md)에서 연결한다. [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md)
+
 ## 직접 작성하는 연습: 수량별 처리 상태 분류
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -124,3 +130,7 @@ ready
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin 함수](kotlin-functions.md)
 - [Kotlin Null Safety](kotlin-null-safety.md)
+
+- 학습 순서 이전: [Kotlin 숫자의 JVM 표현과 boxing](kotlin-numeric-representation-and-boxing.md)
+- 학습 순서 다음: [Kotlin 함수](kotlin-functions.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

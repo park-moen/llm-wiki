@@ -1,8 +1,8 @@
 # Kotlin 프로퍼티와 접근·위임
 
-> Sources: Kotlin Documentation, 2026-09-02; Kotlin Documentation, 2026-09-02
-> Raw: [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md); [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, 2026-09-02; Kotlin Documentation, 2026-09-02; Kotlin Language Specification, Unknown; Kotlin Documentation, Unknown
+> Raw: [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md); [Libraries and APIs](../../raw/kotlin/2026-09-02-kotlin-intermediate-libraries-and-apis.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md); [Delegated properties](../../raw/kotlin/kotlin-delegated-properties.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -161,6 +161,18 @@ class Thermostat {
 | 첫 접근까지 초기화를 미루고 결과 재사용 | `by lazy` |
 | 값 변경에 로그나 알림 등으로 반응 | `observable` |
 
+## 프로퍼티를 field와 동일시하면 안 되는 이유
+
+프로퍼티 접근은 getter·setter와 연결되며, 실제 저장 공간인 backing field가 필요하지 않은 계산 프로퍼티도 있다. 확장 프로퍼티는 기존 객체에 새로운 field를 추가하는 기능이 아니다. 인터페이스 프로퍼티도 저장 공간을 갖는 일반 인스턴스 field와 구분한다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
+위임 프로퍼티는 접근을 delegate의 `getValue()`·`setValue()`에 연결하는 형태로 설명할 수 있다. compiler가 별도 delegate field를 생략하는 최적화도 있으므로 모든 `by`가 정확히 같은 보조 field를 생성한다고 외우지 않는다. [Delegated properties](../../raw/kotlin/kotlin-delegated-properties.md)
+
+## lazy의 초기화 안전성과 값의 변경 안전성
+
+기본 `lazy` 초기화의 동기화는 값을 만드는 과정에 관한 것이다. 그 결과로 받은 mutable 객체의 모든 사용까지 자동으로 보호하지 않는다. `LazyThreadSafetyMode.PUBLICATION`은 여러 초기화 실행 가능성과 최종 값 공개를, `NONE`은 thread safety를 제공하지 않는 모드를 구분해 읽는다. [Delegated properties](../../raw/kotlin/kotlin-delegated-properties.md)
+
+`lateinit`은 프로퍼티의 값을 나중에 초기화하도록 선언하는 수단이며, 초기화 전에 접근하면 실패할 수 있다. 생성 시 값을 전달하는 주 생성자, 첫 접근에 계산하는 `lazy`, 외부에서 나중에 할당하는 `lateinit`은 서로 다른 초기화 전략이다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
 ## 직접 작성하는 연습: setter 변환과 lazy 초기화 확인
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -242,3 +254,7 @@ label을 get() = name으로 바꾸고 마지막 출력이 어떻게 달라지는
 - [Kotlin 확장 함수](kotlin-extension-functions.md)
 - [Kotlin 상속, 인터페이스와 위임](kotlin-inheritance-interfaces-and-delegation.md)
 - [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
+
+- 학습 순서 이전: [Kotlin 생성자와 객체 초기화 순서](kotlin-object-initialization-order.md)
+- 학습 순서 다음: [Kotlin 객체 참조·동등성·불변성](kotlin-object-references-and-equality.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

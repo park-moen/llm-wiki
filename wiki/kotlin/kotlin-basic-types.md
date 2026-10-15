@@ -1,8 +1,8 @@
 # Kotlin 기본 타입과 타입 추론
 
-> Sources: Kotlin Documentation, Unknown
-> Raw: [Basic types](../../raw/kotlin/basic-types-3.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Language Specification, Unknown
+> Raw: [Basic types](../../raw/kotlin/basic-types-3.md); [Kotlin language specification — Type system](../../raw/kotlin/kotlin-spec-type-system.md); [Kotlin language specification — Type inference](../../raw/kotlin/kotlin-spec-type-inference.md); [Numbers](../../raw/kotlin/kotlin-numbers.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -41,6 +41,14 @@ Kotlin Tour가 소개하는 기본 타입은 다음과 같다.
 | 문자열 | `String` |
 
 `+=`, `-=`, `*=`, `/=`, `%=`는 복합 대입 연산자(augmented assignment operator)다.
+
+## 타입은 실행 중 값과 어떻게 다른가
+
+타입 추론은 compiler가 표현식과 사용 문맥에서 타입 제약을 풀어 선언의 타입을 정하는 과정이다. `val value = ...`라고 타입 표기를 생략한 것을 JavaScript의 동적 타입 변수처럼 이해하면 안 된다. 정해진 타입의 범위를 벗어나는 값을 임의로 다시 대입할 수 없다. [Kotlin language specification — Type inference](../../raw/kotlin/kotlin-spec-type-inference.md)
+
+`Any`는 non-null 타입 계층의 최상위 타입이며 nullable 값까지 다루려면 `Any?`를 구분한다. `Unit`은 정상적으로 끝나되 유용한 결과를 반환하지 않는 경우, `Nothing`은 정상 결과값을 만들지 않는 경로와 연결된다. null·빈 결과·정상 종료·예외 종료를 같은 개념으로 묶지 않는다. [Kotlin language specification — Type system](../../raw/kotlin/kotlin-spec-type-system.md)
+
+Kotlin의 숫자 타입과 JVM의 primitive·wrapper 표현도 별개다. `Int?`, 제네릭 원소, `IntArray`의 차이는 [숫자의 JVM 표현과 boxing](kotlin-numeric-representation-and-boxing.md)에서 이어서 읽는다. [Numbers](../../raw/kotlin/kotlin-numbers.md)
 
 ## 직접 작성하는 연습: 상품 수량과 금액 계산
 
@@ -93,3 +101,7 @@ quantity를 val로 바꾸면 어느 줄에서 컴파일 오류가 생기는지 �
 
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin Null Safety](kotlin-null-safety.md)
+
+- 학습 순서 이전: [Kotlin 스코프와 이름 해석](kotlin-scopes-and-name-resolution.md)
+- 학습 순서 다음: [Kotlin 숫자의 JVM 표현과 boxing](kotlin-numeric-representation-and-boxing.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

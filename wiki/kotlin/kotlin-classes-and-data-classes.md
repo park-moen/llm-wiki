@@ -1,12 +1,12 @@
 # Kotlin 클래스와 `data class`
 
-> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-03-14; Kotlin Documentation, 2026-09-02
-> Raw: [Classes](../../raw/kotlin/classes-3.md); [Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-03-14; Kotlin Documentation, 2026-09-02; Kotlin Language Specification, Unknown
+> Raw: [Classes](../../raw/kotlin/classes-3.md); [Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md); [Properties](../../raw/kotlin/2026-09-02-kotlin-intermediate-properties.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md); [Equality](../../raw/kotlin/kotlin-equality.md)
+> Updated: 2026-10-15
 
 ## Overview
 
-Kotlin 클래스는 객체의 데이터인 프로퍼티(property)와 동작인 멤버 함수(member function)를 묶는다. 클래스 헤더의 매개변수로 기본 생성자를 구성할 수 있으며, `data class`는 출력·비교·복사에 필요한 멤버 함수를 자동으로 제공한다.
+Kotlin 클래스는 객체의 데이터인 프로퍼티(property)와 동작인 멤버 함수(member function)를 묶는다. 클래스 헤더의 매개변수로 주 생성자를 선언할 수 있으며, `data class`는 출력·비교·복사에 필요한 멤버 함수를 자동으로 제공한다.
 
 ## 클래스와 프로퍼티
 
@@ -24,7 +24,7 @@ class Contact(val id: Int, var email: String) {
 
 ## 인스턴스와 생성자
 
-Kotlin은 클래스 헤더에 선언한 매개변수를 사용하는 생성자를 기본으로 만든다. 클래스 이름을 함수처럼 호출해 인스턴스를 생성한다.
+클래스 이름 뒤에 선언한 매개변수는 주 생성자를 정의한다. 클래스 이름을 함수처럼 호출해 인스턴스를 생성한다.
 
 ```kotlin
 class Contact(val id: Int, var email: String)
@@ -84,6 +84,23 @@ val (name, id) = renamed
 - **`copy()`는 얕은 복사다.** `data class` 안에 변경 가능한 리스트 같은 객체가 있으면 원본과 복사본이 그 객체를 함께 참조한다. 복사본의 리스트를 수정하면 원본에서도 변경이 보인다. 따라서 `copy()`만으로 내부 객체까지 독립된다고 생각하면 안 된다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 - **클래스 본문의 프로퍼티는 값 비교와 복사에 빠진다.** `data class Person(val name: String) { var age: Int = 0 }`에서 이름이 같고 `age`만 다른 두 인스턴스는 `equals()` 결과가 같다. `copy()`도 `age`를 복사 대상으로 삼지 않는다. 동등성을 결정해야 하는 값이라면 주 생성자에 둘지 검토해야 한다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
 - **선언에는 제약이 있다.** 주 생성자에 프로퍼티가 하나 이상 있어야 하고, 모든 주 생성자 매개변수에 `val` 또는 `var`를 붙여야 한다. `data class` 자체를 `open`, `abstract`, `sealed`, `inner`로 선언할 수 없다. [Kotlin Data classes](../../raw/kotlin/2026-03-14-kotlin-data-classes.md)
+
+## 주 생성자·인자 없는 생성자·init 구분
+
+클래스 이름 뒤의 매개변수 선언은 주 생성자(primary constructor)를 정의한다. 인자 없는 생성자는 호출할 때 인자를 받지 않는 생성자라는 뜻이며 주 생성자일 수도, 보조 생성자일 수도 있다. `init`은 생성 경로에서 실행할 초기화 블록이다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
+```kotlin
+class Member(val name: String) {
+    init { require(name.isNotBlank()) }
+    constructor() : this("guest")
+}
+```
+
+`Member("민수")`는 주 생성자 경로이고 `Member()`는 위임하는 보조 생성자 경로다. 둘 다 주 생성자 경로의 초기화 코드를 거친다. [객체 초기화 순서](kotlin-object-initialization-order.md)에서 부모·프로퍼티·init의 정확한 순서를 확인한다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
+## 자동 생성 함수와 객체 공유
+
+일반 클래스의 기본 동등성과 `data class`가 생성한 값 동등성은 다르다. `copy()`가 새 바깥 객체를 만들더라도 내부의 변경 가능한 객체를 재귀적으로 복제하지는 않는다. 객체 참조·`==`·`===`를 함께 설명하는 [동등성과 불변성](kotlin-object-references-and-equality.md)을 읽은 뒤 기존 복사 연습을 다시 확인한다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md); [Equality](../../raw/kotlin/kotlin-equality.md)
 
 ## 직접 작성하는 연습: 상품 복사와 원본 비교
 
@@ -149,3 +166,7 @@ discounted의 이름도 바꿔 보고 original의 이름이 유지되는지 확�
 - [Kotlin 함수](kotlin-functions.md)
 - [Kotlin 컬렉션](kotlin-collections.md)
 - [Kotlin Null Safety](kotlin-null-safety.md)
+
+- 학습 순서 이전: [Kotlin Null Safety](kotlin-null-safety.md)
+- 학습 순서 다음: [Kotlin 생성자와 객체 초기화 순서](kotlin-object-initialization-order.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

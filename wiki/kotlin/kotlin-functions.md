@@ -1,8 +1,8 @@
 # Kotlin 함수
 
-> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02
-> Raw: [Functions](../../raw/kotlin/functions-3.md); [Null safety — intermediate tour](../../raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, Unknown; Kotlin Documentation, 2026-09-02; Kotlin Language Specification, Unknown
+> Raw: [Functions](../../raw/kotlin/functions-3.md); [Null safety — intermediate tour](../../raw/kotlin/2026-09-02-kotlin-intermediate-null-safety.md); [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md); [Kotlin language specification — Overload resolution](../../raw/kotlin/kotlin-spec-overload-resolution.md); [Calling Kotlin from Java](../../raw/kotlin/kotlin-java-to-kotlin-interop.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -78,6 +78,29 @@ fun registerUser(username: String): String {
 
 람다는 함수를 값으로 표현해 다른 함수에 전달하거나 함수에서 반환하고, 별도로 호출할 수 있게 한다. 함수 타입과 람다 문법, 후행 람다, 익명 함수에 관한 상세 규칙은 별도 문서에서 다룬다.
 
+## 호출할 함수와 인자 평가 순서는 별개다
+
+overload resolution은 호출에 맞는 함수 후보를 고르는 과정이다. 그다음 receiver와 명시적으로 전달한 인자를 평가하는 순서를 구분한다. 명시한 인자는 호출부에 나타난 순서대로 평가되고, 생략한 기본 인자 식은 필요한 호출에서 평가된다. 이름 있는 인자로 선언 순서와 다르게 전달해도 부수 효과의 평가 순서를 매개변수 선언 순서라고 추측하면 안 된다. [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md); [Kotlin language specification — Overload resolution](../../raw/kotlin/kotlin-spec-overload-resolution.md)
+
+다음은 평가 순서를 드러내는 학습 예제다.
+
+```kotlin
+fun mark(label: String): String {
+    println(label)
+    return label
+}
+
+fun combine(first: String, second: String) = first + second
+
+fun main() {
+    combine(second = mark("second"), first = mark("first"))
+}
+```
+
+출력은 `second` 다음 `first`다. 기본 인자는 값을 생략한 호출마다 식을 평가하는 것이며, 선언 시 한 번 만든 객체를 모든 호출이 반드시 공유하는 모델이 아니다. [Kotlin language specification — Expressions](../../raw/kotlin/kotlin-spec-expressions.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
+Kotlin에서 인자를 생략할 수 있다고 Java에도 같은 호출 문법이 생기지는 않는다. `@JvmOverloads` 등 Java에서 보이는 overload 생성은 [Java 연동](kotlin-java-interop-and-reflection.md)에서 구분한다. [Calling Kotlin from Java](../../raw/kotlin/kotlin-java-to-kotlin-interop.md)
+
 ## 직접 작성하는 연습: 기본값이 있는 금액 함수
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -133,3 +156,7 @@ fun main() {
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
 - [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
+
+- 학습 순서 이전: [Kotlin 제어 흐름](kotlin-control-flow.md)
+- 학습 순서 다음: [Kotlin Null Safety](kotlin-null-safety.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

@@ -155,3 +155,7 @@ let을 run으로 바꾸고 it 대신 receiver의 멤버에 접근해 같은 결�
 - [Kotlin 확장 함수](kotlin-extension-functions.md)
 - [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
 - [Kotlin Null Safety](kotlin-null-safety.md)
+
+- 학습 순서 이전: [Kotlin 고차 함수와 람다](kotlin-higher-order-functions-and-lambdas.md)
+- 학습 순서 다음: [Kotlin inline·noinline·crossinline·reified](kotlin-inline-and-reified.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)

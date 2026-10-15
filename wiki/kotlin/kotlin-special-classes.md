@@ -1,8 +1,8 @@
 # Kotlin 특수 클래스
 
-> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-06-29; Kotlin Documentation, 2026-09-02
-> Raw: [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Open and special classes — 2026-09-02](../../raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md)
-> Updated: 2026-10-12
+> Sources: Kotlin Documentation, 2026-07-01; Kotlin Documentation, 2026-06-29; Kotlin Documentation, 2026-09-02; Kotlin Documentation, Unknown; Kotlin Language Specification, Unknown
+> Raw: [Open and special classes](../../raw/kotlin/2026-07-01-kotlin-open-and-special-classes.md); [Sealed classes and interfaces](../../raw/kotlin/2026-06-29-kotlin-sealed-classes-and-interfaces.md); [Open and special classes — 2026-09-02](../../raw/kotlin/2026-09-02-kotlin-open-and-special-classes.md); [Inline value classes](../../raw/kotlin/kotlin-value-classes.md); [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+> Updated: 2026-10-15
 
 ## Overview
 
@@ -143,6 +143,14 @@ fun handleStatus(status: Status) {
 
 바깥 `when`은 전체 상태를, 오류 분기 안의 `when`은 오류 종류를 처리한다. 이는 위의 선택 기준을 실제로 조합한 예제다.
 
+## value class도 항상 wrapper가 사라지는 것은 아니다
+
+Kotlin compiler는 value class를 underlying 값으로 표현하거나 wrapper로 표현할 수 있다. 제네릭·인터페이스·nullable 사용 문맥 등에서 boxing 여부가 달라지므로 단순히 객체를 만들지 않는 class라고 외우지 않는다. JVM의 메서드 signature 충돌을 피하기 위한 이름 변환도 있다. [Inline value classes](../../raw/kotlin/kotlin-value-classes.md)
+
+`typealias`는 기존 타입에 다른 이름을 붙이는 것이고 value class는 별도 타입을 만든다. 일반 `data class`의 값 비교·얕은 복사와도 다른 개념이다. [숫자 boxing](kotlin-numeric-representation-and-boxing.md)과 [제네릭 타입 소거](kotlin-generics-and-type-erasure.md)를 읽은 후 원문 representation 예제를 비교한다. [Inline value classes](../../raw/kotlin/kotlin-value-classes.md)
+
+sealed 계층과 `when`의 exhaustiveness는 가능한 하위 타입 집합과 관련한다. 특정 JVM의 switch 명령이 언제나 생성된다고 보장하는 문법이 아니라 compiler가 분기 누락을 검사할 수 있는 타입 규칙으로 먼저 이해한다. [Kotlin language specification — Declarations](../../raw/kotlin/kotlin-spec-declarations.md)
+
 ## 직접 작성하는 연습: sealed 상태와 enum 오류 종류 조합
 
 본문 개념을 바탕으로 새로 작성한 학습용 과제입니다. 공식 원문의 문제를 그대로 옮긴 것은 아닙니다. 각 연습은 다른 연습과 별개로 새 Kotlin 파일에서 실행하세요. 시작 코드의 `TODO()`와 주석을 채운 뒤 실행하고, 정답은 마지막에 확인하세요.
@@ -215,3 +223,7 @@ Result에 Canceled 상태를 추가하고 describe를 수정하기 전 컴파일
 - [Kotlin Objects](kotlin-objects.md)
 - [Kotlin 제어 흐름](kotlin-control-flow.md)
 - [Kotlin 클래스와 `data class`](kotlin-classes-and-data-classes.md)
+
+- 학습 순서 이전: [Kotlin inline·noinline·crossinline·reified](kotlin-inline-and-reified.md)
+- 학습 순서 다음: [Kotlin 컬렉션](kotlin-collections.md)
+- [Kotlin 전체 학습 순서](../index.md#kotlin)
