@@ -2,7 +2,7 @@
 
 > Sources: Orval 공식 문서, Unknown
 > Raw: [Overview](../../raw/frontend/orval-overview.md); [Installation](../../raw/frontend/orval-installation.md); [Quick Start](../../raw/frontend/orval-quick-start.md); [Basics](../../raw/frontend/orval-basics.md); [MSW](../../raw/frontend/orval-msw.md); [Input](../../raw/frontend/orval-input-validation.md); [Output](../../raw/frontend/orval-output-limitations.md)
-> Updated: 2026-09-29
+> Updated: 2026-10-13
 
 ## Overview
 
@@ -65,3 +65,7 @@ export default defineConfig({
 명세가 유효하지 않을 때 `unsafeDisableValidation`으로 검증을 끌 수 있지만, 공식 문서는 이 경우 코드 생성의 동작을 보장하지 않고 사소한 버전 변경에서도 깨질 수 있다고 경고한다. 명세를 수정할 수 있다면 먼저 `override.transformer`로 검증 전에 바로잡는 쪽을 권한다. 외부 `$ref`는 기본적으로 거부되며, 허용 목록을 지정해야 한다. `['*']`로 모두 허용하면 명세에 적힌 임의의 로컬 파일이나 URL을 읽을 수 있으므로 신뢰하는 문서만 허용하는 편이 안전하다. [Input](../../raw/frontend/orval-input-validation.md)
 
 경로 변수에 `urlEncodeParameters`를 켜더라도 배열·객체 경로 변수는 OpenAPI의 `style` 규칙대로 직렬화하지 않고 `String(value)`로 처리한다. 그런 매개변수를 사용하는 API라면 생성 결과의 URL을 실제 요청으로 확인해야 한다. [Output](../../raw/frontend/orval-output-limitations.md)
+
+## See Also
+
+- [openapi.yaml로 HTTP API 명세 읽고 작성하기](openapi-yaml.md)

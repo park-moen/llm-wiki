@@ -1360,6 +1360,15 @@
 - Attachment: raw/frontend/2026-10-13-unsupported-locale-routing-options.png
 - Updated: next-intl로 Next.js 다국어 화면 만들기 — 관련 문서 링크 추가
 
+## [2026-10-13] ingest | openapi.yaml로 HTTP API 명세 읽고 작성하기
+- Disposition: New; Update
+- Raw: raw/frontend/openapi-specification-3-1-1.md
+- Raw: raw/frontend/openapi-introduction.md
+- Raw: raw/frontend/openapi-description-structure.md
+- Raw: raw/frontend/openapi-best-practices.md
+- Raw: raw/frontend/swagger-ui-overview.md
+- Updated: Orval로 OpenAPI 클라이언트 생성하기 — 관련 문서 링크 추가
+
 ## [2026-10-15] ingest | JPA와 Spring Data JPA 학습 경로 보완
 - Disposition: New
 - Raw: raw/spring/hibernate-7-1-persistence-context-lifecycle.md

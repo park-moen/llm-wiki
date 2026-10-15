@@ -232,7 +232,8 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 |---------|---------|---------|
 | [프런트엔드 아키텍처를 위한 C4 모델](frontend/c4-model-for-frontend-architecture.md) | C4의 네 가지 확대 수준을 프런트엔드의 모듈과 UI 분해에 맞춰 적용하는 방법 | 2026-08-24 |
 | [ChatGPT 웹의 성능 중심 아키텍처](frontend/chatgpt-web-performance-architecture.md) | 익명 사용자의 첫 입력과 응답을 빠르게 만드는 SSR·점진적 로딩·기능 플래그·보호 계층 설계 | 2026-09-08 |
-| [Orval로 OpenAPI 클라이언트 생성하기](frontend/orval-openapi-client-generation.md) | TypeScript API 클라이언트·React Query hook·MSW mock 생성의 목적과 설정, 명세 검증 및 출력 제약 | 2026-09-29 |
+| [Orval로 OpenAPI 클라이언트 생성하기](frontend/orval-openapi-client-generation.md) | TypeScript API 클라이언트·React Query hook·MSW mock 생성의 목적과 설정, 명세 검증 및 출력 제약 | 2026-10-13 |
+| [openapi.yaml로 HTTP API 명세 읽고 작성하기](frontend/openapi-yaml.md) | YAML API 계약의 주요 필드·요청과 응답 예제·Swagger UI와 Orval·명세와 구현 검증의 구분 | 2026-10-13 |
 | [next-intl로 Next.js 다국어 화면 만들기](frontend/next-intl.md) | locale·messages, App Router 설정, Server·Client Components, 언어별 URL과 번역 누락 처리 | 2026-10-13 |
 | [HTTP 307 redirect와 rewrite의 네트워크 흐름](frontend/redirect-vs-rewrite.md) | 브라우저 재요청·서버 내부 매핑·주소창·메서드 보존과 미지원 언어 URL 처리의 선택 기준 | 2026-10-13 |
 
