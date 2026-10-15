@@ -1340,3 +1340,55 @@
 - Changes: 시작 코드, 예상 출력, 접힌 힌트·정답, 추가 변형 과제를 각 문서에 추가했습니다.
 - Basis: 각 문서의 기존 설명과 Raw 출처에 근거한 개념을 학습용 예제로 재구성했습니다.
 - Verification: 정답 코드 15개를 로컬 Kotlin compiler로 컴파일하고 실행해 예상 출력과 대조했습니다. 문서에 저장된 코드, 링크, index, 공백 검사와 raw 보존도 확인했습니다.
+
+## [2026-10-15] ingest | JPA와 Spring Data JPA 학습 경로 보완
+- Disposition: New
+- Raw: raw/spring/hibernate-7-1-persistence-context-lifecycle.md
+- Raw: raw/spring/hibernate-7-1-flushing.md
+- Raw: raw/spring/hibernate-7-1-embeddable-values.md
+- Raw: raw/spring/hibernate-7-1-entity-cascade.md
+- Raw: raw/spring/hibernate-7-1-fetching-strategies.md
+- Raw: raw/spring/jakarta-persistence-3-2-value-types-relationships-lifecycle.md
+- Raw: raw/spring/jakarta-persistence-3-2-query-language.md
+- Raw: raw/spring/spring-data-jpa-entity-persistence-reference.md
+- Raw: raw/spring/spring-data-jpa-query-methods-reference.md
+- Raw: raw/spring/spring-data-jpa-query-details-reference.md
+- Raw: raw/spring/spring-data-jpa-query-returns-reference.md
+- Raw: raw/spring/spring-data-jpa-null-handling-reference.md
+- Raw: raw/spring/spring-data-jpa-projections-reference.md
+- Raw: raw/spring/spring-data-jpa-transactions-reference.md
+- Raw: raw/spring/spring-data-jpa-specifications-reference.md
+- Raw: raw/spring/spring-data-jpa-query-by-example-reference.md
+- Raw: raw/spring/spring-data-jpa-custom-repository-reference.md
+- Raw: raw/spring/spring-data-jpa-auditing-reference.md
+- Raw: raw/spring/spring-framework-transaction-annotations-reference.md
+- Raw: raw/spring/spring-framework-transaction-rollback-reference.md
+- Raw: raw/spring/jpa-persistence-context-definitions.md
+- Raw: raw/spring/spring-data-jpa-modifying-javadoc.md
+- Raw: raw/spring/spring-data-page-request-javadoc.md
+- Created: wiki/spring/jpa-learning-roadmap.md
+- Created: wiki/spring/jpa-persistence-context-and-entity-lifecycle.md
+- Created: wiki/spring/jpa-dirty-checking-and-flush.md
+- Created: wiki/spring/jpa-embeddable-value-types.md
+- Created: wiki/spring/jpa-cascade-and-orphan-removal.md
+- Created: wiki/spring/jpa-jpql-joins-and-aggregation.md
+- Created: wiki/spring/jpa-fetch-plans-and-n-plus-one.md
+- Created: wiki/spring/spring-data-jpa-save-and-is-new.md
+- Created: wiki/spring/spring-data-jpa-query-results-and-pagination.md
+- Created: wiki/spring/spring-data-jpa-declared-and-modifying-queries.md
+- Created: wiki/spring/spring-data-jpa-projections-and-dtos.md
+- Created: wiki/spring/spring-data-jpa-service-transactions.md
+- Created: wiki/spring/spring-data-jpa-dynamic-search.md
+- Created: wiki/spring/spring-data-jpa-custom-repository-fragments.md
+- Created: wiki/spring/spring-data-jpa-auditing.md
+- Scope: 기존 Wiki의 기술 비교·엔티티 매핑·Kotlin JPA 설정·키·연관관계·ElementCollection·CRUD 입문·Locking은 새로 작성하지 않고 학습 경로에 연결했습니다.
+- Index: wiki/index.md에 학습 순서와 신규 문서를 추가했습니다.
+
+## [2026-10-15] lint | 0 issues found, 0 auto-fixed
+- Scope: 이번에 추가한 JPA 학습 문서 15개와 raw 23개를 검사했습니다.
+- Checked: 원문 근거, raw 참조, 내부 링크, 코드 블록, index 등록과 작업 범위의 공백 검사를 통과했습니다.
+- Limitation: Kotlin 예제는 문서 검토만 수행했으며 Spring Boot·DB 통합 실행은 하지 않았습니다.
+
+## [2026-10-15] index | JPA 학습 순서 정렬
+- Updated: wiki/index.md — Spring 영역에 JPA 전용 목록과 읽기 안내를 추가하고, 학습 안내·기존 기초·신규 학습 문서·심화 도구 순서로 정렬했습니다.
+- Preserved: 기존 항목의 제목·요약·Updated 날짜와 다른 주제 영역을 유지했습니다.

@@ -52,12 +52,6 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [할인 정책 확장과 단위 테스트](spring/discount-policy-extension-and-testing.md) | 정률 할인 테스트, 주문 서비스의 DIP·OCP 문제와 AppConfig로 정책 교체 | 2026-10-11 |
 | [Spring Bean과 의존관계 설정](spring/spring-beans-and-dependency-injection.md) | Bean 등록·DI 입문과 AppConfig, container·scan·자동 주입·singleton 상세 연결 | 2026-10-11 |
 | [Spring 회원 관리 웹 MVC](spring/spring-member-web-mvc.md) | Form binding, Thymeleaf 목록·property 접근, memory 생명주기와 IntelliJ 단축키 | 2026-08-13 |
-| [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
-| [JPA 1:1 매핑 선택과 지연 로딩](spring/jpa-to-one-lazy-loading-and-unique-foreign-key.md) | 전체 고유 1:1과 이력형 다대일을 구분하고, 역방향 지연 로딩과 조건부 고유 인덱스 선택 기준을 설명 | 2026-10-01 |
-| [Hibernate `@SQLRestriction`: 고정 조회 조건의 동작과 한계](spring/hibernate-sqlrestriction.md) | 엔티티·연관 컬렉션의 차이, 고정 SQL 조건의 조합 방식과 `@Filter`·`@SoftDelete`와의 차이 | 2026-10-02 |
-| [JPA 엔티티·필드·연관 컬렉션과 DB 구조의 대응](spring/jpa-entity-association-collection-mapping.md) | 엔티티·객체·필드·연관 컬렉션을 DB 테이블·행·열·외래 키와 연결해 설명 | 2026-10-02 |
-| [Hibernate @GeneratedColumn과 DB 생성 열](spring/hibernate-generated-column.md) | 생성 열을 쓰는 상황과 계산식 예시, 값 재조회 및 관련 주석의 차이 | 2026-09-29 |
-| [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
 | [Spring AOP와 공통 관심사 분리](spring/spring-aop-cross-cutting-concerns.md) | 직접 시간 측정의 문제와 Aspect 등록·pointcut·proxy·DI로 공통 관심사를 분리하는 원리 | 2026-08-22 |
 | [시드 데이터 초기화와 병렬 개발](spring/seed-data-initialization-and-parallel-development.md) | 시드 데이터·초기화 코드·fixture를 구분하고 Spring profile로 병렬 개발용 데이터를 격리하는 방법 | 2026-09-17 |
 | [스프링 핵심 원리 기본편 학습 안내](spring/spring-core-learning-roadmap.md) | 기본편의 학습 순서, 입문편과의 차이, 자료 버전과 첫 단원 슬라이드 연결 | 2026-10-11 |
@@ -70,6 +64,36 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring 자동 주입과 Bean 선택](spring/spring-autowiring-and-bean-selection.md) | 생성자 주입, 선택적 의존성, Qualifier·Primary와 List·Map 전략 선택 | 2026-10-11 |
 | [Spring Bean 초기화와 종료 콜백](spring/spring-bean-lifecycle.md) | 의존관계 주입 후 초기화, 종료 콜백과 외부 라이브러리 설정 | 2026-10-11 |
 | [Spring Bean scope와 Provider](spring/spring-bean-scopes-and-provider.md) | singleton·prototype·웹 scope, Provider와 scoped proxy의 지연 조회 | 2026-10-11 |
+
+### JPA와 Spring Data JPA
+
+처음에는 아래 순서대로 읽고, 각 글의 직접 작성·확인 연습을 풀어 보세요. 학습 안내와 기존 기초 문서부터 시작해 저장 원리, 조회, Spring Data JPA 활용으로 이어집니다. Auditing 다음은 필요할 때 읽는 심화·도구 문서입니다.
+
+키와 식별자가 낯설면 영속성 컨텍스트 문서에 들어가기 전에 [Primary Key, Foreign Key와 복합 키](database/primary-foreign-and-composite-keys.md)를 먼저 읽으세요. 동시 수정 처리는 이 경로를 마친 뒤 [낙관적 락과 비관적 락](database/optimistic-vs-pessimistic-locking.md)으로 이어집니다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [JPA와 Spring Data JPA 학습 순서](spring/jpa-learning-roadmap.md) | 기존 기초 문서와 신규 심화 문서를 연결한 읽기 순서, 원문 구분과 Kotlin·SQL 실습 안내 | 2026-10-15 |
+| [Spring DB 접근 기술 비교](spring/spring-database-access-technologies.md) | H2부터 JdbcTemplate·JPA·Spring Data JPA까지의 전환, Kotlin 보조 예제와 DB 통합 테스트 | 2026-08-22 |
+| [JPA 엔티티·필드·연관 컬렉션과 DB 구조의 대응](spring/jpa-entity-association-collection-mapping.md) | 엔티티·객체·필드·연관 컬렉션을 DB 테이블·행·열·외래 키와 연결해 설명 | 2026-10-02 |
+| [JPA 영속성 컨텍스트와 엔티티 생명주기](spring/jpa-persistence-context-and-entity-lifecycle.md) | EntityManager, 관리·준영속 상태와 persist·find·detach·merge의 차이; Kotlin 실습 포함 | 2026-10-15 |
+| [JPA 변경 감지와 flush·commit의 차이](spring/jpa-dirty-checking-and-flush.md) | 관리 객체 변경의 SQL 반영, AUTO flush와 IDENTITY 예외, flush·clear·commit 구분 | 2026-10-15 |
+| [JPA 값 타입과 @Embeddable·@Embedded](spring/jpa-embeddable-value-types.md) | 값 타입 정의·사용 위치, 소유 엔티티와의 관계, AttributeOverride와 Kotlin 예제 | 2026-10-15 |
+| [JPA cascade와 orphanRemoval](spring/jpa-cascade-and-orphan-removal.md) | 엔티티 작업 전파와 관계에서 빠진 자식 삭제의 차이, DB ON DELETE CASCADE와 구분 | 2026-10-15 |
+| [JPA JPQL 조인·집계·DTO 조회](spring/jpa-jpql-joins-and-aggregation.md) | 엔티티 기준 경로 탐색과 조인, GROUP BY·HAVING, 생성자 표현식과 bulk 변경 주의점 | 2026-10-15 |
+| [JPA N+1과 fetch join·Entity Graph](spring/jpa-fetch-plans-and-n-plus-one.md) | 목록 조회의 추가 SQL 원인, fetch join·EntityGraph·batch 선택과 컬렉션 페이징 주의점 | 2026-10-15 |
+| [Spring Data JPA save와 새 엔티티 판별](spring/spring-data-jpa-save-and-is-new.md) | save의 persist·merge 분기, nullable Version·ID 검사와 직접 할당 ID의 Persistable 적용 | 2026-10-15 |
+| [Spring Data JPA 조회 반환 타입과 페이징](spring/spring-data-jpa-query-results-and-pagination.md) | 단건·목록·nullable 반환 계약, Page·Slice·List와 count 비용, Kotlin 조회 예제 | 2026-10-15 |
+| [Spring Data JPA @Query·native query·@Modifying](spring/spring-data-jpa-declared-and-modifying-queries.md) | 명시적 JPQL과 매개변수 바인딩, native countQuery, bulk 변경 후 flush·clear와 callback 차이 | 2026-10-15 |
+| [Spring Data JPA Projection과 Kotlin DTO](spring/spring-data-jpa-projections-and-dtos.md) | interface·DTO projection의 차이, JPQL 생성자 표현식과 native mapping·중첩 조회 주의점 | 2026-10-15 |
+| [Spring Data JPA Service 트랜잭션 경계와 readOnly](spring/spring-data-jpa-service-transactions.md) | 작업 단위와 Repository 기본 설정, readOnly의 한계, proxy 내부 호출과 rollback 규칙 | 2026-10-15 |
+| [Spring Data JPA 동적 검색: Specification과 Query by Example](spring/spring-data-jpa-dynamic-search.md) | 조건 조합을 위한 Specification과 probe 기반 QBE의 용도·제약, Kotlin 예제 | 2026-10-15 |
+| [Spring Data JPA 사용자 정의 Repository와 fragment](spring/spring-data-jpa-custom-repository-fragments.md) | 사용자 정의 인터페이스·Impl 구현·Repository 합성, 이름 규칙과 트랜잭션 경계 | 2026-10-15 |
+| [Spring Data JPA Auditing으로 생성·수정 정보 기록](spring/spring-data-jpa-auditing.md) | CreatedDate·LastModifiedDate, EntityListener·EnableJpaAuditing 설정과 작업자 기록·bulk 변경 한계 | 2026-10-15 |
+| [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
+| [JPA 1:1 매핑 선택과 지연 로딩](spring/jpa-to-one-lazy-loading-and-unique-foreign-key.md) | 전체 고유 1:1과 이력형 다대일을 구분하고, 역방향 지연 로딩과 조건부 고유 인덱스 선택 기준을 설명 | 2026-10-01 |
+| [Hibernate `@SQLRestriction`: 고정 조회 조건의 동작과 한계](spring/hibernate-sqlrestriction.md) | 엔티티·연관 컬렉션의 차이, 고정 SQL 조건의 조합 방식과 `@Filter`·`@SoftDelete`와의 차이 | 2026-10-02 |
+| [Hibernate @GeneratedColumn과 DB 생성 열](spring/hibernate-generated-column.md) | 생성 열을 쓰는 상황과 계산식 예시, 값 재조회 및 관련 주석의 차이 | 2026-09-29 |
 
 ## statistics
 
