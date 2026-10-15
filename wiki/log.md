@@ -1369,6 +1369,16 @@
 - Raw: raw/frontend/swagger-ui-overview.md
 - Updated: Orval로 OpenAPI 클라이언트 생성하기 — 관련 문서 링크 추가
 
+## [2026-10-13] ingest | P6Spy SQL 로그 읽기와 설정
+- Disposition: New; Update
+- Raw: raw/spring/p6spy-configandusage.md
+- Raw: raw/spring/p6spy-install.md
+- Raw: raw/spring/p6spy-knownissues.md
+- Raw: raw/spring/p6spy-spy-properties.md
+- Raw: raw/spring/p6spy-log-time-implementation.md
+- Note: 기존 원문 3개를 새로 fetch한 공식 문서와 대조해 재사용했습니다.
+- Updated: JPA 1:1 매핑 선택과 지연 로딩 — 관련 문서 링크 추가
+
 ## [2026-10-15] ingest | JPA와 Spring Data JPA 학습 경로 보완
 - Disposition: New
 - Raw: raw/spring/hibernate-7-1-persistence-context-lifecycle.md

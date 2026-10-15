@@ -92,6 +92,7 @@ Spring 기반 웹 애플리케이션 개발의 학습 순서, 핵심 원리와 �
 | [Spring Data JPA Auditing으로 생성·수정 정보 기록](spring/spring-data-jpa-auditing.md) | CreatedDate·LastModifiedDate, EntityListener·EnableJpaAuditing 설정과 작업자 기록·bulk 변경 한계 | 2026-10-15 |
 | [JPA `@ElementCollection`](spring/jpa-element-collection.md) | 기본 타입·embeddable 컬렉션의 사용 상황과 예시, `targetClass`·`fetch` 설정 | 2026-09-29 |
 | [JPA 1:1 매핑 선택과 지연 로딩](spring/jpa-to-one-lazy-loading-and-unique-foreign-key.md) | 전체 고유 1:1과 이력형 다대일을 구분하고, 역방향 지연 로딩과 조건부 고유 인덱스 선택 기준을 설명 | 2026-10-01 |
+| [P6Spy SQL 로그 읽기와 설정](spring/p6spy-sql-logging.md) | SQL·바인딩 값·JDBC 호출 시간·category 읽기, 출력 설정·필터와 N+1 조사 시 주의점 | 2026-10-13 |
 | [Hibernate `@SQLRestriction`: 고정 조회 조건의 동작과 한계](spring/hibernate-sqlrestriction.md) | 엔티티·연관 컬렉션의 차이, 고정 SQL 조건의 조합 방식과 `@Filter`·`@SoftDelete`와의 차이 | 2026-10-02 |
 | [Hibernate @GeneratedColumn과 DB 생성 열](spring/hibernate-generated-column.md) | 생성 열을 쓰는 상황과 계산식 예시, 값 재조회 및 관련 주석의 차이 | 2026-09-29 |
 

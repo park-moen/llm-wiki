@@ -91,6 +91,7 @@ class PostSettingsRevision {
 
 ## See Also
 
+- [P6Spy SQL 로그 읽기와 설정](p6spy-sql-logging.md)
 - [부분 유니크 인덱스와 MariaDB의 조건부 고유성 구현](../database/partial-unique-indexes-and-mariadb-alternatives.md)
 - [Database Unique Constraint](../database/unique-constraints.md)
 - [Spring DB 접근 기술 비교](spring-database-access-technologies.md)
