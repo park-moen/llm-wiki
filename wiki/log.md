@@ -1341,6 +1341,25 @@
 - Basis: 각 문서의 기존 설명과 Raw 출처에 근거한 개념을 학습용 예제로 재구성했습니다.
 - Verification: 정답 코드 15개를 로컬 Kotlin compiler로 컴파일하고 실행해 예상 출력과 대조했습니다. 문서에 저장된 코드, 링크, index, 공백 검사와 raw 보존도 확인했습니다.
 
+## [2026-10-13] ingest | next-intl로 Next.js 다국어 화면 만들기
+- Disposition: New
+- Raw: raw/frontend/next-intl-overview.md
+- Raw: raw/frontend/next-intl-app-router.md
+- Raw: raw/frontend/next-intl-translations.md
+- Raw: raw/frontend/next-intl-routing-setup.md
+- Raw: raw/frontend/next-intl-server-client-components.md
+- Raw: raw/frontend/next-intl-request-configuration.md
+
+## [2026-10-13] ingest | HTTP 307 redirect와 rewrite의 네트워크 흐름
+- Disposition: New; Update
+- Raw: raw/frontend/rfc-9110-redirection-and-307.md
+- Raw: raw/frontend/nextjs-redirects.md
+- Raw: raw/frontend/nextjs-rewrites.md
+- Raw: raw/frontend/nextjs-next-response.md
+- Raw: raw/frontend/2026-10-13-unsupported-locale-routing-options.md
+- Attachment: raw/frontend/2026-10-13-unsupported-locale-routing-options.png
+- Updated: next-intl로 Next.js 다국어 화면 만들기 — 관련 문서 링크 추가
+
 ## [2026-10-15] ingest | JPA와 Spring Data JPA 학습 경로 보완
 - Disposition: New
 - Raw: raw/spring/hibernate-7-1-persistence-context-lifecycle.md
