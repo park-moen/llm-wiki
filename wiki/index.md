@@ -350,3 +350,11 @@ Worktree-native AI IDE인 Orca의 핵심 모델, 에이전트·리뷰·원격 �
 | Article | Summary | Updated |
 |---------|---------|---------|
 | [Content Security Policy (CSP)](web-security/content-security-policy-csp.md) | 리소스 출처 제한, 정책 지시문, Report-Only 기반 점진적 배포와 위반 보고 해석 | 2026-08-24 |
+
+## if(kakao)-26
+
+if(kakao) 발표에서 다룬 개념을 이해하기 위한 외부 원문과 보충 설명을 정리한다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [실행 경험을 레슨 스킬로 축적하는 Agent 운영](if(kakao)-26/learning-from-experience-with-agent-skills.md) | Anthropic·Letta·ACE로 이해하는 실행·회고·지식 축적과 사람의 검토·역할별 재사용의 구분 | 2026-10-20 |

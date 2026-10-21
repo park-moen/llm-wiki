@@ -1525,3 +1525,21 @@
 - Examples: 로컬 Kotlin/JVM compiler 2.4.0과 JDK 21 환경에서 독립 예제 20개의 예상 출력을 확인했습니다. coroutine·reflection 예제에는 IDE에 포함된 해당 라이브러리를 사용했습니다.
 - Preserved: 기존 연습 15개와 raw 파일 462개의 내용을 보존했습니다.
 - Limits: bytecode·JIT·실행 시간에 대한 성능 benchmark와 실제 서비스 통합 실행은 수행하지 않았습니다.
+
+## [2026-10-20] ingest | 실행 경험을 레슨 스킬로 축적하는 Agent 운영
+- Disposition: New
+- Raw: raw/if(kakao)-26/2025-10-16-equipping-agents-with-agent-skills.md
+- Note: Anthropic의 실제 작업 평가·성공과 실수 기록·회고를 통한 스킬 개선 원칙으로 새 문서를 작성했습니다.
+
+## [2026-10-20] ingest | 실행 경험을 레슨 스킬로 축적하는 Agent 운영
+- Disposition: Update
+- Raw: raw/if(kakao)-26/2025-12-02-skill-learning-for-cli-agents.md
+- Note: Letta의 Reflection·Creation과 실행 기록·verifier 피드백 활용 및 평가 범위를 통합했습니다.
+
+## [2026-10-20] ingest | 실행 경험을 레슨 스킬로 축적하는 Agent 운영
+- Disposition: Update
+- Raw: raw/if(kakao)-26/2025-10-06-agentic-context-engineering.md
+- Note: ACE의 Generator·Reflector·Curator, 점진적 지침 갱신과 회고 품질의 한계를 통합했습니다.
+- Scope: 사용자 요청에 따라 raw와 wiki 모두 if(kakao)-26 폴더에 보관했습니다. 세 외부 원문이 발표 자체를 설명하는 자료는 아니며, 사람의 검토·승격과 역할별 분리는 원문 공통 절차와 구분했습니다. 화면 상태 복원 예시는 이 문서에서 구성한 적용 예시입니다.
+- Cascade: wiki 전체의 관련 키워드를 검색했으며 기존 일반 문서의 주장을 수정할 내용은 확인하지 못했습니다. 기존 raw·archive와 작업 중 변경을 보존했습니다.
+- Verification: 새 문서의 출처 불일치 의심·근거 오류와 전체 raw 미참조 항목은 모두 0건입니다. 기본 검사기는 괄호가 포함된 경로를 처리하지 못해 Raw 누락으로 오인했으며, 검사 파일을 수정하지 않고 새 폴더에만 경로 파싱을 실행 중 보완해 재검사했습니다. 내부 링크 5개, index 등록, 수집 HTML에서 추출한 본문과 raw 3개의 일치, git diff --check를 확인했습니다. 발표의 개입 감소 수치나 실제 프로젝트의 개선 효과는 검증하지 않았습니다.
