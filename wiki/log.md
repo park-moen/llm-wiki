@@ -1536,6 +1536,24 @@
 - Cascade: wiki 전체 검색에서 새 내용으로 기존 주장을 변경할 일반 문서는 확인하지 못했습니다. 기존 archive는 보존했습니다.
 - Verification: 대상 문서의 근거 검사에서 evidence error와 미참조 raw는 없었습니다. fidelity suspect 3건은 직접 작성한 요청 예시이며 원문 인용이 아님을 본문에 명시했습니다. 내부 링크 6개, index 등록과 git diff --check를 확인했습니다.
 
+## [2026-10-17] query | Archived: 프로젝트의 AI 챗봇 MVP 출시 검토
+- Source: 사용자와 AI agent의 대화 기반 archive입니다. 기존 Wiki 문서를 근거로 한 답변과 구분했습니다.
+- Archived: wiki/projects/project-ai-mvp-discussion-2026-10-17.md
+- Note: 사용자 승인에 따라 서비스 실명을 프로젝트로 치환했습니다. raw 파일은 만들지 않았으며, 확정된 KPI와 미확정 구현 제안·비용 판단을 구분했습니다.
+
+## [2026-10-17] ingest | RAG의 원리와 기존 모델 API 활용·구축과 평가
+- Disposition: New
+- Raw: raw/ai-engineering/microsoft-foundry-rag-and-indexes.md
+- Raw: raw/ai-engineering/aws-rag-vs-fine-tuning.md
+- Raw: raw/ai-engineering/microsoft-rag-design-and-evaluation.md
+- Raw: raw/ai-engineering/microsoft-rag-chunking-phase.md
+- Created: wiki/ai-engineering/rag-fundamentals.md
+- Created: wiki/ai-engineering/rag-design-cost-and-evaluation.md
+- Note: 공개된 공식 문서의 Markdown 본문을 수집했습니다. 공개일과 갱신일을 구분하여 Published는 Unknown으로 기록했습니다. 자료 검색은 병렬로 수행하고 원문별 내용 통합은 순서대로 진행했습니다.
+- Scope: 외부 검색에는 서비스 실명이나 내부 자료를 전달하지 않았습니다. 사주 챗봇 적용 예시는 공식 문서의 설명과 구분한 설계 제안입니다.
+- Cascade: Wiki 전체 검색에서 관련 일반 문서의 주장을 바꿀 내용은 확인되지 않았으며, 기존 프로젝트 archive는 보존했습니다.
+- Verification: 대상 문서의 근거 검사에서 fidelity suspect·evidence error·미참조 raw가 모두 0건이었습니다. 내부 링크 29개, 원문 본문 일치, index 등록, 기존 raw·archive·작업 중 변경 보존과 git diff --check를 확인했습니다. 실제 챗봇 구현이나 품질·요금 실험은 수행하지 않았습니다.
+
 ## [2026-10-20] ingest | 실행 경험을 레슨 스킬로 축적하는 Agent 운영
 - Disposition: New
 - Raw: raw/if(kakao)-26/2025-10-16-equipping-agents-with-agent-skills.md

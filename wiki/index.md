@@ -352,6 +352,23 @@ Worktree-native AI IDE인 Orca의 핵심 모델, 에이전트·리뷰·원격 �
 |---------|---------|---------|
 | [Content Security Policy (CSP)](web-security/content-security-policy-csp.md) | 리소스 출처 제한, 정책 지시문, Report-Only 기반 점진적 배포와 위반 보고 해석 | 2026-08-24 |
 
+## projects
+
+익명화한 프로젝트의 목표와 구현 검토 내용을 보관한다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [프로젝트의 AI 챗봇 MVP 출시 검토](projects/project-ai-mvp-discussion-2026-10-17.md) | [Archived] 대화 기반 기록: 확정된 AI 기능 출시 KPI와 검토 중인 사주 챗봇·RAG·비용 구분 | 2026-10-17 |
+
+## ai-engineering
+
+AI 모델을 서비스에 연동하는 구조와 RAG의 자료 준비·검색·비용·평가 원칙을 정리한다.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [RAG의 원리와 기존 모델 API 활용](ai-engineering/rag-fundamentals.md) | 검색·자료 전달·답변 생성의 역할과 API·embedding·추가 학습의 차이 | 2026-10-17 |
+| [RAG 구축·비용·답변 범위와 평가](ai-engineering/rag-design-cost-and-evaluation.md) | 자료 분할·표준 RAG 구조, 비용 절감 조건과 추가 비용, 응답 제한 및 평가 방법 | 2026-10-17 |
+
 ## if(kakao)-26
 
 if(kakao) 발표에서 다룬 개념을 이해하기 위한 외부 원문과 보충 설명을 정리한다.
