@@ -247,6 +247,7 @@ AI agent의 병렬 작업, harness 선택, 기계적 gate와 brownfield 개인 �
 
 | Article | Summary | Updated |
 |---------|---------|---------|
+| [Claude Code Background Bash·Monitor와 Codex의 대응 기능](ai-agents/claude-code-background-bash-monitor-and-codex.md) | 장기 명령 실행과 이벤트 감시의 차이, Claude의 수명·제한과 Codex background terminal·관리 명령 비교 | 2026-10-17 |
 | [Stagehand: Playwright와의 차이와 시작 방법](ai-agents/stagehand-vs-playwright.md) | Playwright 대비 API·속도 비교 조건, SDK 사용법과 AI agent의 개발 화면 검증 시뮬레이션 | 2026-09-25 |
 | [Plan mode와 지속적인 이해 형성](ai-agents/plan-mode-as-iterative-understanding.md) | 긴 계획서 중심 흐름의 한계와 작업 중 이해·시도·확인·조정을 반복하는 접근 | 2026-09-28 |
 | [AI Agent Teams와 Git Worktree](ai-agents/agent-teams-and-git-worktrees.md) | 병렬 agent의 작업 조정과 파일 격리를 구분하고 Worktree 도입 기준을 설명 | 2026-08-16 |

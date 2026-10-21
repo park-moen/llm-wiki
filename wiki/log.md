@@ -1526,6 +1526,16 @@
 - Preserved: 기존 연습 15개와 raw 파일 462개의 내용을 보존했습니다.
 - Limits: bytecode·JIT·실행 시간에 대한 성능 benchmark와 실제 서비스 통합 실행은 수행하지 않았습니다.
 
+## [2026-10-17] ingest | Claude Code Background Bash·Monitor와 Codex의 대응 기능
+- Disposition: New
+- Raw: raw/ai-agents/claude-code-background-bash-monitor-tools-extract.md
+- Raw: raw/ai-agents/claude-code-interactive-background-bash-extract.md
+- Raw: raw/ai-agents/codex-background-terminal-commands-extract.md
+- Raw: raw/ai-agents/codex-unified-exec-config-reference-extract.md
+- Note: 공식 문서의 관련 절을 원문 그대로 수집하고 장기 실행·이벤트 감시·시간 제한·사용 환경 및 Codex의 확인된 대응 기능을 새 문서에 통합했습니다. Published는 문서에서 확인되지 않아 Unknown으로 기록했습니다.
+- Cascade: wiki 전체 검색에서 새 내용으로 기존 주장을 변경할 일반 문서는 확인하지 못했습니다. 기존 archive는 보존했습니다.
+- Verification: 대상 문서의 근거 검사에서 evidence error와 미참조 raw는 없었습니다. fidelity suspect 3건은 직접 작성한 요청 예시이며 원문 인용이 아님을 본문에 명시했습니다. 내부 링크 6개, index 등록과 git diff --check를 확인했습니다.
+
 ## [2026-10-20] ingest | 실행 경험을 레슨 스킬로 축적하는 Agent 운영
 - Disposition: New
 - Raw: raw/if(kakao)-26/2025-10-16-equipping-agents-with-agent-skills.md
