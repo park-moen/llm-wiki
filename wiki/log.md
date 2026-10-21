@@ -1571,3 +1571,45 @@
 - Scope: 사용자 요청에 따라 raw와 wiki 모두 if(kakao)-26 폴더에 보관했습니다. 세 외부 원문이 발표 자체를 설명하는 자료는 아니며, 사람의 검토·승격과 역할별 분리는 원문 공통 절차와 구분했습니다. 화면 상태 복원 예시는 이 문서에서 구성한 적용 예시입니다.
 - Cascade: wiki 전체의 관련 키워드를 검색했으며 기존 일반 문서의 주장을 수정할 내용은 확인하지 못했습니다. 기존 raw·archive와 작업 중 변경을 보존했습니다.
 - Verification: 새 문서의 출처 불일치 의심·근거 오류와 전체 raw 미참조 항목은 모두 0건입니다. 기본 검사기는 괄호가 포함된 경로를 처리하지 못해 Raw 누락으로 오인했으며, 검사 파일을 수정하지 않고 새 폴더에만 경로 파싱을 실행 중 보완해 재검사했습니다. 내부 링크 5개, index 등록, 수집 HTML에서 추출한 본문과 raw 3개의 일치, git diff --check를 확인했습니다. 발표의 개입 감소 수치나 실제 프로젝트의 개선 효과는 검증하지 않았습니다.
+
+## [2026-10-21] ingest | 해외 개발자 컨퍼런스와 AI 활용 학습·녹화본 안내
+- Disposition: New
+- Raw: raw/software-career/github-universe.md
+- Raw: raw/software-career/github-blog-universe-playlist.md
+- Raw: raw/software-career/google-io.md
+- Raw: raw/software-career/aws-reinvent.md
+- Raw: raw/software-career/apple-wwdc.md
+- Raw: raw/software-career/meta-connect.md
+- Raw: raw/software-career/nvidia-gtc.md
+- Raw: raw/software-career/qcon-video-pass.md
+- Raw: raw/software-career/devoxx.md
+- Raw: raw/software-career/devoxx-belgium.md
+- Raw: raw/software-career/goto.md
+- Raw: raw/software-career/ai-engineer.md
+- Raw: raw/software-career/ai-engineer-code.md
+- Raw: raw/software-career/ai-engineer-worlds-fair.md
+- Raw: raw/software-career/ai-native-devcon.md
+- Raw: raw/software-career/microsoft-build-next-steps.md
+- Raw: raw/software-career/2025-10-16-react-conf-recap.md
+- Created: wiki/software-career/developer-conferences-and-recordings.md
+- Created: wiki/software-career/ai-development-conferences-and-recordings.md
+- Navigation: 기존 현업 개발 자료 안내에 새 가이드 링크를 추가했습니다. 지식 내용은 변경하지 않아 기존 Updated 날짜를 유지했습니다.
+- Scope: 대화에서 다룬 해외 개발자 행사 14개의 공식 소개·영상 정책을 수집하고 원문별로 순차 통합했습니다. 발표 영상·transcript 자체와 한국 행사 자료는 새로 ingest하지 않았습니다.
+- Source handling: JavaScript로만 제공되는 Microsoft Build 본문 대신 Microsoft 공식 저장소의 Next Steps README를 수집했습니다. GitHub Blog는 공식 재생목록이 포함된 Featured playlists 절만 발췌했습니다. React recap을 제외한 동적 페이지의 Published는 Unknown으로 기록했습니다.
+- Limits: 공식 출처와 독립적인 효과 검증을 구분했습니다. 무료 등록·YouTube 공개·유료 녹화본을 구분하고 영상 재생·한국어 자막은 검증하지 않았습니다. 기존 raw와 archive는 보존했습니다.
+- Verification: 새 문서 2개의 근거 검사에서 출처 불일치 의심·근거 오류는 0건이며 내부 링크 45개와 index 등록·Updated 일치를 확인했습니다. 기존 if(kakao)-26 괄호 경로만 실행 중 보완해 전체 미참조 raw도 0건임을 확인했습니다. 수집 본문과 raw 17개의 일치, 기존 raw 473개와 archive 보존, 기존 안내의 링크 외 변경 없음 및 새 파일의 공백과 git diff --check를 검증했습니다.
+
+## [2026-10-21] ingest | KotlinConf·IntelliJ IDEA Conf·Spring I/O 안내 보충
+- Disposition: Update
+- Raw: raw/software-career/kotlinconf-2026.md
+- Raw: raw/software-career/kotlinconf-2026-faq.md
+- Raw: raw/software-career/2025-08-22-kotlin-on-the-backend-from-kotlinconf.md
+- Raw: raw/software-career/intellij-idea-conf-2026.md
+- Raw: raw/software-career/spring-io-2026.md
+- Raw: raw/software-career/spring-io-2026-sessions.md
+- Updated: 해외 개발자 컨퍼런스와 녹화본 탐색 가이드
+- Updated: AI 활용·개발 workflow 컨퍼런스 가이드
+- Note: 기존 가이드에 행사·녹화 경로를 병합하고 Kotlin 백엔드·Koog·Spring AI 관련 탐색 출발점을 추가했습니다. 원문별로 순차 반영했으며 2025 Talks와 2026 세션 목록, 행사 안내와 실제 녹화본 공개 여부를 구분했습니다. 영상·코드 실행 검증은 수행하지 않았습니다.
+- Source handling: Kotlin 백엔드 글의 Published는 원문 time 요소에서 확인한 2025-08-22로 기록했습니다. 행사 날짜를 발행일로 쓰지 않았으며 나머지 동적 페이지는 Unknown으로 기록했습니다.
+- Cascade: wiki 전체에서 KotlinConf·IntelliJ IDEA Conf·Spring I/O·Koog를 검색했으며, 갱신한 두 가이드 외에 지식 내용을 바꿀 문서는 없었습니다. 기존 컨퍼런스 항목과 archive를 보존했습니다.
+- Verification: 추가 raw 6개의 수집 본문 일치와 기존 raw 보존, 두 가이드의 내부 링크 58개·index 등록을 확인했습니다. 출처 불일치 의심·근거 오류는 0건이며, 기존 괄호 경로 파싱을 실행 중 보완한 전체 raw 미참조 항목도 0건입니다. 새 파일의 줄 끝 공백과 git diff --check를 확인했습니다.

@@ -103,6 +103,8 @@ Stripe와 Uber 사례에서 agent 수보다 review, evaluation dataset, filterin
 
 ## See Also
 
+- [해외 개발자 컨퍼런스와 녹화본 탐색 가이드](developer-conferences-and-recordings.md)
+- [AI 활용·개발 workflow 컨퍼런스 가이드](ai-development-conferences-and-recordings.md)
 - [Claude Code 팀의 AI-Native 개발 Workflow와 개발자 역량](claude-code-team-ai-native-development-workflow.md)
 - [AI Coding Autonomy Experiment와 Human-in-the-loop](../ai-agents/ai-coding-autonomy-experiment.md)
 - [AI Coding에서 Software Fundamentals가 더 중요해지는 이유](ai-coding-software-fundamentals.md)

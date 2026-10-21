@@ -282,6 +282,8 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 
 | Article | Summary | Updated |
 |---------|---------|---------|
+| [해외 개발자 컨퍼런스와 녹화본 탐색 가이드](software-career/developer-conferences-and-recordings.md) | KotlinConf·IntelliJ IDEA Conf·Spring I/O를 포함한 해외 행사와 무료·등록·유료 녹화본 탐색 | 2026-10-21 |
+| [AI 활용·개발 workflow 컨퍼런스 가이드](software-career/ai-development-conferences-and-recordings.md) | AI Native DevCon·AI Engineer와 Kotlin·Spring AI 세션의 선택, 공개 영상과 검증 관찰 기준 | 2026-10-21 |
 | [Jira 작업 항목의 분할 크기와 관리 비용](software-career/work-item-decomposition-and-tracking-granularity.md) | 작은 구현 단계와 팀이 추적할 작업 단위를 구분하고 페이지 수준에서 분할을 시작하는 개인 실무 지침 | 2026-08-18 |
 | [Software Engineering을 Time·Scale·Trade-off로 이해하기](software-career/software-engineering-time-scale-tradeoffs.md) | 장기 software의 변경 가능성, Hyrum’s Law, 조직 확장성, shift left와 evidence 기반 판단 원칙 | 2026-08-16 |
 | [효과적인 Software Design Document 작성법](software-career/effective-software-design-document.md) | 위험과 변경 비용에 따라 설계 문서의 범위·구조·운영 항목·미결정 사항을 작성하는 방법 | 2026-09-15 |
