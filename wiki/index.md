@@ -282,6 +282,8 @@ AI 시대의 개발자 역할, 신입 성장, 경력과 직업 시장에 관한 
 
 | Article | Summary | Updated |
 |---------|---------|---------|
+| [헥사고날 아키텍처: 구조·의존관계와 적용 기준](software-career/hexagonal-architecture.md) | 내부·외부 경계, 의존관계와 테스트, 우아한형제들 구현·카카오페이 제거 사례 및 적용 기준 | 2026-10-23 |
+| [헥사고날 아키텍처의 포트: 계약과 Adapter의 역할](software-career/hexagonal-architecture-ports.md) | 포트의 계약·호출 방향, Adapter·interface와 Kotlin 예제, 외부 응답 중심 경계의 위험과 도입 비용 | 2026-10-23 |
 | [해외 개발자 컨퍼런스와 녹화본 탐색 가이드](software-career/developer-conferences-and-recordings.md) | KotlinConf·IntelliJ IDEA Conf·Spring I/O를 포함한 해외 행사와 무료·등록·유료 녹화본 탐색 | 2026-10-21 |
 | [AI 활용·개발 workflow 컨퍼런스 가이드](software-career/ai-development-conferences-and-recordings.md) | AI Native DevCon·AI Engineer와 Kotlin·Spring AI 세션의 선택, 공개 영상과 검증 관찰 기준 | 2026-10-21 |
 | [Jira 작업 항목의 분할 크기와 관리 비용](software-career/work-item-decomposition-and-tracking-granularity.md) | 작은 구현 단계와 팀이 추적할 작업 단위를 구분하고 페이지 수준에서 분할을 시작하는 개인 실무 지침 | 2026-08-18 |

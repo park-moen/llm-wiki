@@ -1613,3 +1613,38 @@
 - Source handling: Kotlin 백엔드 글의 Published는 원문 time 요소에서 확인한 2025-08-22로 기록했습니다. 행사 날짜를 발행일로 쓰지 않았으며 나머지 동적 페이지는 Unknown으로 기록했습니다.
 - Cascade: wiki 전체에서 KotlinConf·IntelliJ IDEA Conf·Spring I/O·Koog를 검색했으며, 갱신한 두 가이드 외에 지식 내용을 바꿀 문서는 없었습니다. 기존 컨퍼런스 항목과 archive를 보존했습니다.
 - Verification: 추가 raw 6개의 수집 본문 일치와 기존 raw 보존, 두 가이드의 내부 링크 58개·index 등록을 확인했습니다. 출처 불일치 의심·근거 오류는 0건이며, 기존 괄호 경로 파싱을 실행 중 보완한 전체 raw 미참조 항목도 0건입니다. 새 파일의 줄 끝 공백과 git diff --check를 확인했습니다.
+
+## [2026-10-23] ingest | 헥사고날 아키텍처의 포트: 계약과 Adapter의 역할
+- Disposition: New
+- Raw: raw/software-career/hexagonal-architecture-the-original-2005-article.md
+- Created: wiki/software-career/hexagonal-architecture-ports.md
+- Navigation: 기존 SOLID 문서에 새 문서 링크만 추가했습니다. 기존 지식 내용과 Updated 날짜는 유지했습니다.
+- Source handling: 원문의 문서 버전 Date와 최초 발행일을 구분할 수 없어 Published는 Unknown으로 기록했습니다. Kotlin 코드는 원문 예를 재구성한 학습용 예제로 구분했습니다.
+- Cascade: 전체 wiki에서 Hexagonal·헥사고날·Ports and Adapters와 포트를 검색했습니다. 기존 설계 학습 로드맵은 archive라 보존했으며 지식 내용을 수정할 다른 문서는 없었습니다.
+
+## [2026-10-23] ingest | 헥사고날 아키텍처의 포트: AWS 가이드 보충
+- Disposition: Update
+- Raw: raw/software-career/hexagonal-architecture-pattern.md
+- Updated: 헥사고날 아키텍처의 포트: 계약과 Adapter의 역할
+- Note: Cockburn 원문을 먼저 정리한 뒤 AWS 가이드의 적용 조건, REST·GraphQL adapter 예와 유지보수·복잡성·지연 비용을 순차 통합했습니다. 두 원문 사이에 핵심 개념의 충돌은 확인되지 않았습니다.
+- Source handling: 발행일을 확인할 수 없어 Published는 Unknown으로 기록했습니다. 본문만 추출하고 탐색 메뉴·footer를 제거했으며 기존 raw는 수정하지 않았습니다.
+- Verification: 새 문서의 근거 불일치 의심·참조 오류는 없었습니다. 수집 본문과 새 raw 2개의 일치, 기존 raw 496개의 보존, 내부 링크 15개와 index의 등록·날짜 일치를 확인했습니다. 기존 if(kakao)-26 raw 3개는 괄호 경로 파싱에 따른 미참조 오탐이며 실제 Raw 참조가 있음을 확인했습니다. Kotlin compiler가 없어 학습용 예제의 실행 검증은 하지 않았습니다.
+
+## [2026-10-23] ingest | 헥사고날 아키텍처: 구조·의존관계와 적용 기준
+- Disposition: New
+- Raw: raw/software-career/2023-07-11-spring-boot-kotlin-multi-module-hexagonal-architecture.md
+- Reused raw: raw/software-career/hexagonal-architecture-the-original-2005-article.md
+- Reused raw: raw/software-career/hexagonal-architecture-pattern.md
+- Created: wiki/software-career/hexagonal-architecture.md
+- Note: 기존 포트 상세와 구분해 전체 구조·의존관계·개발·테스트·도입 비용을 정리했습니다. 원문·AWS 가이드는 기존 raw를 재사용했고 Kotlin 멀티 모듈 사례는 새로 수집했습니다. 특정 팀의 모듈 구조와 Spring 의존 허용을 보편 규칙과 구분했습니다.
+- Source handling: 본문을 HTML에서 추출하고 원문 코드·이미지 및 링크 참조를 보존했습니다. 발행일은 페이지 표시에서 확인했으며 수집한 발췌 코드의 빌드·실행은 재현하지 않았습니다.
+
+## [2026-10-23] ingest | 헥사고날 아키텍처: 카카오페이 도입 후 제거 사례 보충
+- Disposition: Update
+- Raw: raw/software-career/2025-01-21-home-hexagonal-architecture.md
+- Updated: 헥사고날 아키텍처: 구조·의존관계와 적용 기준
+- Updated: 헥사고날 아키텍처의 포트: 계약과 Adapter의 역할
+- Note: 외부 응답 중심 포트의 한계, 중복된 보호 장치와 DTO·매핑 비용, 구조 제거 후에도 유지한 경계를 반영했습니다. 기업별 조건 차이와 작성자의 도입 기준을 보편 규칙과 구분해 모순으로 처리하지 않았습니다.
+- Cascade: 전체 wiki의 Hexagonal·헥사고날·Ports and Adapters를 검색했습니다. 기존 포트 설명을 보충했으며 archive인 설계 학습 로드맵과 기존 SOLID 본문은 유지했습니다. 추천 한국어 글은 Kotlin·Spring 구현을 따라갈 수 있는 우아한형제들 글로 선정했습니다.
+- Source handling: 공식 블로그 본문과 이미지·링크 참조를 저장하고 메뉴·관련 글을 제외했습니다. 발행일은 페이지 표시에서 확인했습니다. 기존 raw는 변경하지 않았습니다.
+- Verification: 새 전체 설명과 포트 상세의 근거 불일치 의심·참조 오류는 없었습니다. 내부 링크 19개, index 등록·Updated 일치, 수집 본문과 새 raw 2개의 일치 및 기존 raw 498개 보존을 확인했습니다. 미참조 보고 3개는 기존 if(kakao)-26 괄호 경로 오탐으로 실제 Raw 참조를 확인했습니다. 새 파일의 공백과 git diff --check를 통과했으며 원문 예제의 빌드·실행은 하지 않았습니다.

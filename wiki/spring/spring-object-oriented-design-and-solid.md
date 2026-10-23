@@ -81,3 +81,4 @@ MemberRepository m = new JdbcMemberRepository();
 - [Spring Bean과 의존관계 설정](spring-beans-and-dependency-injection.md)
 - [Spring Boot Starter와 의존성 구조](spring-boot-starter-dependencies.md)
 - [Frontend에서 OCP와 의존성 역전을 적용하는 실무 가이드](../software-career/frontend-ocp-and-dependency-inversion-practical-guide-2026-08-24.md)
+- [헥사고날 아키텍처의 포트: 계약과 Adapter의 역할](../software-career/hexagonal-architecture-ports.md)
